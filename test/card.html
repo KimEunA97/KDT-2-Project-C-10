@@ -67,10 +67,34 @@
       height: inherit;
       /* flex */
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      align-items: flex-start;
+
+
     }
+
+    #root>main>article>div {
+
+      display: flex;
+      flex-direction: row;
+      border: solid black 1px;
+
+    }
+
+    #root>main>article>div {
+
+      width: 50%;
+
+    }
+
+    #root>main>article>div {
+      border: solid black 1px;
+
+    }
+
+
 
 
     #root>footer {
@@ -104,39 +128,50 @@
 
       <article>
 
-        <ul>아침
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-        </ul>
+        <!-- 시간대별 약 -->
+        <div>
+          <h1>아침</h1>
+          <ul>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+          </ul>
+        </div>
 
-        <ul>점심
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-        </ul>
+        <div>
+          <h1>점심</h1>
+          <ul>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+          </ul>
+        </div>
 
+        <div>
+          <h1>저녁</h1>
+          <ul>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+          </ul>
+        </div>
 
-        <ul>저녁
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-        </ul>
-
-
-        <ul>밤
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-          <li>.</li>
-        </ul>
+        <div>
+          <h1>밤</h1>
+          <ul>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+          </ul>
+        </div>
 
       </article>
     </main>
