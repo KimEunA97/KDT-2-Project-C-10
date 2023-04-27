@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #root {
+        width: 100vw;
+        max-width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+      }
+
+      /*  
+        ! kongukjae/issue4
+        Todo: 팀장주문, header 부분은 항상 플롯팅 되어있을것
+        * css : position fixed
+       */
+
+      /* header */
+      #root > header {
+        width: inherit;
+        height: 10vh;
+        background-color: #55b0aa;
+
+        /* flex */
+        display: flex;
+        /* justify-content: space-around; */
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        position:sticky;
+        top:0;
+      }
+
+      /* 상단메뉴 */
+      #root > header > ul {
+        width: inherit;
+        height: 100%;
+
+        /* flex */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+      }
+
+      #root > header > ul > li {
+        border: 1px solid #fff;
+        padding: 30px;
+      }
+
+      #root > header > div {
+        width: inherit;
+        height: 100%;
+
+        position:relative;
+        top:50px;
+
+        /* flex */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      #root > header > div > ul {
+        width: 50%;
+        height: 100%;
+
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+      }
+      #root > header > div > ul > li{
+        width: 20%;
+        height: 100%;
+        background-color: #fff;
+      }
+
+      #root > main {
+        width: inherit;
+        height: 90vh;
+        background-color: #ccc;
+        /* flex */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #root > main > article {
+        width: inherit;
+        height: inherit;
+        /* flex */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #root > main > article > span {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-items: center;
+      }
+/* kongukjae/issue4 작업을 위해 주석처리함
+      #root > main > article > span > div {
+        width: 20px;
+        height: 20px;
+        background-color: white;
+      } */
+
+      #root > main > article > h1 {
+        font-size: 1rem;
+      }
+
+      #root > main > article > div {
+        width: 80%;
+        height: 80%;
+        background-color: #fff;
+        /* flex */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+      }
+
+      #root > main > article > div > div:nth-child(1) {
+        width: 100%;
+        height: 50%;
+        /* flex */
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #root > main > article > div > div:nth-child(1) > div {
+        width: 100%;
+        height: 100%;
+        border: 1px solid red;
+      }
+
+      #root > main > article > div > div:nth-child(1) > div > div > h2 {
+        font-size: 1rem;
+      }
+
+      #root > main > article > div > div:nth-child(1) > div > div > div {
+        width: 100%;
+        height: 40%;
+        background-color: cadetblue;
+      }
+
+      #root > main > article > div > div:nth-child(2) {
+        width: 100%;
+        height: 50%;
+        /* flex */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #root > main > article > div > div:nth-child(2) > ul {
+        width: 100%;
+        height: 100%;
+        /* flex */
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #root > main > article > div > div:nth-child(2) > ul > li {
+        padding: 20px;
+        background-color: #555;
+        color: #fff;
+      }
+
+      #root > footer {
+        width: inherit;
+        height: 20vh;
+        position: fixed;
+        bottom: 0;
+        background-color: #79bfff;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <!-- 
+        ! kongukjae/issue4
+        Todo: 팀장주문, header 부분은 항상 플롯팅 되어있을것
+        * css : position fixed
+      -->
+      <header>
+        <ul>
+          <li>오늘의 약</li>
+          <li>타임라인</li>
+          <li>검색</li>
+          <li>설정</li>
+        </ul>
+        <div>
+          <ul>
+            <li>목록보기</li>
+            <li>썸네일보기</li>
+          </ul>
+          <ul>
+            <li>새글쓰기</li>
+            <li>플러스버튼</li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <article>
+          <!-- <span>
+            <div>+</div>
+          </span> -->
+          <h1>다음 복용까지 남은시간 3분 10초</h1>
+          <div>
+            <!-- 상단 : 약명, 정보 , 화살표 -->
+            <div>
+              <!-- 좌측 약명 컬럼 -->
+              <div>
+                <div>
+                  <h2>타이레놀</h2>
+                </div>
+                <div>
+                  <div>Thumnail</div>
+                </div>
+                <div>
+                  <ul>
+                    <li>처방날짜 : 23년 4월 24일</li>
+                    <li>복용기간 : 3일</li>
+                    <li>용법, 용량 : 1일 3회</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 가운데 정보 -->
+              <div>
+                <h3>위장운동촉진제</h3>
+                <div>
+                  자몽주스, 오렌지 주스 및 사과 주스 등과 복용하지 마세요.
+                </div>
+              </div>
+              <!-- 화살표 -->
+              <div>></div>
+            </div>
+            <!-- 하단 : 태그 박스 -->
+            <div>
+              <ul>
+                <li>증상-1</li>
+                <li>증상-2</li>
+                <li>증상-3</li>
+                <li>증상-4</li>
+                <li>증상-5</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </main>
+      <footer>
+        <!-- 약 이미지 -->
+        <div>
+          <div>약</div>
+        </div>
+        <div>
+          <ul>
+            <li>점심약</li>
+            <li>남은시간</li>
+            <li>1:30</li>
+          </ul>
+        </div>
+        <!-- 사용자 상호작용 버튼 -->
+        <div>
+          <h1>완료</h1>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
