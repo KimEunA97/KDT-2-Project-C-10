@@ -23,6 +23,7 @@ for (let i = 0; i < categoryText.length; i++) {
 
 }
 
+//편집버튼
 const EditBtn = [["목록보기", "썸네일보기"], ["아침", "점심", "저녁"], ["새글쓰기", "플러스버튼"]];
 header.append(createTag('div'))
 
@@ -43,10 +44,16 @@ EditBtn.forEach(element => {
 });
 
 
-//main 부분
+// main 부분
 const article = createTag('article');
 main.append(article);
-const articleChild = ['h1', 'div'];
 
-article.append(createTag(articleChild))
+const articleChild = [
+  createTag('h1'),
+  createTag('div'),
 
+]
+for (let i = 0; i < articleChild.length; i++) {
+
+  article.append(articleChild[i]);
+}
