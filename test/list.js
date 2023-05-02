@@ -21,16 +21,30 @@ for (let i = 0; i < categoryText.length; i++) {
 
   const li = createTag('li');
   header.children[0].append(li)
-  header.children[0].children[i].innerHTML = categoryText[i]
+  header.children[0].children[i].innerHTML = categoryText[i];
 
 }
 
-// header.append(createTag('div'));
-// const editBtn = ["목록보기", "썸네일보기"]
-// for (let i = 0; i < editBtn.length; i++) {
 
-//   const li = createTag('li');
-//   header.children[1].append(li)
-//   header.children[1].children[i].innerHTML = editBtn[i]
+const EditBtn = [["목록보기", "썸네일보기"], ["아침", "점심", "저녁"], ["새글쓰기", "플러스버튼"]];
+header.append(createTag('div'))
+for (let i = 0; i < EditBtn.length; i++) {
 
-// }
+  const ul = createTag('ul')
+  header.children[1].append(ul)
+
+  EditBtn.forEach(element => {
+
+    element.forEach(text => {
+
+      const li = createTag('li')
+      console.log(li)
+      li.innerHTML = text;
+      ul.appendchi(text)
+
+
+    })
+
+  });
+
+}
