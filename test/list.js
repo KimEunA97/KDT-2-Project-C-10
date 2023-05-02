@@ -1,10 +1,6 @@
+import { createTag } from "./function.js";
+
 const root = document.getElementById('root');
-
-function createTag(tag) {
-
-  const ele = document.createElement(tag)
-  return ele;
-}
 
 const header = createTag('header');
 const main = createTag('main')
@@ -36,7 +32,6 @@ EditBtn.forEach(element => {
     const li = createTag('li')
     li.innerHTML = text;
     ul.appendChild(li)
-
   })
 
   header.children[1].append(ul);
@@ -54,6 +49,7 @@ const articleChild = [
   createTag('div'),
 
 ]
+
 for (let i = 0; i < articleChild.length; i++) {
 
   article.append(articleChild[i]);
