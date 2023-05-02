@@ -48,6 +48,7 @@ EditBtn.forEach(element => {
 const article = createTag('article');
 main.append(article);
 
+//article 자식 h1, div
 const articleChild = [
   createTag('h1'),
   createTag('div'),
@@ -57,3 +58,23 @@ for (let i = 0; i < articleChild.length; i++) {
 
   article.append(articleChild[i]);
 }
+
+console.dir(articleChild)
+//article > div > div
+//상단 : 약명정보, 화살표
+const pillSector = createTag('div');
+articleChild[1].append(pillSector);
+
+//좌측 약명 컬럼
+const leftPillSector = createTag('div');
+
+const pillNameSector = createTag('div');
+leftPillSector.append(pillNameSector);
+
+const pillNameH2 = createTag('h2');
+pillNameSector.append(pillNameH2);
+
+const pillThumnailSector = createTag('div');
+
+const pillThumnail = createTag('div');
+pillThumnailSector.append(pillThumnail);
