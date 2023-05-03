@@ -86,7 +86,7 @@ ul {
 #root>header>div>ul>li {
   width: 20%;
   height: 40%;
-  background-color: #fff;
+  background-color: #FF9C9C;
 }
 
 #root>main {
@@ -108,7 +108,7 @@ ul {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-top : 70px;
+  margin-top: 70px;
 }
 
 #root>main>article>span {
@@ -156,6 +156,7 @@ ul {
 }
 
 #root>main>article>div>div:nth-child(1)>div {
+  
   width: 100%;
   height: 100%;
   padding: 10px;
@@ -221,11 +222,48 @@ ul {
   align-items: center;
 }
 
-#root>footer>div{
+#root>footer>div {
 
-  width: 25%;
+  width: 30%;
   height: 60%;
 
+
   border: 1px red solid;
+
+}
+
+#root>footer>div:nth-child(1){
+
+  width: 25%;
+
+}
+
+#root>footer>div:nth-child(2){
+
+width: 20%;
+
+}
+
+#root>footer>div:nth-child(2)>ul>li {
+
+  color: white;
+  text-align: center;
+
+}
+
+#root>footer>div:nth-child(3) {
+
+  height: 50%;
+  width: 30%;
+
+  background-color: #4B73FF;
+
+}
+
+#root>footer>div:nth-child(3)>h1 {
+
+  text-align: center;
+  justify-items: center;
+  color: white;
 
 }
