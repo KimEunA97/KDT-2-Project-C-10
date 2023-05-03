@@ -1,4 +1,5 @@
 import { createTag } from "./function.js";
+import styling from './style.js'
 
 const root = document.getElementById('root');
 

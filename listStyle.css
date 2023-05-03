@@ -34,7 +34,8 @@ ul {
   /* justify-content: space-around; */
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   position:sticky;
   top:0;
@@ -49,12 +50,15 @@ ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
 
 }
 
 #root > header > ul > li {
   border: 1px solid #fff;
-  padding: 30px;
+  padding: 20px;
+  width: inherit;
+  height: inherit;
 }
 
 #root > header > div {
@@ -62,7 +66,7 @@ ul {
   height: 100%;
 
   position:relative;
-  top:50px;
+  top:0px;
 
   /* flex */
   display: flex;
@@ -79,7 +83,7 @@ ul {
 }
 #root > header > div > ul > li{
   width: 20%;
-  height: 100%;
+  height: 40%;
   background-color: #fff;
 }
 
@@ -148,6 +152,10 @@ ul {
   width: 100%;
   height: 100%;
   border: 1px solid red;
+}
+
+#root > main > article > div > div:nth-child(1) > div > div:nth-child(2) {
+  height: 30%;
 }
 
 #root > main > article > div > div:nth-child(1) > div > div > h2 {
