@@ -106,8 +106,9 @@ ul {
   /* flex */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-top : 70px;
 }
 
 #root>main>article>span {
@@ -131,7 +132,6 @@ ul {
 
 #root>main>article>div {
   width: 80%;
-  height: 80%;
   background-color: #fff;
   /* flex */
   display: flex;
@@ -139,6 +139,9 @@ ul {
   justify-content: center;
   align-items: center;
   border: 1px solid black;
+
+  position: relative;
+
 }
 
 #root>main>article>div>div:nth-child(1) {
