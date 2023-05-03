@@ -132,6 +132,7 @@ ul {
 
 #root>main>article>div {
   width: 80%;
+  height: 50%;
   background-color: #fff;
   /* flex */
   display: flex;
@@ -200,7 +201,7 @@ ul {
 }
 
 #root>main>article>div>div:nth-child(2)>ul>li {
-  padding: 20px;
+  padding: 10px;
   background-color: #555;
   color: #fff;
 }
