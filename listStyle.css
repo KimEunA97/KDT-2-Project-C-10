@@ -131,7 +131,7 @@ ul {
 
 #root>main>article>div {
   width: 80%;
-  height: 50%;
+  height: 80%;
   background-color: #fff;
   /* flex */
   display: flex;
