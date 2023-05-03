@@ -11,3 +11,4 @@ export function createTag(tagName, attributes = {}, textContent = '') {
 
   return element;
 }
+
