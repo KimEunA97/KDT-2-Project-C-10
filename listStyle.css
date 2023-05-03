@@ -24,7 +24,7 @@ ul {
  */
 
 /* header */
-#root > header {
+#root>header {
   width: inherit;
   height: 10vh;
   background-color: #55b0aa;
@@ -37,12 +37,12 @@ ul {
   flex-direction: row;
   flex-wrap: wrap;
 
-  position:sticky;
-  top:0;
+  position: sticky;
+  top: 0;
 }
 
 /* 상단메뉴 */
-#root > header > ul {
+#root>header>ul {
   width: inherit;
   height: 100%;
 
@@ -54,40 +54,42 @@ ul {
 
 }
 
-#root > header > ul > li {
+#root>header>ul>li {
   border: 1px solid #fff;
   padding: 20px;
   width: inherit;
   height: inherit;
 }
 
-#root > header > div {
+#root>header>div {
   width: inherit;
   height: 100%;
 
-  position:relative;
-  top:0px;
+  position: relative;
+  top: 0px;
 
   /* flex */
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-#root > header > div > ul {
+
+#root>header>div>ul {
   width: 50%;
   height: 100%;
 
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
 }
-#root > header > div > ul > li{
+
+#root>header>div>ul>li {
   width: 20%;
   height: 40%;
   background-color: #fff;
 }
 
-#root > main {
+#root>main {
   width: inherit;
   height: 90vh;
   background-color: #ccc;
@@ -98,7 +100,7 @@ ul {
   align-items: center;
 }
 
-#root > main > article {
+#root>main>article {
   width: inherit;
   height: inherit;
   /* flex */
@@ -108,13 +110,14 @@ ul {
   align-items: center;
 }
 
-#root > main > article > span {
+#root>main>article>span {
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-items: center;
 }
+
 /* kongukjae/issue4 작업을 위해 주석처리함
 #root > main > article > span > div {
   width: 20px;
@@ -122,11 +125,11 @@ ul {
   background-color: white;
 } */
 
-#root > main > article > h1 {
+#root>main>article>h1 {
   font-size: 1rem;
 }
 
-#root > main > article > div {
+#root>main>article>div {
   width: 80%;
   height: 80%;
   background-color: #fff;
@@ -138,7 +141,7 @@ ul {
   border: 1px solid black;
 }
 
-#root > main > article > div > div:nth-child(1) {
+#root>main>article>div>div:nth-child(1) {
   width: 100%;
   height: 50%;
   /* flex */
@@ -148,27 +151,32 @@ ul {
   align-items: center;
 }
 
-#root > main > article > div > div:nth-child(1) > div {
+#root>main>article>div>div:nth-child(1)>div {
   width: 100%;
   height: 100%;
   border: 1px solid red;
 }
 
-#root > main > article > div > div:nth-child(1) > div > div:nth-child(2) {
-  height: 30%;
+#root>main>article>div>div:nth-child(1)>div:nth-child(3) {
+  width: 30%;
 }
 
-#root > main > article > div > div:nth-child(1) > div > div > h2 {
+
+#root>main>article>div>div:nth-child(1)>div>div:nth-child(2)>div {
+  height: 100%;
+}
+
+#root>main>article>div>div:nth-child(1)>div>div>h2 {
   font-size: 1rem;
 }
 
-#root > main > article > div > div:nth-child(1) > div > div > div {
+#root>main>article>div>div:nth-child(1)>div>div>div {
   width: 100%;
   height: 40%;
   background-color: cadetblue;
 }
 
-#root > main > article > div > div:nth-child(2) {
+#root>main>article>div>div:nth-child(2) {
   width: 100%;
   height: 50%;
   /* flex */
@@ -178,7 +186,7 @@ ul {
   align-items: center;
 }
 
-#root > main > article > div > div:nth-child(2) > ul {
+#root>main>article>div>div:nth-child(2)>ul {
   width: 100%;
   height: 100%;
   /* flex */
@@ -188,13 +196,13 @@ ul {
   align-items: center;
 }
 
-#root > main > article > div > div:nth-child(2) > ul > li {
+#root>main>article>div>div:nth-child(2)>ul>li {
   padding: 20px;
   background-color: #555;
   color: #fff;
 }
 
-#root > footer {
+#root>footer {
   width: inherit;
   height: 20vh;
   position: fixed;
