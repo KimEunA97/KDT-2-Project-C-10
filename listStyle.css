@@ -220,3 +220,12 @@ ul {
   justify-content: space-around;
   align-items: center;
 }
+
+#root>footer>div{
+
+  width: 25%;
+  height: 60%;
+
+  border: 1px red solid;
+
+}
