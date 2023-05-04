@@ -31,10 +31,7 @@ const headerStyle = {
   width: "inherit",
   height: "10vh",
   backgroundColor: "#55b0aa",
-
-  /* flex */
   display: "flex",
-  /* justify-content: space-around; */
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "row",
@@ -42,11 +39,10 @@ const headerStyle = {
 
   position: "sticky",
   top: 0,
-
 }
-const header = createTag('header', {
-  width: "inherit",
-});
+
+const header = createTag('header', headerStyle
+);
 
 const main = createTag('main')
 const footer = createTag('footer');
