@@ -1,8 +1,19 @@
-export function createTag(tagName, attributes = {}, textContent = '') {
+export function createTag(tagName, props, textContent = '') {
   const element = document.createElement(tagName);
 
-  for (const key in attributes) {
-    element.setAttribute(key, attributes[key]);
+
+  if (props === null) {
+
+
+
+  }
+  else {
+
+
+    Object.keys(props).forEach(function (key) {
+
+      element[key] = props[key];
+    })
   }
 
   if (textContent) {
