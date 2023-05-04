@@ -44,7 +44,9 @@ const headerStyle = {
   top: 0,
 
 }
-const header = createTag('header', headerStyle);
+const header = createTag('header', {
+  width: "inherit",
+});
 
 const main = createTag('main')
 const footer = createTag('footer');

@@ -1,17 +1,8 @@
 export function createTag(tagName, props, textContent = '') {
   const element = document.createElement(tagName);
 
-
-  if (props === null) {
-
-
-
-  }
-  else {
-
-
+  if (props) {
     Object.keys(props).forEach(function (key) {
-
       element[key] = props[key];
     })
   }
@@ -21,5 +12,5 @@ export function createTag(tagName, props, textContent = '') {
   }
 
   return element;
-}
 
+}
