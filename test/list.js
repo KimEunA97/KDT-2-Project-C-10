@@ -1,5 +1,15 @@
 import { createTag } from "./function.js";
-import styling from './style.js'
+// import styling from './style.js'
+
+
+var allElements = document.body.getElementsByTagName("*");
+
+// 모든 요소에 스타일을 적용합니다.
+for (let i = 0; i < allElements.length; i++) {
+  allElements[i].style.margin = 0;
+  allElements[i].style.padding = 0;
+  allElements[i].style.boxSizing = "border-box";
+}
 
 const root = document.getElementById('root');
 
@@ -11,11 +21,11 @@ root.append(header, main, footer);
 //HEADER 부분
 header.append((createTag('ul')))
 //상단 카테고리 추가
-const categoryText = ["오늘의 약", "타임라인", "검색", "설정"]
+const categoryText = ["오늘의 약", "타임라인", "검색", "설정"];
 for (let i = 0; i < categoryText.length; i++) {
 
   const li = createTag('li');
-  header.children[0].append(li)
+  header.children[0].append(li);
   header.children[0].children[i].innerHTML = categoryText[i];
 
 }
