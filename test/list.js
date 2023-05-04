@@ -1,5 +1,5 @@
 import { createTag } from "./function.js";
-// import styling from './style.js'
+import './style.js'
 
 
 
@@ -26,23 +26,7 @@ root.style.maxWidth = "100vw";
 root.style.height = "100vh";
 root.style.maxHeight = "100vh";
 
-const headerStyle = {
-
-  width: "inherit",
-  height: "10vh",
-  backgroundColor: "#55b0aa",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  flexDirection: "row",
-  flexWrap: "wrap",
-
-  position: "sticky",
-  top: 0,
-}
-
-const header = createTag('header', headerStyle
-);
+const header = createTag('header', headerStyle);
 
 const main = createTag('main')
 const footer = createTag('footer');
