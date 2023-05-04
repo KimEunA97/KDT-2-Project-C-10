@@ -111,13 +111,13 @@ ul {
   margin-top: 70px;
 }
 
-#root>main>article>span {
+/* #root>main>article>span {
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-items: center;
-}
+} */
 
 /* kongukjae/issue4 작업을 위해 주석처리함
 #root > main > article > span > div {
@@ -133,7 +133,7 @@ ul {
 #root>main>article>div {
   width: 90%;
   height: 50%;
-  background-color: #fff;
+  background-color: #007088;
   /* flex */
   display: flex;
   flex-direction: column;
@@ -156,13 +156,14 @@ ul {
 }
 
 #root>main>article>div>div:nth-child(1)>div {
-  
+
   width: 100%;
   height: 100%;
   padding: 10px;
 
   border: 1px solid red;
 }
+
 
 #root>main>article>div>div:nth-child(1)>div:nth-child(3) {
   width: 40%;
@@ -175,7 +176,21 @@ ul {
 
 #root>main>article>div>div:nth-child(1)>div>div>h2 {
   font-size: 1rem;
+  color: white;
 }
+
+#root>main>article>div>div:nth-child(1)>div:nth-child(1)>div:nth-child(3)>ul>li {
+
+  color: white;
+
+}
+
+#root>main>article>div>div:nth-child(1)>div:nth-child(2) {
+
+  color: white;
+
+}
+
 
 #root>main>article>div>div:nth-child(1)>div>div>div {
   width: 100%;
@@ -192,6 +207,7 @@ ul {
   justify-content: center;
   align-items: center;
 }
+
 
 #root>main>article>div>div:nth-child(2)>ul {
   width: 100%;
@@ -232,30 +248,33 @@ ul {
 
 }
 
-#root>footer>div:nth-child(1){
+#root>footer>div:nth-child(1) {
 
   width: 25%;
+  border-radius: 10px;
 
 }
 
-#root>footer>div:nth-child(2){
+#root>footer>div:nth-child(2) {
 
-width: 20%;
+  width: 20%;
 
 }
 
 #root>footer>div:nth-child(2)>ul>li {
 
-  color: white;
+  font-weight: bold;
+  color: black;
   text-align: center;
 
 }
 
 #root>footer>div:nth-child(3) {
 
-  height: 50%;
-  width: 30%;
+  height: 40%;
+  width: 35%;
 
+  border-radius: 10px;
   background-color: #4B73FF;
 
 }
