@@ -2,18 +2,50 @@ import { createTag } from "./function.js";
 // import styling from './style.js'
 
 
-var allElements = document.body.getElementsByTagName("*");
 
-// 모든 요소에 스타일을 적용합니다.
+const allElements = document.body.getElementsByTagName("*");
+
+// 모든 요소에 스타일을 적용
 for (let i = 0; i < allElements.length; i++) {
   allElements[i].style.margin = 0;
   allElements[i].style.padding = 0;
   allElements[i].style.boxSizing = "border-box";
 }
 
-const root = document.getElementById('root');
+const allUlTag = document.getElementsByTagName('ul');
+for (let i = 0; i < allUlTag.length; i++) {
+  allUlTag[i].style.margin = 0;
+  allUlTag[i].style.padding = 0;
+  allUlTag[i].style.listStyle = "none";
+}
 
-const header = createTag('header');
+
+const root = document.getElementById('root');
+root.style.width = "100vw";
+root.style.maxWidth = "100vw";
+root.style.height = "100vh";
+root.style.maxHeight = "100vh";
+
+const headerStyle = {
+
+  width: "inherit",
+  height: "10vh",
+  backgroundColor: "#55b0aa",
+
+  /* flex */
+  display: "flex",
+  /* justify-content: space-around; */
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "row",
+  flexWrap: "wrap",
+
+  position: "sticky",
+  top: 0,
+
+}
+const header = createTag('header', headerStyle);
+
 const main = createTag('main')
 const footer = createTag('footer');
 root.append(header, main, footer);
