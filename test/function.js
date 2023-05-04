@@ -1,10 +1,11 @@
-export function createTag(tagName, props, textContent = '') {
+export function createTag(tagName, style = {}, textContent = '') {
   const element = document.createElement(tagName);
 
-  if (props) {
-    Object.keys(props).forEach(function (key) {
-      element[key] = props[key];
-    })
+  if (style) {
+    Object.entries(style).forEach(([prop, value]) => {
+      element.style[prop] = value;
+    });
+
   }
 
   if (textContent) {
