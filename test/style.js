@@ -2,6 +2,7 @@
 
 // let allElements = document.body.getElementsByTagName("*");
 
+
 // // 모든 요소에 스타일을 적용
 // for (let i = 0; i < allElements.length; i++) {
 //   allElements[i].style.margin = 0;
@@ -18,6 +19,7 @@ export class Allstyling {
     height: "100vh",
     maxHeight: "100vh",
   }
+
   //header 스타일
   static headerStyle = {
     width: "inherit",
@@ -82,12 +84,67 @@ export class Allstyling {
   }
 
   //#root>header>div>ul>li 
-
   static editBtnStyleContainerText = {
-    width: "20 %",
-    height: "40 %",
+    width: "20%",
+    height: "40%",
     backgroundColor: "#FF9C9C"
 
   }
 
+  //메인 부분
+  //#root>main 
+  static mainStyle = {
+
+    width: "inherit",
+    height: "90vh",
+    backgroundColor: "#ccc",
+    /* flex */
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  }
+
+
+  // #root>main>article
+  static articleStyle = {
+
+    width: "inherit",
+    height: "inherit",
+    /* flex */
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginTop: "70px",
+
+  }
+
+  //약 이름
+  // #root>main>article>h1 
+  static articleH1Style = {
+
+    fontSize: "1rem",
+
+  }
+
+  //약 정보 컨테이너
+  //#root>main>article>div 
+  static articleChildStyle = {
+    width: "90%",
+    height: "50%",
+    backgroundColor: "#007088",
+    /* flex */
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    border: "1px solid black",
+    position: "relative",
+  }
+
+
+  
 }
+
+

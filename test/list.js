@@ -10,7 +10,8 @@ for (let i = 0; i < allElements.length; i++) {
 }
 
 //모든 ul에 스타일링
-const allUlTag = document.getElementsByTagName('ul');
+const allUlTag = document.querySelectorAll('ul');
+console.dir(allUlTag)
 for (let i = 0; i < allUlTag.length; i++) {
   allUlTag[i].style.margin = 0;
   allUlTag[i].style.padding = 0;
@@ -19,11 +20,14 @@ for (let i = 0; i < allUlTag.length; i++) {
 
 
 const root = document.getElementById('root');
-root.style = Allstyling.rootStyle;
+root.width = "100vw";
+root.maxWidth = "100vw";
+root.height = "100vh";
+root.maxHeight = "100vh";
 
 const header = createTag('header', Allstyling.headerStyle);
 
-const main = createTag('main')
+const main = createTag('main', Allstyling.mainStyle)
 const footer = createTag('footer');
 root.append(header, main, footer);
 
@@ -45,11 +49,11 @@ header.append(createTag('div', Allstyling.editBtnStyle))
 
 EditBtn.forEach(element => {
 
-  const ul = createTag('ul');
+  const ul = createTag('ul',Allstyling.editBtnStyleContainer);
 
   element.forEach(text => {
 
-    const li = createTag('li')
+    const li = createTag('li', Allstyling.editBtnStyleContainerText)
     li.innerHTML = text;
     ul.appendChild(li)
   })
@@ -60,13 +64,13 @@ EditBtn.forEach(element => {
 
 
 // main 부분
-const article = createTag('article');
+const article = createTag('article', Allstyling.articleStyle);
 main.append(article);
 
 //article 자식 h1, div
 const articleChild = [
-  createTag('h1'),
-  createTag('div'),
+  createTag('h1', Allstyling.articleH1Style),
+  createTag('div', Allstyling.articleChildStyle),
 
 ]
 
