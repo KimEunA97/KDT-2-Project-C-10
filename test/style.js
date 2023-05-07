@@ -9,9 +9,16 @@ for (let i = 0; i < allElements.length; i++) {
   allElements[i].style.boxSizing = "border-box";
 }
 
-export class Allstying {
-  static headerStyle = {
+export class Allstyling {
 
+  static rootStyle = {
+    width: "100vw",
+    maxWidth: "100vw",
+    height: "100vh",
+    maxHeight: "100vh",
+  }
+
+  static headerStyle = {
     width: "inherit",
     height: "10vh",
     backgroundColor: "#55b0aa",

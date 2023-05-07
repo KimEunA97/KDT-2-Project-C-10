@@ -1,5 +1,5 @@
 import { createTag } from "./function.js";
-import { Allstying } from './style.js'
+import { Allstyling } from './style.js'
 const allElements = document.body.getElementsByTagName("*");
 
 // 모든 요소에 스타일을 적용
@@ -18,12 +18,9 @@ for (let i = 0; i < allUlTag.length; i++) {
 
 
 const root = document.getElementById('root');
-root.style.width = "100vw";
-root.style.maxWidth = "100vw";
-root.style.height = "100vh";
-root.style.maxHeight = "100vh";
+root.style = Allstyling.rootStyle;
 
-const header = createTag('header', Allstying.headerStyle);
+const header = createTag('header', Allstyling.headerStyle);
 
 const main = createTag('main')
 const footer = createTag('footer');
