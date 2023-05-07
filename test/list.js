@@ -9,6 +9,7 @@ for (let i = 0; i < allElements.length; i++) {
   allElements[i].style.boxSizing = "border-box";
 }
 
+//모든 ul에 스타일링
 const allUlTag = document.getElementsByTagName('ul');
 for (let i = 0; i < allUlTag.length; i++) {
   allUlTag[i].style.margin = 0;
@@ -27,12 +28,12 @@ const footer = createTag('footer');
 root.append(header, main, footer);
 
 //HEADER 부분
-header.append((createTag('ul')))
+header.append((createTag('ul', Allstyling.categoryStyle)))
 //상단 카테고리 추가
 const categoryText = ["오늘의 약", "타임라인", "검색", "설정"];
 for (let i = 0; i < categoryText.length; i++) {
 
-  const li = createTag('li');
+  const li = createTag('li', Allstyling.categoryTextStyle);
   header.children[0].append(li);
   header.children[0].children[i].innerHTML = categoryText[i];
 
@@ -40,7 +41,7 @@ for (let i = 0; i < categoryText.length; i++) {
 
 //편집버튼
 const EditBtn = [["목록보기", "썸네일보기"], ["아침", "점심", "저녁"], ["새글쓰기", "플러스버튼"]];
-header.append(createTag('div'))
+header.append(createTag('div', Allstyling.editBtnStyle))
 
 EditBtn.forEach(element => {
 
