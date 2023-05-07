@@ -144,7 +144,11 @@ export class Allstyling {
   }
 
 
-  
+  //#root>main>article>div>div:nth-child(1) 
+  static
+
+
+
 }
 
 

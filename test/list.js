@@ -9,14 +9,6 @@ for (let i = 0; i < allElements.length; i++) {
   allElements[i].style.boxSizing = "border-box";
 }
 
-//모든 ul에 스타일링
-const allUlTag = document.querySelectorAll('ul');
-console.dir(allUlTag)
-for (let i = 0; i < allUlTag.length; i++) {
-  allUlTag[i].style.margin = 0;
-  allUlTag[i].style.padding = 0;
-  allUlTag[i].style.listStyle = "none";
-}
 
 
 const root = document.getElementById('root');
@@ -180,3 +172,14 @@ footer.append(completeBtnSector);
 const completeBtn = createTag('h1');
 completeBtnSector.append(completeBtn);
 completeBtn.innerHTML = "완료"
+
+
+//모든 ul에 스타일링
+const allUlTag = document.querySelectorAll("ul");
+console.dir(allUlTag);
+for (let i = 0; i < allUlTag.length; i++) {
+  allUlTag[i].style.margin = 0;
+  allUlTag[i].style.padding = 0;
+  allUlTag[i].style.listStyle = "none";
+
+}
