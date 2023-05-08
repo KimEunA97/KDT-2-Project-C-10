@@ -1,9 +1,10 @@
-
+import { createTag } from "./function.js";
+import { article } from "./main.js";
 
 //article 자식 h1, div
 const articleChild = [
-  createTag('h1', Allstyling.articleH1Style),
-  createTag('div', Allstyling.articleChildStyle),
+  createTag('h1'),
+  createTag('div'),
 
 ]
 
@@ -15,12 +16,12 @@ for (let i = 0; i < articleChild.length; i++) {
 
 //article > div > div
 //상단 : 약명, 정보, 화살표
-const pillSector = createTag('div', Allstyling.pillSectorStyle);
+export const pillSector = createTag('div');
 article.children[1].append(pillSector)
 
 //좌측 약명 컬럼
 const leftPillSector = createTag('div');
-pillSector.append(leftPillSector, Allstyling.pillNameSectorStyle);
+pillSector.append(leftPillSector);
 
 //타이레놀 컨테이너
 const pillNameSector = createTag('div');
@@ -49,36 +50,5 @@ pillDetail.forEach(element => {
   const pillDetailList = createTag('li');
   pillDetailListContainer.append(pillDetailList);
   pillDetailList.innerHTML = element;
-
-});
-
-//가운데 정보
-const middleInfo = createTag('div')
-pillSector.append(middleInfo);
-
-const middleInfoH3 = createTag('h3');
-middleInfo.append(middleInfoH3);
-middleInfoH3.innerHTML = "위장운동촉진제";
-const middleInfoDetail = createTag('div');
-middleInfo.append(middleInfoDetail);
-middleInfoDetail.innerHTML = "자몽주스, 오렌지 주스 및 사과주스 등과 복용하지 마세요."
-
-const pillArrow = createTag('div');
-pillSector.append(pillArrow);
-pillArrow.innerHTML = ">";
-
-
-//하단, 증상 부분
-const bottomTagBox = createTag('div');
-article.append(bottomTagBox);
-const SymptomSector = createTag('ul');
-bottomTagBox.append(SymptomSector);
-
-const symptomArr = ["증상1", "증상2", "증상3", "증상4", "증상5"]
-symptomArr.forEach(element => {
-
-  const symptom = createTag('li')
-  SymptomSector.append(symptom);
-  symptom.innerHTML = element;
 
 });

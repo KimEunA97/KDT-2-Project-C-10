@@ -1,6 +1,7 @@
 import { createTag } from "./function.js";
+import { pillSector } from "./article.js";
 
-export function articleMiddle() {
+export function articleMiddleInfo() {
   //가운데 정보
   const middleInfo = createTag('div')
   pillSector.append(middleInfo);

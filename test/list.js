@@ -2,7 +2,8 @@ import { createTag } from "./function.js";
 import { Allstyling } from './style.js'
 import { headerPage, header } from "./header.js"
 import { main, mainPage } from "./main.js";
-import { articleMiddle } from "./articleMiddle.js";
+import { articleMiddleInfo } from "./articleMiddleInfo.js";
+import { articleBottomSymptom } from "./articleBottom.js";
 
 //헤더 부분
 headerPage();
@@ -11,7 +12,10 @@ headerPage();
 mainPage();
 
 //가운데 약 정보
-articleMiddle();
+articleMiddleInfo();
+
+//약 정보 아래쪽. 증상
+articleBottomSymptom();
 
 const root = document.getElementById('root');
 root.style.width = "100vw";

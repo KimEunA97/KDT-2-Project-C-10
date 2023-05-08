@@ -5,7 +5,7 @@ export function createTag(tagName, style = {}, textContent = '') {
     Object.entries(style).forEach(([prop, value]) => {
       element.style[prop] = value;
     });
-
+    
   }
 
   if (textContent) {
