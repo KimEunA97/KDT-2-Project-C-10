@@ -12,6 +12,35 @@
 
 export class Allstyling {
 
+  static Size = {
+
+    inherit: "inherit",
+    percent100: "100%",
+    percent90: "90%",
+    vw100: "100vw",
+    vh100: "100vh",
+
+  };
+
+  static display = {
+
+    flex: "flex",
+
+  };
+
+  static position = {
+    relative: "relative",
+    sticky: "sticky",
+    fixed: "fixed",
+  };
+
+static align = {
+
+  
+
+}
+
+
   //root 스타일
   static rootStyle = {
     width: "100vw",
