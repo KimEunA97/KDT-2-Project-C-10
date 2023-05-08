@@ -17,8 +17,15 @@ export class Allstyling {
     inherit: "inherit",
     percent100: "100%",
     percent90: "90%",
+    percent80: "80%",
+    percent40 : "40%",
+    percent20 : "20%",
+
     vw100: "100vw",
     vh100: "100vh",
+    vh20 : "20vh",
+
+    px10: "10px",
 
   };
 
@@ -32,13 +39,27 @@ export class Allstyling {
     relative: "relative",
     sticky: "sticky",
     fixed: "fixed",
+
   };
 
-static align = {
+  static align = {
 
-  
+    center: "center",
+    column: "column",
+    spaceAround : "space-around",
 
-}
+
+  }
+
+  static color = {
+
+    white: "white",
+    black: "black",
+    gray: "#555",
+    blue: "#4B73FF",
+
+
+  }
 
 
   //root 스타일
