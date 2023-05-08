@@ -2,12 +2,19 @@ import { createTag } from "./function.js";
 import { Allstyling } from './style.js'
 const allElements = document.body.getElementsByTagName("*");
 
+// 모든 요소에 스타일을 적용
+for (let i = 0; i < allElements.length; i++) {
+  allElements[i].style.margin = 0;
+  allElements[i].style.padding = 0;
+  allElements[i].style.boxSizing = "border-box";
+}
+
 
 const root = document.getElementById('root');
-root.width = "100vw";
-root.maxWidth = "100vw";
-root.height = "100vh";
-root.maxHeight = "100vh";
+root.style.width = "100vw";
+root.style.maxWidth = "100vw";
+root.style.height = "100vh";
+root.style.maxHeight = "100vh";
 
 const header = createTag('header', Allstyling.headerStyle);
 
@@ -173,12 +180,5 @@ for (let i = 0; i < allUlTag.length; i++) {
   allUlTag[i].style.padding = 0;
   allUlTag[i].style.listStyle = "none";
 
-}
-
-// 모든 요소에 스타일을 적용
-for (let i = 0; i < allElements.length; i++) {
-  allElements[i].style.margin = 0;
-  allElements[i].style.padding = 0;
-  allElements[i].style.boxSizing = "border-box";
 }
 
