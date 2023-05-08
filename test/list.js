@@ -4,12 +4,16 @@ import { headerPage, header } from "./header.js"
 import { main, mainPage } from "./main.js";
 import { articleMiddleInfo } from "./articleMiddleInfo.js";
 import { articleBottomSymptom } from "./articleBottom.js";
+import { articleLeftInfo } from "./articleLeft.js";
 
 //헤더 부분
 headerPage();
 
 //메인 부분
 mainPage();
+
+//좌측 약 정보
+articleLeftInfo();
 
 //가운데 약 정보
 articleMiddleInfo();
