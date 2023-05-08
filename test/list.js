@@ -2,14 +2,6 @@ import { createTag } from "./function.js";
 import { Allstyling } from './style.js'
 const allElements = document.body.getElementsByTagName("*");
 
-// 모든 요소에 스타일을 적용
-for (let i = 0; i < allElements.length; i++) {
-  allElements[i].style.margin = 0;
-  allElements[i].style.padding = 0;
-  allElements[i].style.boxSizing = "border-box";
-}
-
-
 
 const root = document.getElementById('root');
 root.width = "100vw";
@@ -74,7 +66,7 @@ for (let i = 0; i < articleChild.length; i++) {
 
 //article > div > div
 //상단 : 약명, 정보, 화살표
-const pillSector = createTag('div');
+const pillSector = createTag('div',Allstyling.pillSectorStyle);
 article.children[1].append(pillSector)
 
 //좌측 약명 컬럼
@@ -176,10 +168,17 @@ completeBtn.innerHTML = "완료"
 
 //모든 ul에 스타일링
 const allUlTag = document.querySelectorAll("ul");
-console.dir(allUlTag);
 for (let i = 0; i < allUlTag.length; i++) {
   allUlTag[i].style.margin = 0;
   allUlTag[i].style.padding = 0;
   allUlTag[i].style.listStyle = "none";
 
 }
+
+// 모든 요소에 스타일을 적용
+for (let i = 0; i < allElements.length; i++) {
+  allElements[i].style.margin = 0;
+  allElements[i].style.padding = 0;
+  allElements[i].style.boxSizing = "border-box";
+}
+

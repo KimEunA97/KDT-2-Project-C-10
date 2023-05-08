@@ -28,8 +28,8 @@ export class Allstyling {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row",
     flexWrap: "wrap",
+    flexDirection: "row",
 
     position: "sticky",
     top: 0,
@@ -144,8 +144,19 @@ export class Allstyling {
   }
 
 
+  //상단 약명, 정보, 화살표
   //#root>main>article>div>div:nth-child(1) 
-  static
+  static pillSectorStyle  = {
+
+    width: "100%",
+    height: "80%",
+    /* flex */
+    display: "flex",
+    /* flex-direction: column; */
+    justifyContent: "space-around",
+    alignItems: "center",
+
+  }
 
 
 
