@@ -33,7 +33,7 @@ header.append(createTag('div', Allstyling.editBtnStyle))
 
 EditBtn.forEach(element => {
 
-  const ul = createTag('ul',Allstyling.editBtnStyleContainer);
+  const ul = createTag('ul', Allstyling.editBtnStyleContainer);
 
   element.forEach(text => {
 
@@ -66,12 +66,12 @@ for (let i = 0; i < articleChild.length; i++) {
 
 //article > div > div
 //상단 : 약명, 정보, 화살표
-const pillSector = createTag('div',Allstyling.pillSectorStyle);
+const pillSector = createTag('div', Allstyling.pillSectorStyle);
 article.children[1].append(pillSector)
 
 //좌측 약명 컬럼
 const leftPillSector = createTag('div');
-pillSector.append(leftPillSector);
+pillSector.append(leftPillSector,Allstyling.pillNameSectorStyle);
 
 //타이레놀 컨테이너
 const pillNameSector = createTag('div');

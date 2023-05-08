@@ -146,7 +146,7 @@ export class Allstyling {
 
   //상단 약명, 정보, 화살표
   //#root>main>article>div>div:nth-child(1) 
-  static pillSectorStyle  = {
+  static pillSectorStyle = {
 
     width: "100%",
     height: "80%",
@@ -158,6 +158,16 @@ export class Allstyling {
 
   }
 
+  // #root>main>article>div>div:nth-child(1)>div 
+  //약명(타이레놀) 박스
+  static pillNameSectorStyle = {
+
+    width: "100%",
+    height: "100%",
+    padding: "10px",
+
+    border: "1px solid red",
+  }
 
 
 }
