@@ -1,5 +1,3 @@
-import { createTag } from "./function.js";
-import { Allstyling } from './style.js'
 import { headerPage, header } from "./header.js"
 import { main, mainPage } from "./main.js";
 import { articleMiddleInfo } from "./articleMiddleInfo.js";
