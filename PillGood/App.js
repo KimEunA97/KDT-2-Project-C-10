@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-import { SearchBar } from './componant/search.js'
+import SearchBar from './componant/search.js'
 
 
 
@@ -13,7 +13,7 @@ export default function App() {
     // </View>
 
     <SafeAreaView>
-      <SearchBar/>
+      <SearchBar />
     </SafeAreaView>
 
 
