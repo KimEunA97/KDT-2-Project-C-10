@@ -13,23 +13,23 @@ export default function App() {
     // </View>
       <SafeAreaView>
         {/* <SearchBar styles={[styles.container, styles.box]} /> */}
-        <Box></Box>
+        <Box rounded="true"></Box>
       </SafeAreaView>
 
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: "100px",
-    height: "100px",
-    backgroundColor: '#fff',
-    borderRadius: 16,
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   box: {
+//     width: "100px",
+//     height: "100px",
+//     backgroundColor: '#fff',
+//     borderRadius: 16,
 
-  },
-});
+//   },
+// });
