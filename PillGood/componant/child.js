@@ -1,11 +1,9 @@
 import React from 'react';
-import { View } from 'react-native/types';
+import { View, Text } from 'react-native';
 
 const ChildComponent = (props) => {
   return (
-    <View>
       <Text>Hello, {props.name}!</Text>
-    </View>
   );
 };
 
