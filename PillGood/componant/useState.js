@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, TextInput, StyleSheet, SafeAreaView, StatusBar } from "react-native";
+import ParentComponent from "./pare";
 
 function UserFormFunction() {
   const [name, setName] = useState("");
@@ -21,6 +22,7 @@ function UserFormFunction() {
           value={email}
           onChangeText={value => setEmail(value)}
         />
+        <ParentComponent></ParentComponent>
       </View>
     </SafeAreaView>
   );

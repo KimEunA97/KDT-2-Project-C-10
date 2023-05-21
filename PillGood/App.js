@@ -13,7 +13,6 @@ const App = () => {
     <View style={styles.statusbar}>
       <StatusBar backgroundColor='yellow'></StatusBar>
       <UserFormFunction></UserFormFunction>
-      <UserFormFunction></UserFormFunction>
     </View>
     
   )
