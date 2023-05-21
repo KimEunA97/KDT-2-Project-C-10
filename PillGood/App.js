@@ -2,34 +2,18 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import SearchBar from './componant/search.js'
 import Box from './componant/Box.js';
+import { StatusBar } from 'expo-status-bar';
 
 
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-    //   <Text>Open!@@@!!!!!@@@</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-      <SafeAreaView>
-        {/* <SearchBar styles={[styles.container, styles.box]} /> */}
-        <Box rounded="true"></Box>
-      </SafeAreaView>
+
+    <View style={{ paddingTop: 0 }}>
+      <StatusBar/>
+      <Box rounded="true"></Box>
+    </View>
 
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   box: {
-//     width: "100px",
-//     height: "100px",
-//     backgroundColor: '#fff',
-//     borderRadius: 16,
-
-//   },
-// });

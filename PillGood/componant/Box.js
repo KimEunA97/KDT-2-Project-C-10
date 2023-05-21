@@ -1,8 +1,13 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+
+
 
 function Box(props) {
-  return <View style={[styles.box, props.rounded ? styles.rounded : null]}></View>
+  return <View style={[styles.box, props.rounded ? styles.rounded : null]}>
+    <StatusBar style="auto"></StatusBar>
+  </View>
 }
 
 const styles = StyleSheet.create({
