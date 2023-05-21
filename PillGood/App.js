@@ -12,6 +12,8 @@ export default function App() {
   return (
 
     <View>
+      <Box></Box>
+
       <TextInputExample/>
     </View>
 

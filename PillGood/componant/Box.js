@@ -6,12 +6,12 @@ import { StatusBar } from "expo-status-bar";
 
 function Box(props) {
   return <View style={[styles.box, props.rounded ? styles.rounded : null]}>
-    <StatusBar style="auto"></StatusBar>
   </View>
 }
 
 const styles = StyleSheet.create({
   box: {
+    padding: 10,
     width: 64,
     height: 64,
     backgroundColor: 'black',
