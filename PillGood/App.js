@@ -1,30 +1,20 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TextInput, View, useState } from 'react-native';
 
 import SearchBar from './componant/search.js'
 import Box from './componant/Box.js';
 import { StatusBar } from 'expo-status-bar';
 import TextInputExample from './componant/TextInput.js';
+import InfoApp from './componant/dj.js'
 
 
-
-export default function App() {
+const App = () => {
 
   return (
-
     <View>
-      <Box></Box>
-
-      <TextInputExample/>
+      <InfoApp />
     </View>
+  )
 
-  );
 }
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});
+export default App;
