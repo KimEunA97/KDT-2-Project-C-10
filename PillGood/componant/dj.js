@@ -18,10 +18,10 @@ function Contact(props) {
     );
   };
 
-  const InfoList = ({ abc }) => {
+  const InfoList = ({ def }) => {
     return (
       <View>
-        {abc.map((item, index) => (
+        {def.map((item, index) => (
           <InfoComponent
           // 객체 베열을 순회하기 위해 index를 써야 한다. key의 자체 이름을 수정하는 것은 권장하지 않는다.
             key={index}
@@ -33,7 +33,7 @@ function Contact(props) {
       </View>
     );
   };
-  return <InfoList abc={props.abc} />;
+  return <InfoList def={props.abc} />;
 }
 
 const InfoApp = () => {
