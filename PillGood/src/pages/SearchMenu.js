@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default function TodayPillMenu() {
+export default function SearchMenu() {
   return (
     <View>
-      <Text>오늘의약</Text>
+      <Text>검색</Text>
     </View>
   );
 }

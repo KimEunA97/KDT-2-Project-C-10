@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 
-import TodayPillMenu from './src/pages/TodayPillMenu.js';
-import ViewAllMenu from './src/pages/ViewAllMenu.js';
-import SearchMenu from './src/pages/SettingMenu.js';
-import SettingMenu from './src/pages/SettingMenu.js';
+import TodayPillMenu from '../pages/TodayPillMenu';
+import ViewAllMenu from '../pages/ViewAllMenu';
+import SearchMenu from '../pages/SearchMenu';
+import SettingMenu from '../pages/SettingMenu';
+import { StatusBar } from 'expo-status-bar';
+
 
 const TabNavigation = () => {
   const [activeTab, setActiveTab] = useState('TodayPillMenu');
@@ -25,8 +27,8 @@ const TabNavigation = () => {
   };
 
   return (
-    <View style={styles.menuButton}>
-      <View>
+    <View style={styles.align}>
+      <View style={styles.menuButton}>
         <TouchableOpacity onPress={() => setActiveTab('TodayPillMenu')}>
           <Text style={styles.menuButtonText}>오늘의약</Text>
         </TouchableOpacity>
@@ -51,6 +53,8 @@ const styles = {
     backgroundColor: '#55B0AA',
     padding: 8,
     borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: "space-between"
   },
   menuButtonText: {
     color: 'white',
