@@ -1,31 +1,48 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, View, useState } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Text } from 'react-native';
 
-import SearchBar from './componant/search.js'
-import Box from './componant/Box.js';
+import AboutScreen from './src/pages/AboutScreen.js';
+import HomeScreen from './src/pages/HomeScreen.js';
+import SettingsScreen from './src/pages/SettingsScreen.js';
+import ProfileScreen from './src/pages/ProfileScreen.js';
 import { StatusBar } from 'expo-status-bar';
-import TextInputExample from './componant/TextInput.js';
-import InfoApp from './componant/dj.js'
-import UserFormFunction from './componant/useState.js';
 
-const App = () => {
+export default function App() {
+  const [activeTab, setActiveTab] = useState('home');
+
+  const renderScreen = () => {
+    switch (activeTab) {
+      case 'home':
+        return <HomeScreen />;
+      case 'about':
+        return <AboutScreen />;
+      case 'settings':
+        return <SettingsScreen />;
+      case 'profile':
+        return <ProfileScreen />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <View style={styles.statusbar}>
-      <StatusBar backgroundColor='yellow'></StatusBar>
-      <UserFormFunction></UserFormFunction>
+    <View style={{ flex: 1 }}>
+      <StatusBar style={{ paddingTop : 500, backgroundColor : 'yellow'}}></StatusBar>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 16 }}>
+        <TouchableOpacity onPress={() => setActiveTab('home')}>
+          <Text>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setActiveTab('about')}>
+          <Text>About</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setActiveTab('settings')}>
+          <Text>Settings</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setActiveTab('profile')}>
+          <Text>Profile</Text>
+        </TouchableOpacity>
+      </View>
+      {renderScreen()}
     </View>
-    
-  )
-
+  );
 }
-
-export default App;
-
-const styles = StyleSheet.create({
-
-  statusbar: {
-    height: StatusBar.currentHeight,
-
-  },
-
-})
