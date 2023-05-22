@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default function AboutScreen() {
+export default function ViewAllMenu() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>AboutScreen</Text>
+      <Text>전체보기</Text>
     </View>
   );
 }
