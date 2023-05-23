@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
-
 import TodayPillMenu from '../pages/TodayPillMenu';
 import ViewAllMenu from '../pages/ViewAllMenu';
 import SearchMenu from '../pages/SearchMenu';
 import SettingMenu from '../pages/SettingMenu';
-import { StatusBar } from 'expo-status-bar';
-
 
 const TabNavigation = () => {
   const [activeTab, setActiveTab] = useState('TodayPillMenu');
+
+  const tabs = [
+    { id: 'TodayPillMenu', label: '오늘의약' },
+    { id: 'ViewAllMenu', label: '전체보기' },
+    { id: 'SearchMenu', label: '검색' },
+    { id: 'SettingMenu', label: '설정' },
+  ];
 
   const renderScreen = () => {
     switch (activeTab) {
@@ -26,40 +30,71 @@ const TabNavigation = () => {
     }
   };
 
+  const handleTabPress = (tabId) => {
+    setActiveTab(tabId);
+  };
+
   return (
-    <View style={styles.align}>
-      <View style={styles.menuButton}>
-        <TouchableOpacity onPress={() => setActiveTab('TodayPillMenu')}>
-          <Text style={styles.menuButtonText}>오늘의약</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setActiveTab('ViewAllMenu')}>
-          <Text style={styles.menuButtonText}>전체보기</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setActiveTab('SearchMenu')}>
-          <Text style={styles.menuButtonText}>검색</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setActiveTab('SettingMenu')}>
-          <Text style={styles.menuButtonText}>설정</Text>
-        </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.tabContainer}>
+        {tabs.map((tab) => (
+          <TouchableOpacity
+            key={tab.id}
+            onPress={() => handleTabPress(tab.id)}
+            style={[
+              styles.tabButton,
+              activeTab === tab.id && styles.activeTabButton,
+            ]}
+          >
+            <Text style={[styles.tabButtonText, activeTab === tab.id && styles.activeTabButtonText]}>
+              {tab.label}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
-      {renderScreen()}
+      <View style={styles.screenContainer}>{renderScreen()}</View>
     </View>
   );
 };
 
-
 const styles = {
-  menuButton: {
-    backgroundColor: '#55B0AA',
-    padding: 8,
-    borderRadius: 8,
-    flexDirection: 'row',
-    justifyContent: "space-between"
+  container: {
+    flex: 1,
+    paddingTop: 25,
   },
-  menuButtonText: {
+  tabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#55B0AA',
+  },
+  tabButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  activeTabButton: {
+    backgroundColor: '#336B66',
+  },
+  tabButtonText: {
     color: 'white',
+  },
+  activeTabButtonText: {
+    fontWeight: 'bold',
+  },
+  screenContainer: {
+    flex: 1,
   },
 };
 
+// const styles = {
+//   container: {
+//     flex: 1,
+//     paddingTop: 25,
+//   },
+//   tabContainer: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-around',
+
+//   }
+// }
 
 export default TabNavigation;
