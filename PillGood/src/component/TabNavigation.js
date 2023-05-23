@@ -59,7 +59,7 @@ const TabNavigation = () => {
 
 const styles = {
   container: {
-    flex: 1,
+    flex: 0.1,
     paddingTop: 25,
   },
   tabContainer: {
@@ -68,6 +68,7 @@ const styles = {
     backgroundColor: '#55B0AA',
   },
   tabButton: {
+    flex: 1,
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
@@ -76,6 +77,7 @@ const styles = {
   },
   tabButtonText: {
     color: 'white',
+    textAlign: 'center',
   },
   activeTabButtonText: {
     fontWeight: 'bold',
