@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Touchable } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 import pillCreate from '../component/pillCreate';
 
@@ -13,7 +13,7 @@ const ComponentButton = () => {
 
   return (
     <View>
-      <button onClick={handleClick}>버튼</button>
+      <Button title="버튼" onPress={handleClick} />
       {componentList.map((component, index) => (
         <View key={index}>{component}</View>
       ))}
