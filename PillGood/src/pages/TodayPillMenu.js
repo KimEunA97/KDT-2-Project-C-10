@@ -6,21 +6,31 @@ import PillCreate from '../component/PillCreate';
 const CreateButton = () => {
   const [componentList, setComponentList] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [showButton, setShowButton] = useState(true);
 
   const handleConfirm = () => {
     setComponentList([...componentList, <PillCreate key={componentList.length} />]);
     setIsModalVisible(false);
+    setShowButton(true);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setShowButton(true);
+  };
+
+  const handleBtn = () => {
+    setShowButton(false);
+    setIsModalVisible(true);
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <TouchableOpacity onPress={() => setIsModalVisible(true)} style={styles.button}>
-        <Text style={styles.buttonText}>버튼</Text>
-      </TouchableOpacity>
+      {showButton && (
+        <TouchableOpacity onPress={handleBtn} style={styles.button}>
+          <Text style={styles.buttonText}>버튼</Text>
+        </TouchableOpacity>
+      )}
 
       {isModalVisible && (
         <View style={styles.modalContainer}>
