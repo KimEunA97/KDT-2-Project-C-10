@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 
-import pillCreate from '../component/pillCreate';
+import PillCreate from '../component/pillCreate';
 
 
 const ComponentButton = () => {
   const [componentList, setComponentList] = useState([]);
 
   const handleClick = () => {
-    setComponentList([...componentList, <pillCreate key={componentList.length} />]);
+    setComponentList([...componentList, <PillCreate key={componentList.length} />]);
   };
 
   return (

@@ -1,9 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 
 
-export default function pillCreate() {
+export default function PillCreate() {
 
   return (
 
