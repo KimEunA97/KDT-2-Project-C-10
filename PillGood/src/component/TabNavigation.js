@@ -4,7 +4,7 @@ import TodayPillMenu from '../pages/TodayPillMenu';
 import ViewAllMenu from '../pages/ViewAllMenu';
 import SearchMenu from '../pages/SearchMenu';
 import SettingMenu from '../pages/SettingMenu';
-import InterationTab from './InterationTab.js'
+import InterationTab from './InterationTabs.js'
 
 
 const TabNavigation = () => {
