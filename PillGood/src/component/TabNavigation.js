@@ -4,7 +4,7 @@ import TodayPillMenu from '../pages/TodayPillMenu';
 import ViewAllMenu from '../pages/ViewAllMenu';
 import SearchMenu from '../pages/SearchMenu';
 import SettingMenu from '../pages/SettingMenu';
-import InterationTab from './InterationTabs.js'
+import InteractionTab from './InteractionTabs.js'
 
 
 const TabNavigation = () => {
@@ -54,7 +54,9 @@ const TabNavigation = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <InterationTab></InterationTab>
+
+      {/* 하위 컴포넌트 : 유저 상호작용 버튼 */}
+      <InteractionTab></InteractionTab>
       {activeTab === 'TodayPillMenu' && <TodayPillMenu />}
       {activeTab === 'ViewAllMenu' && <ViewAllMenu />}
       {activeTab === 'SearchMenu' && <SearchMenu />}
