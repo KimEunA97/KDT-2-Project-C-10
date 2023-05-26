@@ -3,30 +3,33 @@ import { Button } from 'react-native';
 import { useNotifications } from 'expo-notifications';
 
 
-const { scheduleNotificationAsync } = useNotifications();
+function Alarm() {
 
-useEffect(() => {
-  // Expo 알림 사용 권한 요청
-  (async () => {
-    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-    if (status !== 'granted') {
-      console.log('알림 권한이 거부되었습니다.');
-    }
-  })();
-}, []);
+  const { scheduleNotificationAsync } = useNotifications();
 
-// 알림 보내기 함수
-const sendNotification = async () => {
-  await scheduleNotificationAsync({
-    content: {
-      title: '알림 제목',
-      body: '알림 내용',
-    },
-    trigger: null,
-  });
-};
+  useEffect(() => {
+    // Expo 알림 사용 권한 요청
+    (async () => {
+      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      if (status !== 'granted') {
+        console.log('알림 권한이 거부되었습니다.');
+      }
+    })();
+  }, []);
 
-return (
-  // 알림 보내기 버튼
-  <Button title="알림 보내기" onPress={sendNotification} />
-);
+  // 알림 보내기 함수
+  const sendNotification = async () => {
+    await scheduleNotificationAsync({
+      content: {
+        title: '알림 제목',
+        body: '알림 내용',
+      },
+      trigger: null,
+    });
+  };
+
+  return (
+    // 알림 보내기 버튼
+    <Button title="알림 보내기" onPress={sendNotification} />
+  );
+}
