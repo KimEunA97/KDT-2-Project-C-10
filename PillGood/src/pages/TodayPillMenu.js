@@ -1,46 +1,89 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Touchable, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 
-import PillCreate from '../component/pillCreate';
-
+import PillCreate from '../component/PillCreate';
 
 const ComponentButton = () => {
   const [componentList, setComponentList] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const handleClick = () => {
+  const handleConfirm = () => {
     setComponentList([...componentList, <PillCreate key={componentList.length} />]);
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
 
   return (
-    <View styel={styles.container}>
-      <TouchableOpacity title="버튼" onPress={handleClick} style={styles.button} />
+    <ScrollView contentContainerStyle={styles.container}>
+      <TouchableOpacity onPress={() => setIsModalVisible(true)} style={styles.button}>
+        <Text style={styles.buttonText}>버튼</Text>
+      </TouchableOpacity>
+
+      {isModalVisible && (
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalText}>모달 내용</Text>
+            <TouchableOpacity onPress={handleConfirm} style={styles.confirmButton}>
+              <Text style={styles.buttonText}>확인</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleCancel} style={styles.cancelButton}>
+              <Text style={styles.buttonText}>취소</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
       {componentList.map((component, index) => (
         <View key={index}>{component}</View>
       ))}
-    </View>
+    </ScrollView>
   );
-}
+};
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
+    padding: 20,
   },
   button: {
-
-    width: 200,
-    height: 100,
-
-    backgroundColor: "#55B0AA",
-    justifyContent: "center",
-    alignItems: "center",
-
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: "black "
-
-  }
-
-}
-
+    backgroundColor: '#55B0AA',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+  },
+  modalText: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  confirmButton: {
+    backgroundColor: '#55B0AA',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  cancelButton: {
+    backgroundColor: '#C94A4A',
+    padding: 10,
+    borderRadius: 5,
+  },
+});
 
 export default ComponentButton;
