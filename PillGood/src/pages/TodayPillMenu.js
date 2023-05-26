@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-nati
 
 import PillCreate from '../component/PillCreate';
 
-const ComponentButton = () => {
+const CreateButton = () => {
   const [componentList, setComponentList] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ComponentButton;
+export default CreateButton;
