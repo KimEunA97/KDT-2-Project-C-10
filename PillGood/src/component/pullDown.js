@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 
+//false로 닫힌 상태
 const DropdownMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  //메뉴 반전. false->true
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -19,19 +21,28 @@ const DropdownMenu = () => {
       </TouchableOpacity>
       {isMenuOpen && (
         <View>
-          <TouchableOpacity onPress={() => handleMenuItemPress('아이템 1')}>
-            <Text>아이템 1</Text>
+          <TouchableOpacity onPress={() => handleMenuItemPress('아침')}>
+            <Text>아침</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleMenuItemPress('아이템 2')}>
-            <Text>아이템 2</Text>
+          <TouchableOpacity onPress={() => handleMenuItemPress('점심')}>
+            <Text>점심</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleMenuItemPress('아이템 3')}>
-            <Text>아이템 3</Text>
+          <TouchableOpacity onPress={() => handleMenuItemPress('저녁')}>
+            <Text>저녁</Text>
           </TouchableOpacity>
         </View>
       )}
     </View>
   );
 };
+
+const styles = {
+
+  container : {
+
+  }
+
+}
+
 
 export default DropdownMenu;

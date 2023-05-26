@@ -4,6 +4,8 @@ import TodayPillMenu from '../pages/TodayPillMenu';
 import ViewAllMenu from '../pages/ViewAllMenu';
 import SearchMenu from '../pages/SearchMenu';
 import SettingMenu from '../pages/SettingMenu';
+import InterationTab from './InterationTab.js'
+
 
 const TabNavigation = () => {
   const [activeTab, setActiveTab] = useState('TodayPillMenu');
@@ -35,7 +37,7 @@ const TabNavigation = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.tabContainer}>
         {tabs.map((tab) => (
           <TouchableOpacity
@@ -52,7 +54,11 @@ const TabNavigation = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <View style={styles.screenContainer}>{renderScreen()}</View>
+      <InterationTab></InterationTab>
+      {activeTab === 'TodayPillMenu' && <TodayPillMenu />}
+      {activeTab === 'ViewAllMenu' && <ViewAllMenu />}
+      {activeTab === 'SearchMenu' && <SearchMenu />}
+      {activeTab === 'SettingMenu' && <SettingMenu />}
     </View>
   );
 };
