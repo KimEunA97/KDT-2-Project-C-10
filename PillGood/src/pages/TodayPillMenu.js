@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, TextInput } from 'react-native';
 
-import PillCreate from '../component/PillCreate';
+
+import PillCreate from '../component/Pill-Create';
 
 const CreateButton = () => {
   const [componentList, setComponentList] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [showButton, setShowButton] = useState(true);
+  const [modalContent, setModalContent] = useState(''); // 모달 내용을 저장할 상태 변수
 
-  const handleConfirm = () => {
-    setComponentList([...componentList, <PillCreate key={componentList.length} />]);
+  const handleConfirm = () => { 
+    setComponentList([...componentList, <PillCreate key={componentList.length} content={modalContent} />]); // 입력한 내용을 PillCreate 컴포넌트에 전달
     setIsModalVisible(false);
     setShowButton(true);
+    setModalContent(''); // 확인 버튼을 누른 후에 모달 내용을 초기화
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
     setShowButton(true);
+    setModalContent(''); // 취소 버튼을 누른 후에 모달 내용을 초기화
   };
 
   const handleBtn = () => {
     setShowButton(false);
     setIsModalVisible(true);
+  };
+
+  const handleModalContentChange = (text) => {
+    setModalContent(text); // 텍스트 입력 상자의 내용을 상태 변수에 저장
   };
 
   return (
@@ -36,6 +44,12 @@ const CreateButton = () => {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalText}>모달 내용</Text>
+            <TextInput
+              value={modalContent}
+              onChangeText={handleModalContentChange}
+              placeholder="내용을 입력하세요"
+              style={styles.textInput}
+            />
             <TouchableOpacity onPress={handleConfirm} style={styles.confirmButton}>
               <Text style={styles.buttonText}>확인</Text>
             </TouchableOpacity>
@@ -52,6 +66,7 @@ const CreateButton = () => {
     </ScrollView>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
