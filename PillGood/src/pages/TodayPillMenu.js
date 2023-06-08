@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet, TextInput } from 'react-native';
 
-
 import PillCreate from '../component/Pill-Create';
 
 const CreateButton = () => {
@@ -10,7 +9,7 @@ const CreateButton = () => {
   const [showButton, setShowButton] = useState(true);
   const [modalContent, setModalContent] = useState(''); // 모달 내용을 저장할 상태 변수
 
-  const handleConfirm = () => { 
+  const handleConfirm = () => {
     setComponentList([...componentList, <PillCreate key={componentList.length} content={modalContent} />]); // 입력한 내용을 PillCreate 컴포넌트에 전달
     setIsModalVisible(false);
     setShowButton(true);
