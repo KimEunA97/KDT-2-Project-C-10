@@ -32,17 +32,33 @@ const CreateButton = () => {
   };
 
   return (
+    // 모달 생성버튼
     <ScrollView contentContainerStyle={styles.container}>
       {showButton && (
         <TouchableOpacity onPress={handleBtn} style={styles.button}>
-          <Text style={styles.buttonText}>버튼</Text>
+          <Text style={styles.buttonText}>생성 버튼</Text>
         </TouchableOpacity>
       )}
 
+      {/* 모달 활성화 시 */}
       {isModalVisible && (
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalText}>모달 내용</Text>
+            <Text style={styles.modalText}>약 이름</Text>
+            <TextInput
+              value={modalContent}
+              onChangeText={handleModalContentChange}
+              placeholder="내용을 입력하세요"
+              style={styles.textInput}
+            />
+            <Text style={styles.modalText}>업체명</Text>
+            <TextInput
+              value={modalContent}
+              onChangeText={handleModalContentChange}
+              placeholder="내용을 입력하세요"
+              style={styles.textInput}
+            />
+            <Text style={styles.modalText}>증상</Text>
             <TextInput
               value={modalContent}
               onChangeText={handleModalContentChange}

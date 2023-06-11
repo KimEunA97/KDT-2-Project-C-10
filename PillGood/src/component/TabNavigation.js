@@ -17,22 +17,23 @@ const TabNavigation = () => {
     { id: 'SettingMenu', label: '설정' },
   ];
 
-  const renderScreen = () => {
-    switch (activeTab) {
-      case 'TodayPillMenu':
-        return <TodayPillMenu />;
-      case 'ViewAllMenu':
-        return <ViewAllMenu />;
-      case 'SearchMenu':
-        return <SearchMenu />;
-      case 'SettingMenu':
-        return <SettingMenu />;
-      default:
-        return null;
-    }
-  };
+  // const renderScreen = () => {
+  //   switch (activeTab) {
+  //     case 'TodayPillMenu':
+  //       return <TodayPillMenu />;
+  //     case 'ViewAllMenu':
+  //       return <ViewAllMenu />;
+  //     case 'SearchMenu':
+  //       return <SearchMenu />;
+  //     case 'SettingMenu':
+  //       return <SettingMenu />;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   const handleTabPress = (tabId) => {
+    //onPress(눌렀을때)로 값을 받으면 상태값 바꾸는 함수에 전달
     setActiveTab(tabId);
   };
 
@@ -48,6 +49,7 @@ const TabNavigation = () => {
               activeTab === tab.id && styles.activeTabButton,
             ]}
           >
+            {/* 카테고리 이름 */}
             <Text style={[styles.tabButtonText, activeTab === tab.id && styles.activeTabButtonText]}>
               {tab.label}
             </Text>
@@ -57,6 +59,7 @@ const TabNavigation = () => {
 
       {/* 하위 컴포넌트 : 유저 상호작용 버튼 */}
       <InteractionTab></InteractionTab>
+      {/* 활성화된 탭에 해당하는 컴포넌트 */}
       {activeTab === 'TodayPillMenu' && <TodayPillMenu />}
       {activeTab === 'ViewAllMenu' && <ViewAllMenu />}
       {activeTab === 'SearchMenu' && <SearchMenu />}
@@ -95,16 +98,5 @@ const styles = {
   },
 };
 
-// const styles = {
-//   container: {
-//     flex: 1,
-//     paddingTop: 25,
-//   },
-//   tabContainer: {
-//     flexDirection: 'row',
-//     justifyContent: 'space-around',
-
-//   }
-// }
 
 export default TabNavigation;
