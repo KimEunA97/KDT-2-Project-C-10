@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const PillCreate = ({ content }) => {
+const PillCreate = ({ name, company, symptoms }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{content}</Text>
+      <Text style={styles.text}>약 이름: {name}</Text>
+      <Text style={styles.text}>업체명: {company}</Text>
+      <Text style={styles.text}>증상: {symptoms}</Text>
     </View>
   );
 };

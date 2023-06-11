@@ -7,19 +7,33 @@ const CreateButton = () => {
   const [componentList, setComponentList] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [showButton, setShowButton] = useState(true);
-  const [modalContent, setModalContent] = useState(''); // 모달 내용을 저장할 상태 변수
+  const [name, setName] = useState('');
+  const [company, setCompany] = useState('');
+  const [symptoms, setSymptoms] = useState('');
 
   const handleConfirm = () => {
-    setComponentList([...componentList, <PillCreate key={componentList.length} content={modalContent} />]); // 입력한 내용을 PillCreate 컴포넌트에 전달
+    const newPill = (
+      <PillCreate
+        key={componentList.length}
+        name={name}
+        company={company}
+        symptoms={symptoms}
+      />
+    );
+    setComponentList([...componentList, newPill]);
     setIsModalVisible(false);
     setShowButton(true);
-    setModalContent(''); // 확인 버튼을 누른 후에 모달 내용을 초기화
+    setName('');
+    setCompany('');
+    setSymptoms('');
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
     setShowButton(true);
-    setModalContent(''); // 취소 버튼을 누른 후에 모달 내용을 초기화
+    setName('');
+    setCompany('');
+    setSymptoms('');
   };
 
   const handleBtn = () => {
@@ -27,49 +41,49 @@ const CreateButton = () => {
     setIsModalVisible(true);
   };
 
-  const handleModalContentChange = (text) => {
-    setModalContent(text); // 텍스트 입력 상자의 내용을 상태 변수에 저장
-  };
-
   return (
-    // 모달 생성버튼
+    // Modal creation button
     <ScrollView contentContainerStyle={styles.container}>
       {showButton && (
         <TouchableOpacity onPress={handleBtn} style={styles.button}>
-          <Text style={styles.buttonText}>생성 버튼</Text>
+          <Text style={styles.buttonText}>Create Button</Text>
         </TouchableOpacity>
       )}
 
-      {/* 모달 활성화 시 */}
+      {/* Modal */}
       {isModalVisible && (
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalText}>약 이름</Text>
+            <Text style={styles.modalText}>Pill Name</Text>
             <TextInput
-              value={modalContent}
-              onChangeText={handleModalContentChange}
-              placeholder="내용을 입력하세요"
+              value={name}
+              onChangeText={setName}
+              placeholder="Enter name"
               style={styles.textInput}
             />
-            <Text style={styles.modalText}>업체명</Text>
+
+            <Text style={styles.modalText}>Company</Text>
             <TextInput
-              value={modalContent}
-              onChangeText={handleModalContentChange}
-              placeholder="내용을 입력하세요"
+              value={company}
+              onChangeText={setCompany}
+              placeholder="Enter company"
               style={styles.textInput}
             />
-            <Text style={styles.modalText}>증상</Text>
+
+            <Text style={styles.modalText}>Symptoms</Text>
             <TextInput
-              value={modalContent}
-              onChangeText={handleModalContentChange}
-              placeholder="내용을 입력하세요"
+              value={symptoms}
+              onChangeText={setSymptoms}
+              placeholder="Enter symptoms"
               style={styles.textInput}
             />
+
             <TouchableOpacity onPress={handleConfirm} style={styles.confirmButton}>
-              <Text style={styles.buttonText}>확인</Text>
+              <Text style={styles.buttonText}>Confirm</Text>
             </TouchableOpacity>
+
             <TouchableOpacity onPress={handleCancel} style={styles.cancelButton}>
-              <Text style={styles.buttonText}>취소</Text>
+              <Text style={styles.buttonText}>Cancel</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -81,7 +95,6 @@ const CreateButton = () => {
     </ScrollView>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -111,6 +124,12 @@ const styles = StyleSheet.create({
   },
   modalText: {
     fontSize: 16,
+    marginBottom: 10,
+  },
+  textInput: {
+    backgroundColor: '#F0F0F0',
+    padding: 10,
+    borderRadius: 5,
     marginBottom: 10,
   },
   confirmButton: {
