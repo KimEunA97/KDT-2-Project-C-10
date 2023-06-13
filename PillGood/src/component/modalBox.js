@@ -7,7 +7,7 @@ export default function ModalBox() {
 
   return (
 
-    <View>
+    <View style={styles.alignContainer}>
       <Text>내용</Text>
 
       <View style={styles.btnContainer}>
@@ -25,6 +25,15 @@ export default function ModalBox() {
 }
 
 const styles = {
+  alignContainer: {
+
+    width: "80%",
+    borderWidth: 1,
+    borderColor: "black",
+    alignItems: "center",
+    justifyContent: "center",
+
+  },
 
   btnContainer: {
 
@@ -36,13 +45,15 @@ const styles = {
   confirmStyle: {
 
     width: "30%",
-    border: "black",
+    borderWidth: 1,
+    borderColor: "black",
     backgroundColor: "blue"
 
   },
   cancelStyle: {
     width: "30%",
-    border: "black",
+    borderWidth: 1,
+    borderColor: "black",
     backgroundColor: "red"
   },
   btnTextColor: {

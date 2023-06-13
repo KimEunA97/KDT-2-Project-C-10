@@ -6,7 +6,7 @@ export default function TodayPillMenu() {
 
   return (
 
-    <View>
+    <View style={styles.container}>
       <ModalBox></ModalBox>
     </View>
 
@@ -18,7 +18,7 @@ const styles = {
 
   container: {
 
-    flex: 1,
+    alignItems : "center",
 
   }
 
