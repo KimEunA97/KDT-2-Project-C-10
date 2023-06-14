@@ -22,7 +22,7 @@ export default function TodayPillMenu() {
   return (
     <View style={styles.align}>
       {pillList.length === 0 && (
-        <TouchableOpacity style={styles.border} onPress={modalVisible}>
+        <TouchableOpacity style={styles.button} onPress={modalVisible}>
           <Text>보이기</Text>
         </TouchableOpacity>
       )}
@@ -39,10 +39,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  border: {
+  button: {
     width: '80%',
     height: '50%',
-    backgroundColor: '#336B66',
+    backgroundColor: '#167286',
     borderWidth: 1,
     borderRadius: 2,
     borderColor: 'black',
