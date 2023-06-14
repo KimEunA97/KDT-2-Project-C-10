@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import TodayModal from '../component/TodaModal';
+import TodayModal from '../component/TodayModal';
 import PillList from '../component/PillList';
 
 export default function TodayPillMenu() {
@@ -21,9 +21,11 @@ export default function TodayPillMenu() {
 
   return (
     <View style={styles.align}>
+      {!PillList.length && (
       <TouchableOpacity style={styles.border} onPress={modalVisible}>
         <Text>보이기</Text>
       </TouchableOpacity>
+      )}
 
       <TodayModal visible={visible} onClose={closeModal} onAddPill={addPill} />
 
