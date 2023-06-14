@@ -20,7 +20,7 @@ export default function TodayPillMenu() {
       <TouchableOpacity style={styles.border} onPress={modalVisible}>
         <Text>보이기</Text>
       </TouchableOpacity>
-
+      
       <TodayModal visible={visible} onClose={closeModal} />
     </View>
   );

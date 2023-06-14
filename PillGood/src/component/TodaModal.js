@@ -1,15 +1,32 @@
-import React from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 
 const TodayModal = ({ visible, onClose }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (text) => {
+    setInputValue(text);
+  };
+
+  const handleConfirm = () => {
+    console.log('Input Value:', inputValue);
+    onClose();
+  };
+
   return (
     <Modal visible={visible} transparent>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <Text>내용</Text>
+          
+          <TextInput
+            style={styles.input}
+            placeholder="값을 입력하세요"
+            value={inputValue}
+            onChangeText={handleInputChange}
+          />
 
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={onClose}>
+            <TouchableOpacity onPress={handleConfirm}>
               <Text>확인</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={onClose}>
@@ -35,6 +52,12 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     width: '80%',
     alignSelf: 'center',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    padding: 10,
+    marginTop: 10,
   },
   btnContainer: {
     justifyContent: 'space-between',
