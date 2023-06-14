@@ -3,7 +3,7 @@ import { Touchable, TouchableOpacity } from "react-native";
 import { View, Text, StyleSheet } from "react-native";
 
 
-export default function ModalBox() {
+export default function ModalBox(visible) {
 
   return (
 
