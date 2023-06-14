@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // 반투명 배경 적용
   },
   modalContent: {
-    backgroundColor: 'yellow',
+    backgroundColor: '#007088',
     padding: 20,
     borderRadius: 4,
     width: '80%',
