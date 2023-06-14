@@ -2,16 +2,28 @@ import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 
 const TodayModal = ({ visible, onClose, onAddPill }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [PillName, setPillName] = useState('');
+  const [CompanyName, setCompanyName] = useState('');
+  const [symptoms, setSymptoms] = useState('');
 
-  const handleInputChange = (text) => {
-    setInputValue(text);
+  const handlePillNameChange = (text) => {
+    setPillName(text);
+  };
+
+  const handleCompanyNameChange = (text) => {
+    setCompanyName(text);
+  };
+
+  const handleSymptomsChange = (text) => {
+    setSymptoms(text);
   };
 
   const handleConfirm = () => {
-    if (inputValue) {
-      onAddPill(inputValue);
-      setInputValue('');
+    if (PillName && CompanyName && symptoms) {
+      onAddPill(PillName, CompanyName, symptoms);
+      setPillName('');
+      setCompanyName('');
+      setSymptoms('');
     }
     onClose();
   };
@@ -20,23 +32,44 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
     <Modal visible={visible} transparent>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <Text>내용</Text>
+          <Text style={styles.textColor}>제품명</Text>
 
           <TextInput
             style={styles.input}
-            placeholder="값을 입력하세요"
-            value={inputValue}
-            onChangeText={handleInputChange}
+            placeholder="제품명"
+            value={PillName}
+            onChangeText={handlePillNameChange}
+          />
+
+          <Text style={styles.textColor}>업체명</Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="업체명"
+            value={CompanyName}
+            onChangeText={handleCompanyNameChange}
+          />
+
+          <Text style={styles.textColor}>증    상</Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="증    상"
+            value={symptoms}
+            onChangeText={handleSymptomsChange}
           />
 
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={handleConfirm}>
-              <Text>확인</Text>
+            <TouchableOpacity onPress={handleConfirm}
+              style={styles.createBtn}>
+              <Text style={styles.textColor}>추가</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={onClose}>
-              <Text>취소</Text>
+            <TouchableOpacity onPress={onClose}
+              style={styles.cancelBtn}>
+              <Text style={styles.textColor}>취소</Text>
             </TouchableOpacity>
           </View>
+
         </View>
       </View>
     </Modal>
@@ -48,7 +81,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // 반투명 배경 적용
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
     backgroundColor: '#007088',
@@ -57,6 +90,11 @@ const styles = StyleSheet.create({
     width: '80%',
     alignSelf: 'center',
   },
+  textColor: {
+    color: "white",
+    textAlign : "center",
+    
+  },
   input: {
     borderWidth: 1,
     borderColor: 'gray',
@@ -64,9 +102,18 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   btnContainer: {
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     flexDirection: 'row',
     marginTop: 20,
+  },
+  createBtn: {
+    width: "40%",
+    backgroundColor: "#4B73FF",
+  },
+  cancelBtn: {
+    width: "40%",
+    backgroundColor: "#00BC9A",
+
   },
 });
 
