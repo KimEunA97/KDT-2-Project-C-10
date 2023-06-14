@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 
-const TodayModal = ({ visible, onClose }) => {
+const TodayModal = ({ visible, onClose, onAddPill }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (text) => {
@@ -9,7 +9,10 @@ const TodayModal = ({ visible, onClose }) => {
   };
 
   const handleConfirm = () => {
-    console.log('Input Value:', inputValue);
+    if (inputValue) {
+      onAddPill(inputValue);
+      setInputValue('');
+    }
     onClose();
   };
 
@@ -17,7 +20,8 @@ const TodayModal = ({ visible, onClose }) => {
     <Modal visible={visible} transparent>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          
+          <Text>내용</Text>
+
           <TextInput
             style={styles.input}
             placeholder="값을 입력하세요"
