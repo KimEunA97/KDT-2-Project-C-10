@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const PillList = ({ list }) => {
   return (
     <View style={styles.pillList}>
-      <Text style={styles.listTitle}>Pill List:</Text>
+      <Text style={styles.listTitle}></Text>
       {list.map((pill, index) => (
         <View key={index} style={styles.pillItem}>
           <Text style={styles.pillText}>{pill}</Text>
