@@ -21,10 +21,10 @@ export default function TodayPillMenu() {
 
   return (
     <View style={styles.align}>
-      {!PillList.length && (
-      <TouchableOpacity style={styles.border} onPress={modalVisible}>
-        <Text>보이기</Text>
-      </TouchableOpacity>
+      {pillList.length === 0 && (
+        <TouchableOpacity style={styles.border} onPress={modalVisible}>
+          <Text>보이기</Text>
+        </TouchableOpacity>
       )}
 
       <TodayModal visible={visible} onClose={closeModal} onAddPill={addPill} />
