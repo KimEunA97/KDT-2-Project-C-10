@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { Constants, statusBarHeight } from 'expo-constants';
 
 
 import TabNavigation from './src/component/TabNavigation.js';
@@ -10,23 +11,25 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 export default function App() {
 
   return (
-    <SafeAreaProvider style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
-      <StatusBar style='auto'></StatusBar>
-      <View style={styles.container}>
-        {/* header */}
-        <TabNavigation></TabNavigation>
-        {/* footer */}
-        <FixedStateButton></FixedStateButton>
-      </View>
-    </SafeAreaProvider>
+    <SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1, marginTop: Constants.statusBarHeight }}>
+        <View style={{ flex: 1, }}>
+          <StatusBar style='dark'></StatusBar>
+          {/* header */}
+          <TabNavigation></TabNavigation>
+          {/* footer */}
+          <FixedStateButton></FixedStateButton>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider >
   );
 }
 
 
-const styles = {
+// const styles = {
 
-  container: {
-    flex: 1,
-  }
+//   container: {
+//     flex: 1,
+//   }
 
-}
+// }
