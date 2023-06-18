@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 
 const TodayModal = ({ visible, onClose, onAddPill }) => {
-  const [PillName, setPillName] = useState('');
-  const [CompanyName, setCompanyName] = useState('');
+  const [pillName, setPillName] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const [symptoms, setSymptoms] = useState('');
 
   const handlePillNameChange = (text) => {
@@ -19,8 +19,13 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
   };
 
   const handleConfirm = () => {
-    if (PillName && CompanyName && symptoms) {
-      onAddPill(PillName, CompanyName, symptoms);
+    if (pillName || companyName || symptoms) {
+      const pill = {
+        pillName : pillName,
+        companyName : companyName,
+        symptoms : symptoms,
+      }
+      onAddPill(pill);
       setPillName('');
       setCompanyName('');
       setSymptoms('');
@@ -36,7 +41,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
           <TextInput
             style={styles.input}
             placeholder="제품명"
-            value={PillName}
+            value={pillName}
             onChangeText={handlePillNameChange}
           />
 
@@ -44,7 +49,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
           <TextInput
             style={styles.input}
             placeholder="업체명"
-            value={CompanyName}
+            value={companyName}
             onChangeText={handleCompanyNameChange}
           />
 

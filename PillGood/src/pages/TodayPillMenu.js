@@ -16,6 +16,7 @@ export default function TodayPillMenu() {
   };
 
   const addPill = (pill) => {
+    console.log(pill)
     setPillList([...pillList, pill]);
   };
 
