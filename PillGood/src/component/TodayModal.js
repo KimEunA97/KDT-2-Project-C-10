@@ -111,12 +111,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   createBtn: {
-    width: '40%',
+    width: '45%',
     backgroundColor: '#4B73FF',
+    borderRadius : 5,
   },
   cancelBtn: {
-    width: '40%',
+    width: '45%',
     backgroundColor: '#00BC9A',
+    borderRadius : 5,
+
   },
 });
 
