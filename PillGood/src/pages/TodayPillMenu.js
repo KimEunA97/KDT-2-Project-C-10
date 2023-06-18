@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import TodayModal from '../component/TodayModal';
 import PillList from '../component/PillList';
 
@@ -24,7 +24,7 @@ export default function TodayPillMenu() {
     <View style={styles.align}>
       {pillList.length === 0 && (
         <TouchableOpacity style={styles.button} onPress={modalVisible}>
-          <Text>보이기</Text>
+          <Image source={require('../img/plusMark.png')} style={styles.img}></Image>
         </TouchableOpacity>
       )}
 
@@ -49,5 +49,12 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     padding: 5,
     margin: 0,
+
+    alignItems : 'center'
   },
+  img : {
+    //이미지 크기 조절 방식
+    width : 40,
+    resizeMode: 'contain',
+  }
 });
