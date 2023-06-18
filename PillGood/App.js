@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { Constants, statusBarHeight } from 'expo-constants';
+import Constants from 'expo-constants';
 
 
 import TabNavigation from './src/component/TabNavigation.js';
@@ -14,7 +14,6 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, marginTop: Constants.statusBarHeight }}>
         <View style={{ flex: 1, }}>
-          <StatusBar style='dark'></StatusBar>
           {/* header */}
           <TabNavigation></TabNavigation>
           {/* footer */}
