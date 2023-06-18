@@ -88,17 +88,22 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 4,
     width: '80%',
+    height : "80%",
     alignSelf: 'center',
   },
   textColor: {
     color: 'white',
     textAlign: 'center',
+    fontSize : 30,
   },
   input: {
     borderWidth: 1,
+    backgroundColor : "white",
     borderColor: 'gray',
     padding: 10,
     marginTop: 10,
+    fontSize : 20,
+    textAlign : "center"
   },
   btnContainer: {
     justifyContent: 'space-around',
