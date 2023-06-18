@@ -9,6 +9,7 @@ const PillList = ({ list }) => {
           <Text style={styles.pillText}>{pill.pillName}</Text>
           <Text style={styles.pillText}>{pill.companyName}</Text>
           <Text style={styles.pillText}>{pill.symptoms}</Text>
+          <Text style={styles.pillText}>{pill.timerValue}</Text>
         </View>
       ))}
     </View>

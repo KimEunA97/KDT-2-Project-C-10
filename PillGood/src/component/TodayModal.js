@@ -32,24 +32,26 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
       setTimerValue(0); // 숫자로 변환할 수 없는 경우 기본값으로 설정
     }
   };
-  
+
   //pillList 컴포넌트로 전달
   const handleConfirm = () => {
+    //확인버튼 누르면 입력한 칸 초기화
+    setPillName('');
+    setCompanyName('');
+    setSymptoms('');
+    setTimerValue(0);
+
     // 객체로 여러 값을 전달할 수 있음
-    if (pillName || companyName || symptoms) {
+    if (pillName || companyName || symptoms || timerValue) {
       const pill = {
         pillName: pillName,
         companyName: companyName,
         symptoms: symptoms,
-        timerValue : timerValue,
+        timerValue: timerValue,
       }
       //객체 콜백
       onAddPill(pill);
-      //확인버튼 누르면 입력한 칸 초기화
-      setPillName('');
-      setCompanyName('');
-      setSymptoms('');
-      setTimerValue(0);
+
     }
     //확인 누르면 닫기
     onClose();
