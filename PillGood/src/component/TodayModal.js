@@ -33,7 +33,6 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <Text style={styles.textColor}>제품명</Text>
-
           <TextInput
             style={styles.input}
             placeholder="제품명"
@@ -42,7 +41,6 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
           />
 
           <Text style={styles.textColor}>업체명</Text>
-
           <TextInput
             style={styles.input}
             placeholder="업체명"
@@ -50,26 +48,23 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             onChangeText={handleCompanyNameChange}
           />
 
-          <Text style={styles.textColor}>증    상</Text>
-
+          <Text style={styles.textColor}>증 상</Text>
           <TextInput
             style={styles.input}
-            placeholder="증    상"
+            placeholder="증 상"
             value={symptoms}
             onChangeText={handleSymptomsChange}
           />
 
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={handleConfirm}
-              style={styles.createBtn}>
+            <TouchableOpacity onPress={handleConfirm} style={styles.createBtn}>
               <Text style={styles.textColor}>추가</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={onClose}
-              style={styles.cancelBtn}>
+
+            <TouchableOpacity onPress={onClose} style={styles.cancelBtn}>
               <Text style={styles.textColor}>취소</Text>
             </TouchableOpacity>
           </View>
-
         </View>
       </View>
     </Modal>
@@ -91,9 +86,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   textColor: {
-    color: "white",
-    textAlign : "center",
-    
+    color: 'white',
+    textAlign: 'center',
   },
   input: {
     borderWidth: 1,
@@ -107,13 +101,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   createBtn: {
-    width: "40%",
-    backgroundColor: "#4B73FF",
+    width: '40%',
+    backgroundColor: '#4B73FF',
   },
   cancelBtn: {
-    width: "40%",
-    backgroundColor: "#00BC9A",
-
+    width: '40%',
+    backgroundColor: '#00BC9A',
   },
 });
 
