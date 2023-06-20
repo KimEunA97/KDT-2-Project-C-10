@@ -2,8 +2,7 @@ import React from "react";
 import { Button } from 'react-native';
 import { useNotifications } from 'expo-notifications';
 
-
-function Alarm() {
+export default function Alarm() {
 
   const { scheduleNotificationAsync } = useNotifications();
 
