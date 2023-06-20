@@ -1,13 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet } from 'react-native';
-import Alarm from './Alarm';
 
 const Timer = ({ timerValue }) => {
-  const [remainingTime, setRemainingTime] = useState(timerValue);
+    const defaultTimerValue = { hours: 0, minutes: 0, seconds: 0 };
+    const [remainingTime, setRemainingTime] = useState(timerValue || defaultTimerValue);
+  
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRemainingTime((prevTime) => prevTime - 1000);
+      setRemainingTime((prevTime) => {
+        if (prevTime.hours === 0 && prevTime.minutes === 0 && prevTime.seconds === 0) {
+          clearInterval(interval);
+          return prevTime;
+        }
+
+        const updatedTime = { ...prevTime };
+
+        if (updatedTime.seconds > 0) {
+          updatedTime.seconds--;
+        } else {
+          if (updatedTime.minutes > 0) {
+            updatedTime.minutes--;
+            updatedTime.seconds = 59;
+          } else {
+            if (updatedTime.hours > 0) {
+              updatedTime.hours--;
+              updatedTime.minutes = 59;
+              updatedTime.seconds = 59;
+            }
+          }
+        }
+
+        return updatedTime;
+      });
     }, 1000);
 
     return () => {
@@ -15,25 +41,19 @@ const Timer = ({ timerValue }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (remainingTime <= 0) {
-      setRemainingTime(0); // remainingTime을 0으로 설정하여 타이머가 멈추도록 합니다.
-    }
-  }, [remainingTime]);
-
-
   const formatTime = (time) => {
-    const seconds = Math.floor(time / 1000) % 60;
-    const minutes = Math.floor(time / 1000 / 60) % 60;
-    const hours = Math.floor(time / 1000 / 60 / 60);
+    const hours = time.hours.toString().padStart(2, '0');
+    const minutes = time.minutes.toString().padStart(2, '0');
+    const seconds = time.seconds.toString().padStart(2, '0');
 
-    return `${hours.toString().padStart(2, '0')}:${minutes
-      .toString()
-      .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    return `${hours}:${minutes}:${seconds}`;
   };
 
-  return <Text style={styles.timerText}>{formatTime(remainingTime)}</Text>;
-
+  return (
+    <Text style={styles.timerText}>
+      {formatTime(remainingTime)}
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
