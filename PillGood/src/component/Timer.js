@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 const Timer = ({ timerValue }) => {
   const [remainingTime, setRemainingTime] = useState(timerValue);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRemainingTime((prevTime) => Math.max(0, prevTime - 1000));
+      setRemainingTime((prevTime) => prevTime - 1000);
     }, 1000);
 
     return () => {
@@ -24,7 +24,13 @@ const Timer = ({ timerValue }) => {
       .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  return <Text>{formatTime(remainingTime)}</Text>;
+  return <Text style={styles.timerText}>{formatTime(remainingTime)}</Text>;
 };
+
+const styles = StyleSheet.create({
+  timerText: {
+    color: 'white',
+  },
+});
 
 export default Timer;
