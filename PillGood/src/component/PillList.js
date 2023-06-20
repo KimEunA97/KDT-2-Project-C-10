@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Timer from './Timer';
 
 const PillList = ({ list }) => {
   return (
@@ -9,22 +10,17 @@ const PillList = ({ list }) => {
           <Text style={styles.pillText}>{pill.pillName}</Text>
           <Text style={styles.pillText}>{pill.companyName}</Text>
           <Text style={styles.pillText}>{pill.symptoms}</Text>
-          <Text style={styles.pillText}>{pill.timerValue}</Text>
+          <Timer timerValue={pill.timerValue} />
         </View>
       ))}
     </View>
   );
 };
 
-
 const styles = StyleSheet.create({
   pillList: {
     marginTop: 20,
     alignItems: 'center',
-  },
-  listTitle: {
-    fontWeight: 'bold',
-    marginBottom: 10,
   },
   pillItem: {
     backgroundColor: '#007088',
