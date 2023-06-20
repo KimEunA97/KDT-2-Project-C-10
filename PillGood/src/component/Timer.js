@@ -14,14 +14,13 @@ const Timer = ({ timerValue }) => {
       clearInterval(interval);
     };
   }, []);
- 
+
   useEffect(() => {
     if (remainingTime <= 0) {
-      // remainingTime이 0보다 작거나 같을 때 Alarm 컴포넌트를 렌더링합니다.
-      // 올바른 형태로 수정: JSX로 Alarm 컴포넌트를 렌더링합니다.
-      return <Alarm />;
+      setRemainingTime(0); // remainingTime을 0으로 설정하여 타이머가 멈추도록 합니다.
     }
   }, [remainingTime]);
+
 
   const formatTime = (time) => {
     const seconds = Math.floor(time / 1000) % 60;
@@ -34,6 +33,7 @@ const Timer = ({ timerValue }) => {
   };
 
   return <Text style={styles.timerText}>{formatTime(remainingTime)}</Text>;
+
 };
 
 const styles = StyleSheet.create({
