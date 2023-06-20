@@ -1,6 +1,7 @@
-import React from "react";
-import { Button } from 'react-native';
+import React, { useEffect } from "react";
+import { Button, StyleSheet } from 'react-native';
 import { useNotifications } from 'expo-notifications';
+import * as Permissions from 'expo-permissions'; // expo-permissions 모듈도 import해야 합니다.
 
 export default function Alarm() {
 
