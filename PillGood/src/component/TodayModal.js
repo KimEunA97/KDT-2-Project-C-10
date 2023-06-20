@@ -5,9 +5,9 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
   const [pillName, setPillName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [symptoms, setSymptoms] = useState('');
-
-  //타이머 제어
-  const [timerValue, setTimerValue] = useState('');
+  const [hours, setHours] = useState('');
+  const [minutes, setMinutes] = useState('');
+  const [seconds, setSeconds] = useState('');
 
   const handlePillNameChange = (text) => {
     setPillName(text);
@@ -21,39 +21,40 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
     setSymptoms(text);
   };
 
-  //타이머 설정 함수
-  const handleTimerChange = (text) => {
-    // parseInt는 문자열을 정수값으로 변환
-    const value = parseInt(text, 10);
-
-    if (!isNaN(value)) {
-      setTimerValue(value);
-    } else {
-      setTimerValue(0); // 숫자로 변환할 수 없는 경우 기본값으로 설정
-    }
+  const handleHoursChange = (text) => {
+    setHours(text);
   };
 
-  //pillList 컴포넌트로 전달
+  const handleMinutesChange = (text) => {
+    setMinutes(text);
+  };
+
+  const handleSecondsChange = (text) => {
+    setSeconds(text);
+  };
+
   const handleConfirm = () => {
-    //확인버튼 누르면 입력한 칸 초기화
     setPillName('');
     setCompanyName('');
     setSymptoms('');
-    setTimerValue(0);
+    setHours('');
+    setMinutes('');
+    setSeconds('');
 
-    // 객체로 여러 값을 전달할 수 있음
-    if (pillName || companyName || symptoms || timerValue) {
+    if (pillName || companyName || symptoms || hours || minutes || seconds) {
       const pill = {
         pillName: pillName,
         companyName: companyName,
         symptoms: symptoms,
-        timerValue: timerValue,
-      }
-      //객체 콜백
+        timer: {
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds,
+        },
+      };
       onAddPill(pill);
-
     }
-    //확인 누르면 닫기
+
     onClose();
   };
 
@@ -85,15 +86,37 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             onChangeText={handleSymptomsChange}
           />
 
+          <View style={styles.timeInputContainer}>
+            <View style={styles.timeInput}>
+              <Text style={styles.textColor}>시</Text>
+              <TextInput
+                style={styles.timeTextInput}
+                placeholder="시"
+                value={hours}
+                onChangeText={handleHoursChange}
+              />
+            </View>
 
-          <Text style={styles.textColor}>시간 설정</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="시간 설정"
-            value={timerValue.toString()}
-            onChangeText={handleTimerChange}
-          />
+            <View style={styles.timeInput}>
+              <Text style={styles.textColor}>분</Text>
+              <TextInput
+                style={styles.timeTextInput}
+                placeholder="분"
+                value={minutes}
+                onChangeText={handleMinutesChange}
+              />
+            </View>
 
+            <View style={styles.timeInput}>
+              <Text style={styles.textColor}>초</Text>
+              <TextInput
+                style={styles.timeTextInput}
+                placeholder="초"
+                value={seconds}
+                onChangeText={handleSecondsChange}
+              />
+            </View>
+          </View>
 
           <View style={styles.btnContainer}>
             <TouchableOpacity onPress={handleConfirm} style={styles.createBtn}>
@@ -122,7 +145,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 4,
     width: '80%',
-    height: "80%",
+    height: '80%',
     alignSelf: 'center',
   },
   textColor: {
@@ -132,12 +155,30 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderColor: 'gray',
     padding: 10,
     marginTop: 10,
     fontSize: 20,
-    textAlign: "center"
+    textAlign: 'center',
+  },
+  timeInputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  timeInput: {
+    flex: 1,
+    marginHorizontal: 5,
+  },
+  timeTextInput: {
+    borderWidth: 1,
+    backgroundColor: 'white',
+    borderColor: 'gray',
+    padding: 10,
+    marginTop: 5,
+    fontSize: 20,
+    textAlign: 'center',
   },
   btnContainer: {
     justifyContent: 'space-around',
@@ -153,7 +194,6 @@ const styles = StyleSheet.create({
     width: '45%',
     backgroundColor: '#00BC9A',
     borderRadius: 5,
-
   },
 });
 
