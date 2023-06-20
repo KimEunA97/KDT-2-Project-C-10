@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, StyleSheet, Modal, View, TouchableOpacity, TextInput } from 'react-native';
+import Timer from './Timer'
 
 const TodayModal = ({ visible, onClose, onAddPill }) => {
   const [pillName, setPillName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [symptoms, setSymptoms] = useState('');
-  const [hours, setHours] = useState('');
-  const [minutes, setMinutes] = useState('');
-  const [seconds, setSeconds] = useState('');
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
   const handlePillNameChange = (text) => {
     setPillName(text);
@@ -22,24 +23,24 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
   };
 
   const handleHoursChange = (text) => {
-    setHours(text);
+    setHours(parseInt(text));
   };
 
   const handleMinutesChange = (text) => {
-    setMinutes(text);
+    setMinutes(parseInt(text));
   };
 
   const handleSecondsChange = (text) => {
-    setSeconds(text);
+    setSeconds(parseInt(text));
   };
 
   const handleConfirm = () => {
     setPillName('');
     setCompanyName('');
     setSymptoms('');
-    setHours('');
-    setMinutes('');
-    setSeconds('');
+    setHours(0);
+    setMinutes(0);
+    setSeconds(0);
 
     if (pillName || companyName || symptoms || hours || minutes || seconds) {
       const pill = {
@@ -92,7 +93,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
               <TextInput
                 style={styles.timeTextInput}
                 placeholder="시"
-                value={hours}
+                value={hours.toString()}
                 onChangeText={handleHoursChange}
               />
             </View>
@@ -102,7 +103,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
               <TextInput
                 style={styles.timeTextInput}
                 placeholder="분"
-                value={minutes}
+                value={minutes.toString()}
                 onChangeText={handleMinutesChange}
               />
             </View>
@@ -112,7 +113,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
               <TextInput
                 style={styles.timeTextInput}
                 placeholder="초"
-                value={seconds}
+                value={seconds.toString()}
                 onChangeText={handleSecondsChange}
               />
             </View>
@@ -127,6 +128,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
               <Text style={styles.textColor}>취소</Text>
             </TouchableOpacity>
           </View>
+
         </View>
       </View>
     </Modal>
@@ -195,6 +197,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#00BC9A',
     borderRadius: 5,
   },
+  timerText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 24,
+    marginTop: 20,
+  },
 });
 
 export default TodayModal;
+

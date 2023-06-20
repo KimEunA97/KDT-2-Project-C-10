@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Modal, View, TouchableOpacity, TextInput } from 'react-native';
 
 const Timer = ({ timerValue }) => {
-    const defaultTimerValue = { hours: 0, minutes: 0, seconds: 0 };
-    const [remainingTime, setRemainingTime] = useState(timerValue || defaultTimerValue);
-  
-  
+  const defaultTimerValue = { hours: 0, minutes: 0, seconds: 0 };
+  const [remainingTime, setRemainingTime] = useState(timerValue || defaultTimerValue);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,10 +54,12 @@ const Timer = ({ timerValue }) => {
   );
 };
 
+
+
 const styles = StyleSheet.create({
   timerText: {
     color: 'white',
   },
 });
 
-export default Timer;
+export default Timer
