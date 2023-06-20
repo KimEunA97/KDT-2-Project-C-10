@@ -14,7 +14,7 @@ const Timer = ({ timerValue }) => {
       clearInterval(interval);
     };
   }, []);
-
+ 
   useEffect(() => {
     if (remainingTime <= 0) {
       // remainingTime이 0보다 작거나 같을 때 Alarm 컴포넌트를 렌더링합니다.
