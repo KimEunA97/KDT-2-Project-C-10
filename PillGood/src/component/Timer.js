@@ -13,14 +13,15 @@ const Timer = ({ timerValue }) => {
     return () => {
       clearInterval(interval);
     };
-  }, []); // 의존성 배열을 빈 배열([])로 변경합니다.
+  }, []);
 
   useEffect(() => {
     if (remainingTime <= 0) {
       // remainingTime이 0보다 작거나 같을 때 Alarm 컴포넌트를 렌더링합니다.
-      Alarm();
+      // 올바른 형태로 수정: JSX로 Alarm 컴포넌트를 렌더링합니다.
+      return <Alarm />;
     }
-  }, [remainingTime]); // remainingTime이 변경될 때마다 useEffect가 작동하도록 의존성 배열을 추가합니다.
+  }, [remainingTime]);
 
   const formatTime = (time) => {
     const seconds = Math.floor(time / 1000) % 60;
