@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import TodayModal from '../component/TodayModal';
 import PillList from '../component/PillList';
 
-export default function TodayPillMenu() {
+export default function TodayPillMenu(TimerDone) {
   const [visible, setVisible] = useState(false);
   const [pillList, setPillList] = useState([]);
 
@@ -30,7 +30,7 @@ export default function TodayPillMenu() {
 
       <TodayModal visible={visible} onClose={closeModal} onAddPill={addPill} />
 
-      <PillList list={pillList} />
+      <PillList list={pillList} TimerDone={TimerDone} />
     </View>
   );
 }

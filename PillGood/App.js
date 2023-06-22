@@ -10,12 +10,16 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
 
+  function TimerDone() {
+    console.log("12")
+  }
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, marginTop: Constants.statusBarHeight }}>
         <View style={{ flex: 1, }}>
           {/* header */}
-          <TabNavigation></TabNavigation>
+          <TabNavigation TimerDone={TimerDone}></TabNavigation>
           {/* footer */}
           <FixedStateButton></FixedStateButton>
         </View>

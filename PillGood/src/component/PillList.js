@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Timer from './Timer';
 
-const PillList = ({ list }) => {
+const PillList = ({ list, TimerDone }) => {
   return (
     <View style={styles.pillList}>
       {list.map((pill, index) => (
@@ -10,7 +10,7 @@ const PillList = ({ list }) => {
           <Text style={styles.pillText}>{pill.pillName}</Text>
           <Text style={styles.pillText}>{pill.companyName}</Text>
           <Text style={styles.pillText}>{pill.symptoms}</Text>
-          <Timer timerValue={pill.timerValue} />
+          <Timer timerValue={pill.timerValue} TimerDone={TimerDone} />
         </View>
       ))}
     </View>
