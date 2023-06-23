@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
+
+
 const Timer = ({ timerValue, TimerDone }) => {
   const [remainingTime, setRemainingTime] = useState(timerValue);
 
@@ -12,18 +14,19 @@ const Timer = ({ timerValue, TimerDone }) => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [remainingTime]);
 
   function TimerDone() {
     console.log("sd");
     return;
   };
-
   useEffect(() => {
     if (remainingTime <= 0) {
       setRemainingTime(0); // remainingTime을 0으로 설정하여 타이머가 멈추도록 합니다.
       TimerDone();
+
     }
+    
   }, [remainingTime]);
 
 
