@@ -1,11 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, useState, TouchableOpacity } from 'react-native';
 
 
-export default function FixedStateButton() {
+export default function FixedStateButton(changeStyling) {
+
+  const [defaultStyle, setDefaultStyle] = useState(changeStyling);
+
+
 
   return (
-    <View style={styles.fixedContainer}>
+    <View style={[styles.fixedContainer,  ]}>
       <View style={styles.detailContainer}>
 
         <TouchableOpacity>
@@ -39,5 +43,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around"
 
-  }
+  },
+  retakePillFixedContainer :{
+    width: '100%',
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: 'green',
+    padding: 40,
+  },
+  retakePillFixedDetailContainer: {
+    height: 30,
+    flexDirection: "row",
+    justifyContent: "space-around"
+
+  },
+
 });

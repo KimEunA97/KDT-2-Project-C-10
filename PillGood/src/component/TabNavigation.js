@@ -7,7 +7,7 @@ import SettingMenu from '../pages/SettingMenu';
 import InteractionTab from './InteractionTabs.js'
 
 
-const TabNavigation = () => {
+const TabNavigation = (onTimerDone) => {
   const [activeTab, setActiveTab] = useState('TodayPillMenu');
 
   const tabs = [
@@ -60,7 +60,7 @@ const TabNavigation = () => {
       {/* 하위 컴포넌트 : 유저 상호작용 버튼 */}
       <InteractionTab></InteractionTab>
       {/* 활성화된 탭에 해당하는 컴포넌트 */}
-      {activeTab === 'TodayPillMenu' && <TodayPillMenu />}
+      {activeTab === 'TodayPillMenu' && <TodayPillMenu onTimerDone={onTimerDone} />}
       {activeTab === 'ViewAllMenu' && <ViewAllMenu />}
       {activeTab === 'SearchMenu' && <SearchMenu />}
       {activeTab === 'SettingMenu' && <SettingMenu />}

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet } from 'react-native';
-import Alarm from './Alarm';
 
-const Timer = ({ timerValue }) => {
+const Timer = ({ timerValue, onTimerDone }) => {
   const [remainingTime, setRemainingTime] = useState(timerValue);
 
   useEffect(() => {
@@ -17,10 +16,10 @@ const Timer = ({ timerValue }) => {
 
   useEffect(() => {
     if (remainingTime <= 0) {
-      setRemainingTime(0); // remainingTime을 0으로 설정하여 타이머가 멈추도록 합니다.
+      setRemainingTime(0);
+      onTimerDone();
     }
-  }, [remainingTime]);
-
+  }, [remainingTime, onTimerDone]);
 
   const formatTime = (time) => {
     const seconds = Math.floor(time / 1000) % 60;
@@ -33,7 +32,6 @@ const Timer = ({ timerValue }) => {
   };
 
   return <Text style={styles.timerText}>{formatTime(remainingTime)}</Text>;
-
 };
 
 const styles = StyleSheet.create({
