@@ -3,10 +3,14 @@ import { Text, StyleSheet } from 'react-native';
 
 const Timer = ({ timerValue, onTimerDone }) => {
   const [remainingTime, setRemainingTime] = useState(timerValue);
+  console.log(remainingTime)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRemainingTime((prevTime) => prevTime - 1000);
+      setRemainingTime((prevTime) => {
+        const newTime = prevTime - 1000;
+        return newTime >= 0 ? newTime : 0;
+      });
     }, 1000);
 
     return () => {
@@ -15,11 +19,10 @@ const Timer = ({ timerValue, onTimerDone }) => {
   }, []);
 
   useEffect(() => {
-    if (remainingTime <= 0) {
-      setRemainingTime(0);
+    if (remainingTime === 0) {
       onTimerDone();
     }
-  }, [remainingTime, onTimerDone]);
+  }, [onTimerDone]);
 
   const formatTime = (time) => {
     const seconds = Math.floor(time / 1000) % 60;
