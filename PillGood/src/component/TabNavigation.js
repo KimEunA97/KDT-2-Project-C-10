@@ -7,7 +7,7 @@ import SettingMenu from '../pages/SettingMenu';
 import InteractionTab from './InteractionTabs.js'
 
 
-const TabNavigation = (onTimerDone) => {
+const TabNavigation = ({ onTimerDone }) => {
   const [activeTab, setActiveTab] = useState('TodayPillMenu');
 
   const tabs = [

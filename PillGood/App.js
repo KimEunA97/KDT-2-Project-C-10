@@ -9,9 +9,10 @@ import FixedStateButton from './src/pages/fixedStateButton.js';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
+  
   const [timerDone, setTimerDone] = useState(false);
   const handleTimerDone = () => {
-    setTimerDone(timerDone);
+    setTimerDone(true);
 
   }
 
@@ -22,7 +23,7 @@ export default function App() {
           {/* header */}
           <TabNavigation onTimerDone={handleTimerDone}></TabNavigation>
           {/* footer */}
-          <FixedStateButton changeStyling={setTimerDone}></FixedStateButton>
+          <FixedStateButton changeStyling={timerDone}></FixedStateButton>
         </View>
       </SafeAreaView>
     </SafeAreaProvider >

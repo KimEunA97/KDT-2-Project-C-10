@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import TodayModal from '../component/TodayModal';
 import PillList from '../component/PillList';
 
-export default function TodayPillMenu(onTimerDone) {
+export default function TodayPillMenu({ onTimerDone }) {
   const [visible, setVisible] = useState(false);
   const [pillList, setPillList] = useState([]);
 
@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 0,
 
-    alignItems : 'center'
+    alignItems: 'center'
   },
-  img : {
+  img: {
     //이미지 크기 조절 방식
-    width : 40,
+    width: 40,
     resizeMode: 'contain',
   }
 });
