@@ -7,9 +7,10 @@ import Constants from 'expo-constants';
 import TabNavigation from './src/component/TabNavigation.js';
 import FixedStateButton from './src/pages/fixedStateButton.js';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import FetchAPIData from './src/api/api.js';
 
 export default function App() {
-  
+
   const [timerDone, setTimerDone] = useState(false);
   const handleTimerDone = () => {
     setTimerDone(true);
@@ -24,6 +25,9 @@ export default function App() {
           <TabNavigation onTimerDone={handleTimerDone}></TabNavigation>
           {/* footer */}
           <FixedStateButton changeStyling={timerDone}></FixedStateButton>
+
+          <FetchAPIData></FetchAPIData>
+
         </View>
       </SafeAreaView>
     </SafeAreaProvider >
