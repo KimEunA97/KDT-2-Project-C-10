@@ -19,7 +19,7 @@ const FetchAPIData = () => {
   return (
     <View>
       {data ? (
-        <Text>{JSON.stringify(data)}</Text>
+        <Text>{JSON.stringify(data.header)}</Text>
       ) : (
         <Text>Loading...</Text>
       )}
