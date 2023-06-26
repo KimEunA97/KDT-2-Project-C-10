@@ -7,7 +7,7 @@ const FetchAPIData = () => {
 
   useEffect(() => {
     // API 호출
-    axios.get('https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=IGgBVJ%2BLESbzNUr3Zgld1TwbaTgjXjyTynsCnEDUeuwNeQbN7wrVenFaMf%2Bu%2FfDDDE0G4voIAFzA%2Fw9s37mTmw%3D%3D&pageNo=1&numOfRows=3&type=xml')
+    axios.get('https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=IGgBVJ%2BLESbzNUr3Zgld1TwbaTgjXjyTynsCnEDUeuwNeQbN7wrVenFaMf%2Bu%2FfDDDE0G4voIAFzA%2Fw9s37mTmw%3D%3D&pageNo=1&numOfRows=3&type=json')
       .then(response => {
         setData(response.data);
       })
@@ -19,7 +19,7 @@ const FetchAPIData = () => {
   return (
     <View>
       {data ? (
-        <Text>{data}</Text>
+        <Text>{JSON.stringify(data)}</Text>
       ) : (
         <Text>Loading...</Text>
       )}
