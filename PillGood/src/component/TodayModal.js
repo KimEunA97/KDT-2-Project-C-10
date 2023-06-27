@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import FetchPillData from '../api/FetchPillData';
 
 const TodayModal = ({ visible, onClose, onAddPill }) => {
   const [pillName, setPillName] = useState('');
@@ -61,7 +62,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
     <Modal visible={visible} transparent>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <Text style={styles.textColor}>제품명</Text>
+          {/* <Text style={styles.textColor}>제품명</Text>
           <TextInput
             style={styles.input}
             placeholder="제품명"
@@ -69,7 +70,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             onChangeText={handlePillNameChange}
           />
 
-          <Text style={styles.textColor}>업체명</Text>
+          <Text >업체명</Text>
           <TextInput
             style={styles.input}
             placeholder="업체명"
@@ -77,13 +78,14 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             onChangeText={handleCompanyNameChange}
           />
 
+
           <Text style={styles.textColor}>증 상</Text>
           <TextInput
             style={styles.input}
             placeholder="증 상"
             value={symptoms}
             onChangeText={handleSymptomsChange}
-          />
+          /> */}
 
 
           <Text style={styles.textColor}>시간 설정</Text>

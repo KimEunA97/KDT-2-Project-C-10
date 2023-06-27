@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+
 import axios from 'axios';
 
-const FetchPillData = ({ name }) => {
+function FetchPillData ({ name }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -20,7 +22,33 @@ const FetchPillData = ({ name }) => {
 
   const entpName = data ? data.body.items[0].ENTP_NAME : null;
 
-  return entpName;
+  console.dir(entpName)
+
+  return (
+    <View>
+      {entpName ? (
+        <TextInput style={styles.input}>{entpName}</TextInput>
+      ) : (
+        <Text>Loading...</Text>
+      )}
+    </View>
+  );
 };
 
 export default FetchPillData;
+
+
+const styles = StyleSheet.create({
+
+  input: {
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderColor: 'gray',
+    padding: 10,
+    marginTop: 10,
+    fontSize: 20,
+    textAlign: "center",
+    color : "white"
+  },
+
+})
