@@ -88,8 +88,8 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
           /> */}
 
           <FetchPillData style={styles.input}
-            value={companyName}
-            name={companyName}
+            value={pillName}
+            name={pillName}
             onChangeText={handleCompanyNameChange} ></FetchPillData>
 
           <Text style={styles.textColor}>시간 설정</Text>

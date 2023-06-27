@@ -24,21 +24,21 @@ function FetchPillData({ name }) {
     }
   }, [name]);
 
-  const entpName = data ? data.body.items[0].ENTP_NAME : null;
+  const itemName = data ? data.body.items[0].ITEM_NAME : null;
 
   return (
     <View>
-      {entpName ? (
+      {itemName ? (
         <View>
-          <Text style={styles.textColor}>업체명</Text>
-          <TextInput style={styles.input}>{entpName}</TextInput>
+          <Text style={styles.textColor}>제품명</Text>
+          <TextInput style={styles.input}>{itemName}</TextInput>
         </View>
       ) : (
         <View>
-          <Text style={styles.textColor}>업체명</Text>
+          <Text style={styles.textColor}>제품명</Text>
           <TextInput
             style={styles.input}
-            placeholder='업체명'></TextInput>
+            placeholder='제품명'></TextInput>
         </View>
       )}
     </View>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 20,
     textAlign: 'center',
-    color: 'gray',
+    color: 'black',
   },
   textColor: {
     color: 'white',
