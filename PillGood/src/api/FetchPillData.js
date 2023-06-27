@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
-
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import axios from 'axios';
 
 function FetchPillData({ name }) {
@@ -20,15 +19,21 @@ function FetchPillData({ name }) {
     };
 
     if (name) {
-
       fetchPillData();
-      console.log(response.data);
-      console.log(itemName)
     }
   }, [name]);
 
+    if (!name) {
+      return (
+        <View>
+          <Text style={styles.textColor}>제품명</Text>
+          <TextInput style={styles.input} placeholder='제품명' />
+        </View>
+      );
+  }
+
   const itemName = data ? data.body.items[0]?.ITEM_NAME : null;
-  console.log(itemName)
+
   return (
     <View>
       {itemName ? (
@@ -39,9 +44,7 @@ function FetchPillData({ name }) {
       ) : (
         <View>
           <Text style={styles.textColor}>제품명</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='제품명'></TextInput>
+          <TextInput style={styles.input} placeholder='제품명' />
         </View>
       )}
     </View>
