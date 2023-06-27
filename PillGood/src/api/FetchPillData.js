@@ -13,7 +13,6 @@ function FetchPillData({ name }) {
         const pillName = name;
         const url = `https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=IGgBVJ%2BLESbzNUr3Zgld1TwbaTgjXjyTynsCnEDUeuwNeQbN7wrVenFaMf%2Bu%2FfDDDE0G4voIAFzA%2Fw9s37mTmw%3D%3D&pageNo=1&numOfRows=3&item_name=${pillName}&type=json`;
         const response = await axios.get(url);
-        console.log(response.data);
         setData(response.data);
       } catch (error) {
         console.error(error);
@@ -21,12 +20,15 @@ function FetchPillData({ name }) {
     };
 
     if (name) {
+
       fetchPillData();
+      console.log(response.data);
+      console.log(itemName)
     }
   }, [name]);
 
-  const itemName = data ? data.body.items[0].ITEM_NAME : null;
-
+  const itemName = data ? data.body.items[0]?.ITEM_NAME : null;
+  console.log(itemName)
   return (
     <View>
       {itemName ? (
