@@ -87,6 +87,10 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             onChangeText={handleSymptomsChange}
           /> */}
 
+          <FetchPillData style={styles.input}
+            value={companyName}
+            name={companyName}
+            onChangeText={handleCompanyNameChange} ></FetchPillData>
 
           <Text style={styles.textColor}>시간 설정</Text>
           <TextInput
