@@ -8,56 +8,59 @@ function FetchPillData({ name }) {
 
   useEffect(() => {
     // API 호출
-    const pillName = name
-    const url = `https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=IGgBVJ%2BLESbzNUr3Zgld1TwbaTgjXjyTynsCnEDUeuwNeQbN7wrVenFaMf%2Bu%2FfDDDE0G4voIAFzA%2Fw9s37mTmw%3D%3D&pageNo=1&numOfRows=3&ENTP_NAME=${pillName}&type=json`;
-
-    axios.get(url)
-      .then(response => {
+    const fetchPillData = async () => {
+      try {
+        const pillName = name;
+        const url = `https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=IGgBVJ%2BLESbzNUr3Zgld1TwbaTgjXjyTynsCnEDUeuwNeQbN7wrVenFaMf%2Bu%2FfDDDE0G4voIAFzA%2Fw9s37mTmw%3D%3D&pageNo=1&numOfRows=3&ITEM_NAME=${pillName}&type=json`;
+        const response = await axios.get(url);
         setData(response.data);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+
+    if (name) {
+      fetchPillData();
+    }
   }, [name]);
 
   const entpName = data ? data.body.items[0].ENTP_NAME : null;
-
 
   return (
     <View>
       {entpName ? (
         <View>
           <Text style={styles.textColor}>업체명</Text>
-          <TextInput
-            placeholder='업체명'
-            style={styles.input}
-          >{entpName}</TextInput>
+          <TextInput style={styles.input}>{entpName}</TextInput>
         </View>
       ) : (
-        <Text>Loading...</Text>
+        <View>
+          <Text style={styles.textColor}>업체명</Text>
+          <TextInput
+            style={styles.input}
+            placeholder='업체명'></TextInput>
+        </View>
       )}
     </View>
   );
-};
+}
 
 export default FetchPillData;
 
-
 const styles = StyleSheet.create({
-
   input: {
     borderWidth: 1,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderColor: 'gray',
     padding: 10,
     marginTop: 10,
     fontSize: 20,
-    textAlign: "center",
-    color: "gray"
+    textAlign: 'center',
+    color: 'gray',
   },
   textColor: {
     color: 'white',
     textAlign: 'center',
     fontSize: 30,
   },
-})
+});
