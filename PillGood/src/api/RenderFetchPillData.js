@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 
 import FetchPillData from "./FetchPillData";
 
-export default function PillDataRender() {
+export default function RenderFetchPillData() {
 
   return (
     <View>
