@@ -7,7 +7,7 @@ export default function PillDataRender() {
 
   return (
     <View>
-      <FetchPillData/>
+      <FetchPillData name="타이레놀"/>
     </View>
 
   )
