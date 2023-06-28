@@ -22,13 +22,11 @@ export default function TodayPillMenu({ onTimerDone }) {
   //   console.log(pill)
   //   setPillList([...pillList, pill]);
   // };
-
-  const [pillName, setPillName] = useState('');
-
-  function handleSendValue(value) {
-
-    setPillName(value);
-
+  const [inputValue, setInputValue] = useState('');
+  const [pillName, setPilName] = useState('');
+  
+  function handleSendValue(pillName) {
+    setPilName(pillName);
   }
 
   return (
@@ -51,7 +49,7 @@ export default function TodayPillMenu({ onTimerDone }) {
         {/* 전달 잘 됨. */}
         <RenderFetchPillData pillName={pillName} />
         {/* ㅁㄴㅇ */}
-        <InputBox value={pillName} onChange={setPillName}></InputBox>
+        <InputBox value={inputValue} onChange={setInputValue}></InputBox>
         {/* ㅁㄴㅇ */}
         <ButtonBox onClick={()=>handleSendValue(pillName)}></ButtonBox>
 
