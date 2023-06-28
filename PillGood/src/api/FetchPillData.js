@@ -7,8 +7,7 @@ export default function FetchPillData({ name }) {
   useEffect(() => {
     const fetchPillData = async () => {
       try {
-        const pillName = "타이레놀";
-        const url = `https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=IGgBVJ%2BLESbzNUr3Zgld1TwbaTgjXjyTynsCnEDUeuwNeQbN7wrVenFaMf%2Bu%2FfDDDE0G4voIAFzA%2Fw9s37mTmw%3D%3D&pageNo=1&numOfRows=3&item_name=${pillName}&type=json`;
+        const url = `https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=IGgBVJ%2BLESbzNUr3Zgld1TwbaTgjXjyTynsCnEDUeuwNeQbN7wrVenFaMf%2Bu%2FfDDDE0G4voIAFzA%2Fw9s37mTmw%3D%3D&pageNo=1&numOfRows=3&item_name=${name}&type=json`;
         const response = await axios.get(url);
         setData(response.data);
       } catch (error) {
@@ -21,5 +20,5 @@ export default function FetchPillData({ name }) {
     }
   }, [name]);
 
-  return [data];
+  return data;
 }
