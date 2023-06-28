@@ -64,19 +64,16 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
         <View style={styles.modalContent}>
           <Text style={styles.textColor}>제품명</Text>
 
-          <FetchPillData
-            style={styles.input}
-            name={pillName}
-            handlePillNameChange={handlePillNameChange}
-          ></FetchPillData>
-          
+
+
           {/* <TextInput
             style={styles.input}
             placeholder="제품명"
             value={pillName}
             onChangeText={handlePillNameChange}
-          /> */}
-
+          />
+          
+          {/* 
           <Text style={styles.textColor}>업체명</Text>
           <TextInput
             style={styles.input}
@@ -92,8 +89,8 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             placeholder="증 상"
             value={symptoms}
             onChangeText={handleSymptomsChange}
-          />
-          
+          /> */}
+
 
 
           <Text style={styles.textColor}>시간 설정</Text>
