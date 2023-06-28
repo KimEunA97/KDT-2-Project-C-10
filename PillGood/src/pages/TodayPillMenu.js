@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import TodayModal from '../component/TodayModal';
 import PillList from '../component/PillList';
-import PillDataRender from '../api/RenderFetchPillData';
+import RenderFetchPillData from '../api/RenderFetchPillData';
 
 export default function TodayPillMenu({ onTimerDone }) {
   const [visible, setVisible] = useState(false);
@@ -38,8 +38,7 @@ export default function TodayPillMenu({ onTimerDone }) {
     <View>
       <ScrollView>
 
-        <PillDataRender></PillDataRender>
-        
+        <RenderFetchPillData />
       </ScrollView>
     </View>
   );
