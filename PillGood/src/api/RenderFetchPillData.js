@@ -3,11 +3,12 @@ import { View, Text } from "react-native";
 
 import FetchPillData from "./FetchPillData";
 
-export default function RenderFetchPillData() {
+export default function RenderFetchPillData({ pillName }) {
+
 
   return (
     <View>
-      <FetchPillData name="타이레놀"/>
+      <FetchPillData name={pillName} />
     </View>
 
   )

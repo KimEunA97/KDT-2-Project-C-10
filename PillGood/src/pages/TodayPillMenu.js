@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
-import { View, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, Button } from 'react-native';
 import TodayModal from '../component/TodayModal';
 import PillList from '../component/PillList';
 import RenderFetchPillData from '../api/RenderFetchPillData';
+import InputBox from '../api/Input';
+import ButtonBox from '../api/button';
 
 export default function TodayPillMenu({ onTimerDone }) {
-  const [visible, setVisible] = useState(false);
-  const [pillList, setPillList] = useState([]);
+  // const [visible, setVisible] = useState(false);
+  // const [pillList, setPillList] = useState([]);
 
-  const modalVisible = () => {
-    setVisible(true);
-  };
+  // const modalVisible = () => {
+  //   setVisible(true);
+  // };
 
-  const closeModal = () => {
-    setVisible(false);
-  };
+  // const closeModal = () => {
+  //   setVisible(false);
+  // };
 
-  const addPill = (pill) => {
-    console.log(pill)
-    setPillList([...pillList, pill]);
-  };
+  // const addPill = (pill) => {
+  //   console.log(pill)
+  //   setPillList([...pillList, pill]);
+  // };
+
+  const [pillName, setPillName] = useState('');
+
+  function handleSendValue(value) {
+
+    setPillName(value);
+
+  }
 
   return (
     // <View style={styles.align}>
@@ -38,7 +48,13 @@ export default function TodayPillMenu({ onTimerDone }) {
     <View>
       <ScrollView>
 
-        <RenderFetchPillData />
+        {/* 전달 잘 됨. */}
+        <RenderFetchPillData pillName={pillName} />
+        {/* ㅁㄴㅇ */}
+        <InputBox value={pillName} onChange={setPillName}></InputBox>
+        {/* ㅁㄴㅇ */}
+        <ButtonBox onClick={()=>handleSendValue(pillName)}></ButtonBox>
+
       </ScrollView>
     </View>
   );
