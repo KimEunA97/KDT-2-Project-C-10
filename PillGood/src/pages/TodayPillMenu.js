@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import TodayModal from '../component/TodayModal';
 import PillList from '../component/PillList';
 import PillDataRender from '../api/RenderFetchPillData';
@@ -22,19 +22,25 @@ export default function TodayPillMenu({ onTimerDone }) {
   };
 
   return (
-    <View style={styles.align}>
-      {pillList.length === 0 && (
-        <TouchableOpacity style={styles.button} onPress={modalVisible}>
-          <Image source={require('../img/plusMark.png')} style={styles.img}></Image>
-        </TouchableOpacity>
-      )}
+    // <View style={styles.align}>
+    //   {pillList.length === 0 && (
+    //     <TouchableOpacity style={styles.button} onPress={modalVisible}>
+    //       <Image source={require('../img/plusMark.png')} style={styles.img}></Image>
+    //     </TouchableOpacity>
+    //   )}
 
-      <TodayModal visible={visible} onClose={closeModal} onAddPill={addPill} />
+    //   <TodayModal visible={visible} onClose={closeModal} onAddPill={addPill} />
 
-      <PillList list={pillList} onTimerDone={onTimerDone} />
+    //   <PillList list={pillList} onTimerDone={onTimerDone} />
 
-      <PillDataRender></PillDataRender>
+    // </View>
 
+    <View>
+      <ScrollView>
+
+        <PillDataRender></PillDataRender>
+        
+      </ScrollView>
     </View>
   );
 }
