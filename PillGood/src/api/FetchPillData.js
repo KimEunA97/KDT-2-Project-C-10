@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { View, Text } from 'react-native';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
-  
+
   useEffect(() => {
     const fetchPillData = async () => {
       try {
@@ -20,5 +21,9 @@ export default function FetchPillData({ name }) {
     }
   }, [name]);
 
-  return data;
+  if (data) {
+    return <Text>{JSON.stringify(data)}</Text>
+  } else {
+    return <Text>Loading...</Text>;
+  }
 }
