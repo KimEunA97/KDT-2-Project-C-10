@@ -9,10 +9,10 @@ export default function FetchPillData({ name }) {
   useEffect(() => {
     const fetchPillData = async () => {
       try {
-        const url = `https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService01/getMdcinGrnIdntfcInfoList01?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&item_name=${name}&type=json`;
+        const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         setIsLoading(false);
-        setData(response.data.body.items[0].ITEM_NAME);
+        setData(response.data.body.items[0].itemName);
       } catch (error) {
         console.error(error);
       }
