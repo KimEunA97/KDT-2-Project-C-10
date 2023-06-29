@@ -1,25 +1,38 @@
 import React, { useState } from 'react';
-import { View, ScrollView, StyleSheet, onPress, TouchableOpacity } from 'react-native';
+import { View, ScrollView, StyleSheet, onPress, TouchableOpacity, Modal } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
 import InputBox from '../api/Input';
 import ButtonBox from '../api/button';
 
-export default function TodayPillMenu({ onTimerDone }) {
+export default function TodayPillMenu({ }) {
   const [inputValue, setInputValue] = useState('');
   const [pillName, setPillName] = useState('');
+  const [invisible, setInvisible] = useState(false)
 
   const handleSendValue = () => {
     setPillName(inputValue);
+    setInvisible(false)
+
   };
+
+  const pressTheCreateBtn = () => {
+    setInvisible(true)
+  }
 
   return (
     <View>
       <ScrollView>
         <RenderFetchPillData pillName={pillName} />
-
-        <InputBox value={inputValue} onChange={setInputValue} />
-        <TouchableOpacity onPress={handleSendValue}
+        <TouchableOpacity onPress={pressTheCreateBtn}
           style={styles.button}></TouchableOpacity>
+        <Modal visible={invisible}>
+          <InputBox
+            value={inputValue}
+            onChange={setInputValue} />
+          <TouchableOpacity
+            onPress={handleSendValue}
+            style={styles.button}></TouchableOpacity>
+        </Modal>
 
       </ScrollView>
     </View>
