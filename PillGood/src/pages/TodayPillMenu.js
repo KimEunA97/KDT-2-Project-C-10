@@ -21,7 +21,6 @@ export default function TodayPillMenu({ }) {
 
   return (
     <View>
-      <ScrollView>
         <RenderFetchPillData pillName={pillName} />
         <TouchableOpacity onPress={pressTheCreateBtn}
           style={styles.button}></TouchableOpacity>
@@ -34,7 +33,6 @@ export default function TodayPillMenu({ }) {
             style={styles.button}></TouchableOpacity>
         </Modal>
 
-      </ScrollView>
     </View>
   );
 }
