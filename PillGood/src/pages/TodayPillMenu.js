@@ -22,11 +22,11 @@ export default function TodayPillMenu({ onTimerDone }) {
 
   return (
     <View style={styles.align}>
-      {pillList.length === 0 && (
+      {/* {pillList.length === 0 && ( */}
         <TouchableOpacity style={styles.button} onPress={modalVisible}>
           <Image source={require('../img/plusMark.png')} style={styles.img}></Image>
         </TouchableOpacity>
-      )}
+      {/* )} */}
 
       <TodayModal visible={visible} onClose={closeModal} onAddPill={addPill} />
 

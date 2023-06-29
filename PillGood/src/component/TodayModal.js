@@ -22,16 +22,16 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
   };
 
   //타이머 설정 함수
-  const handleTimerChange = (text) => {
-    // parseInt는 문자열을 정수값으로 변환
-    const value = parseInt(text, 10);
+  // const handleTimerChange = (text) => {
+  //   // parseInt는 문자열을 정수값으로 변환
+  //   const value = parseInt(text, 10);
 
-    if (!isNaN(value)) {
-      setTimerValue(value);
-    } else {
-      setTimerValue(0); // 숫자로 변환할 수 없는 경우 기본값으로 설정
-    }
-  };
+  //   if (!isNaN(value)) {
+  //     setTimerValue(value);
+  //   } else {
+  //     setTimerValue(0); // 숫자로 변환할 수 없는 경우 기본값으로 설정
+  //   }
+  // };
 
   //pillList 컴포넌트로 전달
   const handleConfirm = () => {
@@ -85,14 +85,14 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             onChangeText={handleSymptomsChange}
           />
 
-
+{/* 
           <Text style={styles.textColor}>시간 설정</Text>
           <TextInput
             style={styles.input}
             placeholder="시간 설정"
             value={timerValue.toString()}
             onChangeText={handleTimerChange}
-          />
+          /> */}
 
 
           <View style={styles.btnContainer}>
