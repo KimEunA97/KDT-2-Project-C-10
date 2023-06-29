@@ -4,6 +4,9 @@ import { View, Text } from 'react-native';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
+  const [detail, setDetail] = useState(null);
+  const [symptoms, setSymptoms] = useState(null);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,6 +16,9 @@ export default function FetchPillData({ name }) {
         const response = await axios.get(url);
         setIsLoading(false);
         setData(response.data.body.items[0].itemName);
+        setSymptoms(response.data.body.items[0].efcyQesitm);
+        setDetail(response.data.body.items[0].entpName);
+
       } catch (error) {
         console.error(error);
       }
@@ -30,6 +36,12 @@ export default function FetchPillData({ name }) {
     return <Text>Loading...</Text>;
   }
   else {
-    return <Text>{JSON.stringify(data)}</Text>
+    return (
+      <View>
+        <Text>{data}</Text>
+        <Text>{symptoms}</Text>
+        <Text>{detail}</Text>
+      </View>
+    );
   }
 }
