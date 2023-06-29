@@ -3,12 +3,13 @@ import { Button, View, StyleSheet, Touchable, TouchableOpacity } from "react-nat
 
 
 
-export default function ButtonBox() {
+export default function ButtonBox({ Press }) {
 
 
   return (
     <View>
       <TouchableOpacity
+        onPress={Press}
         style={styles.input}>
       </TouchableOpacity>
     </View>
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
-    borderColor : "red",
+    borderColor: "red",
     padding: 10,
   },
 });

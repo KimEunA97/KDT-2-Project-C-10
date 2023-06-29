@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet, onPress, TouchableOpacity } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
 import InputBox from '../api/Input';
 import ButtonBox from '../api/button';
@@ -18,8 +18,9 @@ export default function TodayPillMenu({ onTimerDone }) {
         <RenderFetchPillData pillName={pillName} />
 
         <InputBox value={inputValue} onChange={setInputValue} />
-        
-        <ButtonBox onClick={handleSendValue} />
+        <TouchableOpacity onPress={handleSendValue}
+          style={styles.button}></TouchableOpacity>
+
       </ScrollView>
     </View>
   );
