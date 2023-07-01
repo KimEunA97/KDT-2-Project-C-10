@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, StyleSheet, onPress, Text, TouchableOpacity, Modal } from 'react-native';
+import { View, Image, ScrollView, StyleSheet, onPress, Text, TouchableOpacity, Modal } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
 import InputBox from '../api/InputBox';
 import ButtonBox from '../api/button';
@@ -34,6 +34,8 @@ export default function TodayPillMenu({ }) {
       {/* Create 버튼 */}
       <TouchableOpacity onPress={pressTheCreateBtn}
         style={styles.createButton}>
+        <Image source={require('../img/plusMark.png')}
+        style={{width:50,height:50}}></Image>
       </TouchableOpacity>
 
       {/* 모달창 컨테이너 */}
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonContainer: {
-    flex : 1,
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
@@ -176,9 +178,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold"
   },
-  timePickerStyle : {
-    alignItems : "center",
-    marginTop : 25,
+  timePickerStyle: {
+    alignItems: "center",
+    marginTop: 25,
 
   }
 
