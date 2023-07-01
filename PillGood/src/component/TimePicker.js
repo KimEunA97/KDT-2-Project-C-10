@@ -43,12 +43,11 @@ export const ItsDateTimePicker = () => {
 const styles = StyleSheet.create({
   dateTimePicker: {
     backgroundColor: 'white',
-    marginTop: 10,
-    padding: 10,
   },
   button: {
+    width: 200,
     backgroundColor: 'white',
-    borderRadius: 2,
+    borderRadius: 5,
     padding: 10,
   },
   buttonText: {

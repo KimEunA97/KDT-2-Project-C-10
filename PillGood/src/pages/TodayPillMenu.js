@@ -63,7 +63,7 @@ export default function TodayPillMenu({ }) {
               <InputBox></InputBox>
             </View>
 
-            <View style={{ alignSelf: "center" }}>
+            <View style={styles.timePickerStyle}>
               <ItsDateTimePicker
               ></ItsDateTimePicker>
             </View>
@@ -99,20 +99,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
-  modalContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-  },
-  modalContent: {
-    flex: 0.8,
-    backgroundColor: '#007088',
-    padding: 30,
-    borderRadius: 10,
-    width: '80%',
-    height: "60%",
-  },
   createButton: {
     width: '80%',
     height: 150,
@@ -125,6 +111,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  //모달 스타일링
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  modalContent: {
+    flex: 0.8,
+    backgroundColor: '#007088',
+    padding: 30,
+    borderRadius: 10,
+  },
+
+
 
   //아래부터 모달 내부 스타일링
   labelStyle: {
@@ -175,6 +177,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "white",
     fontWeight: "bold"
+  },
+  timePickerStyle : {
+    alignItems : "center",
+    marginTop : 25,
+
   }
 
 });
