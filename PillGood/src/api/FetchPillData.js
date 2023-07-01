@@ -39,17 +39,17 @@ export default function FetchPillData({ name }) {
     return (
       <View style={styles.container}>
 
-        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+        <View style={styles.textContainer}>
           <Text style={styles.blue}>약 이름 : </Text>
           <Text style={styles.blue}>{data}</Text>
         </View>
 
-        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+        <View style={styles.textContainer}>
           <Text style={styles.yellow}>보관법  : </Text>
           <Text style={styles.yellow}>{symptoms}</Text>
         </View>
 
-        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+        <View style={styles.textContainer}>
           <Text style={styles.red}>업체명 : </Text>
           <Text style={styles.red}>{detail}</Text>
         </View>
@@ -61,29 +61,29 @@ export default function FetchPillData({ name }) {
 
 const styles = {
   container: {
-    width: "90%",
+    width: "80%",
     backgroundColor: "gray",
     borderWidth: 1,
+    margin: 20,
+    justifyContent : "center",
+    alignItem : "center"
+  },
+  textContainer: {
+    flexDirection: "row"
   },
   red: {
-    flexWrap: 'wrap',
     color: "red",
     borderWidth: 1,
     borderColor: "red"
   },
   blue: {
-    flexWrap: 'wrap',
     color: "blue",
     borderWidth: 1,
-    borderColor: "blue",
-    
-
+    borderColor: "blue"
   },
   yellow: {
-    flexWrap: 'wrap',
     color: "yellow",
     borderWidth: 1,
     borderColor: "yellow"
-
   }
 }

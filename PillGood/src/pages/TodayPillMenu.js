@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
   allAlign: {
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   modalContainer: {
     flex: 1,
@@ -108,21 +109,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#007088',
     padding: 20,
     borderRadius: 10,
-
     width: '80%',
     height: "80%",
     alignSelf: 'center',
   },
   createButton: {
     width: '80%',
-    height: '55%',
+    height: 150,
     backgroundColor: '#167286',
     borderWidth: 1,
     borderRadius: 2,
     borderColor: 'black',
-    padding: 5,
-    margin: 0,
-    alignItems: 'center'
+    padding: 15,
+    margin: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   //아래부터 모달 내부 스타일링
