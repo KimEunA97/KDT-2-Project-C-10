@@ -44,22 +44,22 @@ export default function TodayPillMenu({ }) {
             {/* 입력칸 시작 */}
 
             {/* 약이름 */}
-            <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
-              <Text style={styles.labelStyle}> 약이름 : </Text>
+            <View style={styles.labelStyle}>
+              <Text style={styles.labelTextStyle}> 약이름 : </Text>
               <InputBox
                 value={inputValue}
                 onChange={setInputValue} />
             </View>
 
             {/* 업체명 */}
-            <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
-              <Text style={styles.labelStyle}> 업체명 : </Text>
+            <View style={styles.labelStyle}>
+              <Text style={styles.labelTextStyle}> 업체명 : </Text>
               <InputBox></InputBox>
             </View>
 
             {/* 증상 */}
-            <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
-              <Text style={styles.labelStyle}> 증    상 : </Text>
+            <View style={styles.labelStyle}>
+              <Text style={styles.labelTextStyle}> 증    상 : </Text>
               <InputBox></InputBox>
             </View>
 
@@ -106,12 +106,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
   },
   modalContent: {
+    flex: 0.8,
     backgroundColor: '#007088',
-    padding: 20,
+    padding: 30,
     borderRadius: 10,
     width: '80%',
-    height: "80%",
-    alignSelf: 'center',
+    height: "60%",
   },
   createButton: {
     width: '80%',
@@ -128,15 +128,22 @@ const styles = StyleSheet.create({
 
   //아래부터 모달 내부 스타일링
   labelStyle: {
+
+    flexDirection: "row",
+    marginTop: 20,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  labelTextStyle: {
     color: "white",
     fontWeight: "bold",
     fontSize: 30,
-    textAlign: "center"
+    textAlign: "center",
   },
   buttonContainer: {
-    height: 300,
+    flex: 1,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center"
   },
   confirmButton: {
@@ -169,9 +176,5 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold"
   }
-  // img: {
-  //   //이미지 크기 조절 방식
-  //   width: 40,
-  //   resizeMode: 'contain',
-  // }
+
 });

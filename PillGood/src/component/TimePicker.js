@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 export const ItsDateTimePicker = () => {
@@ -17,7 +17,7 @@ export const ItsDateTimePicker = () => {
   };
 
   return (
-    <SafeAreaView>
+    <View>
       <TouchableOpacity
         onPress={showDatePicker}
         style={styles.button}
@@ -32,11 +32,11 @@ export const ItsDateTimePicker = () => {
           display="spinner"
           onChange={onChange}
           style={styles.dateTimePicker}
-          positiveButton={{ label: '확인', textColor: 'green' }}
+          positiveButton={{ label: '확인', textColor: 'black' }}
           negativeButton={{ label: '취소', textColor: 'black' }}
         />
       )}
-    </SafeAreaView>
+    </View>
   );
 };
 

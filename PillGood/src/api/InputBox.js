@@ -20,11 +20,10 @@ export default function InputBox({ value, onChange }) {
 const styles = StyleSheet.create({
   input: {
     width: 150,
-    height: 40, // 적절한 높이 값으로 수정
     borderWidth: 1,
     backgroundColor: "white",
     borderColor: 'gray',
-    padding: 10,
+    padding: 5,
     marginTop: 10,
     fontSize: 20,
     textAlign: "center",
