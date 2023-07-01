@@ -107,17 +107,10 @@ const styles = StyleSheet.create({
 
   // 모달 내부
   labelStyle: {
-    color: "white", backgroundColor: "black", fontWeight: "bold", fontSize: 30, textAlign: "center"
-  },
-  inputBoxStyle: {
-    width: 100,
-    height: "10%",
-    borderWidth: 1,
-    backgroundColor: "white",
-    borderColor: 'gray',
-    padding: 10,
-    marginTop: 10,
-    fontSize: 20,
+    color: "white",
+    backgroundColor: "black",
+    fontWeight: "bold",
+    fontSize: 30,
     textAlign: "center"
   },
   buttonContainer: {
