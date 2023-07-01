@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
   },
   modalContent: {
-    flex: 0.8,
+    flex: 0.6,
     backgroundColor: '#007088',
     padding: 30,
     borderRadius: 10,
@@ -143,14 +143,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonContainer: {
-    flex: 1,
+    flex : 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
   },
   confirmButton: {
     width: 120,
-    height: '20%',
     backgroundColor: '#4B73FF',
     borderRadius: 10,
     padding: 5,
@@ -165,7 +164,6 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     width: 120,
-    height: '20%',
     backgroundColor: '#00BC9A',
     borderRadius: 10,
     padding: 5,
