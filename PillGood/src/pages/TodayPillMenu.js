@@ -40,17 +40,26 @@ export default function TodayPillMenu({ }) {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
 
-            {/* 입력칸 */}
+            {/* 입력칸 시작 */}
+
+            {/* 약이름 */}
             <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
               <Text style={styles.labelStyle}> 약이름 : </Text>
               <InputBox
                 value={inputValue}
-                onChange={setInputValue} />                
+                onChange={setInputValue} />
             </View>
 
+            {/* 업체명 */}
             <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
-            <Text style={styles.labelStyle}> 업체명 : </Text>
-            <InputBox></InputBox>
+              <Text style={styles.labelStyle}> 업체명 : </Text>
+              <InputBox></InputBox>
+            </View>
+
+            {/* 증상 */}
+            <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
+              <Text style={styles.labelStyle}> 증    상 : </Text>
+              <InputBox></InputBox>
             </View>
 
             <View style={styles.buttonContainer}>
@@ -65,7 +74,7 @@ export default function TodayPillMenu({ }) {
                 onPress={handleModalFalse}
                 style={styles.cancelButton}>
                 <Text style={styles.cancelText}
-                  >취소</Text>
+                >취소</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -87,11 +96,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
   },
   modalContent: {
     backgroundColor: '#007088',
     padding: 20,
+    borderRadius: 10,
+
     width: '80%',
     height: "80%",
     alignSelf: 'center',
@@ -119,10 +130,10 @@ const styles = StyleSheet.create({
     height: 300,
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems : "center"
+    alignItems: "center"
   },
   confirmButton: {
-    width: '40%',
+    width: 120,
     height: '20%',
     backgroundColor: '#4B73FF',
     borderRadius: 10,
@@ -131,13 +142,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  confirmText : {
-      fontSize : 30,
-      color: "white",
-      fontWeight : "bold"
+  confirmText: {
+    fontSize: 30,
+    color: "white",
+    fontWeight: "bold"
   },
   cancelButton: {
-    width: '40%',
+    width: 120,
     height: '20%',
     backgroundColor: '#00BC9A',
     borderRadius: 10,
@@ -146,10 +157,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  cancelText : {
-    fontSize : 30,
+  cancelText: {
+    fontSize: 30,
     color: "white",
-    fontWeight : "bold"
+    fontWeight: "bold"
   }
   // img: {
   //   //이미지 크기 조절 방식
