@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, onPress, Text, TouchableOpacity, Modal } 
 import RenderFetchPillData from '../api/RenderFetchPillData';
 import InputBox from '../api/InputBox';
 import ButtonBox from '../api/button';
+import { ItsDateTimePicker } from '../component/TimePicker';
 
 export default function TodayPillMenu({ }) {
   const [inputValue, setInputValue] = useState('');
@@ -60,6 +61,11 @@ export default function TodayPillMenu({ }) {
             <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
               <Text style={styles.labelStyle}> 증    상 : </Text>
               <InputBox></InputBox>
+            </View>
+
+            <View style={{ alignSelf: "center" }}>
+              <ItsDateTimePicker
+              ></ItsDateTimePicker>
             </View>
 
             <View style={styles.buttonContainer}>
