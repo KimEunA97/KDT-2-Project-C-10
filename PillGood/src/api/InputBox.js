@@ -9,7 +9,6 @@ export default function InputBox({ value, onChange }) {
   return (
     <View>
       <TextInput
-        style={styles.input}
         onChangeText={onChangeText}
         value={value}
       />
@@ -17,11 +16,12 @@ export default function InputBox({ value, onChange }) {
   );
 }
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});
+// const styles = StyleSheet.create({
+//   input: {
+//     backgroundColor : "white",
+//     height: 40,
+//     margin: 12,
+//     borderWidth: 1,
+//     padding: 10,
+//   },
+// });
