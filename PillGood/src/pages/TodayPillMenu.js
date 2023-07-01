@@ -39,13 +39,18 @@ export default function TodayPillMenu({ }) {
       <Modal visible={invisible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
+
             {/* 입력칸 */}
             <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
-              <Text style={styles.labelStyle}> 약 이름 : </Text>
+              <Text style={styles.labelStyle}> 약이름 : </Text>
               <InputBox
                 value={inputValue}
-                onChange={setInputValue}
-                style={styles.inputBoxStyle} />
+                onChange={setInputValue} />                
+            </View>
+
+            <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
+            <Text style={styles.labelStyle}> 업체명 : </Text>
+            <InputBox></InputBox>
             </View>
 
             <View style={styles.buttonContainer}>
@@ -101,23 +106,21 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     padding: 5,
     margin: 0,
-
     alignItems: 'center'
   },
 
-  // 모달 내부
+  //아래부터 모달 내부 스타일링
   labelStyle: {
     color: "white",
-    backgroundColor: "black",
     fontWeight: "bold",
     fontSize: 30,
     textAlign: "center"
   },
   buttonContainer: {
-    width: "80%",
     height: "50%",
     flexDirection: "row",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    alignItems : "center"
   },
   confirmButton: {
     width: '40%',
