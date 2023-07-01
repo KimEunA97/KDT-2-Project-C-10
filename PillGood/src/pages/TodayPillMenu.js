@@ -58,15 +58,14 @@ export default function TodayPillMenu({ }) {
               <TouchableOpacity
                 onPress={handleSendValue}
                 style={styles.confirmButton}>
-                <Text
-                  style={{ color: "white" }}>확인</Text>
+                <Text style={styles.confirmText}>확인</Text>
               </TouchableOpacity>
               {/* 취소버튼 */}
               <TouchableOpacity
                 onPress={handleModalFalse}
-                style={styles.confirmButton}>
-                <Text
-                  style={{ color: "white" }}>취소</Text>
+                style={styles.cancelButton}>
+                <Text style={styles.cancelText}
+                  >취소</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   buttonContainer: {
-    height: "50%",
+    height: 300,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems : "center"
@@ -125,15 +124,33 @@ const styles = StyleSheet.create({
   confirmButton: {
     width: '40%',
     height: '20%',
-    backgroundColor: '#167286',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: 'black',
+    backgroundColor: '#4B73FF',
+    borderRadius: 10,
     padding: 5,
     margin: 0,
     justifyContent: 'center',
     alignItems: 'center'
   },
+  confirmText : {
+      fontSize : 30,
+      color: "white",
+      fontWeight : "bold"
+  },
+  cancelButton: {
+    width: '40%',
+    height: '20%',
+    backgroundColor: '#00BC9A',
+    borderRadius: 10,
+    padding: 5,
+    margin: 0,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  cancelText : {
+    fontSize : 30,
+    color: "white",
+    fontWeight : "bold"
+  }
   // img: {
   //   //이미지 크기 조절 방식
   //   width: 40,
