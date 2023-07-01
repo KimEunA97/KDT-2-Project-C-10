@@ -9,6 +9,7 @@ export default function InputBox({ value, onChange }) {
   return (
     <View>
       <TextInput
+        style={styles.input}
         onChangeText={onChangeText}
         value={value}
       />
@@ -16,12 +17,17 @@ export default function InputBox({ value, onChange }) {
   );
 }
 
-// const styles = StyleSheet.create({
-//   input: {
-//     backgroundColor : "white",
-//     height: 40,
-//     margin: 12,
-//     borderWidth: 1,
-//     padding: 10,
-//   },
-// });
+const styles = StyleSheet.create({
+  input: {
+    width: 120,
+    height: 40, // 적절한 높이 값으로 수정
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderColor: 'gray',
+    padding: 10,
+    marginTop: 10,
+    fontSize: 20,
+    textAlign: "center",
+    alignSelf: 'center' // 중앙 정렬 추가
+  },
+});
