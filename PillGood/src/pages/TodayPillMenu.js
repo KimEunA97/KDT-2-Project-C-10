@@ -33,18 +33,21 @@ export default function TodayPillMenu({ }) {
       {/* Create 버튼 */}
       <TouchableOpacity onPress={pressTheCreateBtn}
         style={styles.createButton}>
-        </TouchableOpacity>
+      </TouchableOpacity>
 
       {/* 모달창 컨테이너 */}
-      <Modal visible={invisible}>
+      <Modal visible={invisible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             {/* 입력칸 */}
-            
-            <InputBox
-              value={inputValue}
-              onChange={setInputValue}
-              style={styles.inputBoxStyle} />
+            <View style={{ flexDirection: "row", justifyContent: "center", alignContent: "center" }}>
+              <Text style={styles.labelStyle}> 약 이름 : </Text>
+              <InputBox
+                value={inputValue}
+                onChange={setInputValue}
+                style={styles.inputBoxStyle} />
+            </View>
+
             <View style={styles.buttonContainer}>
               {/* 확인버튼 */}
               <TouchableOpacity
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
   },
   modalContent: {
     backgroundColor: '#007088',
@@ -103,9 +106,19 @@ const styles = StyleSheet.create({
   },
 
   // 모달 내부
+  labelStyle: {
+    color: "white", backgroundColor: "black", fontWeight: "bold", fontSize: 30, textAlign: "center"
+  },
   inputBoxStyle: {
-    width: "80%",
-    backgroundColor: "white"
+    width: 100,
+    height: "10%",
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderColor: 'gray',
+    padding: 10,
+    marginTop: 10,
+    fontSize: 20,
+    textAlign: "center"
   },
   buttonContainer: {
     width: "80%",
