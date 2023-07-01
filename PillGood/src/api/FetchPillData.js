@@ -16,7 +16,7 @@ export default function FetchPillData({ name }) {
         const response = await axios.get(url);
         setIsLoading(false);
         setData(response.data.body.items[0].itemName);
-        setSymptoms(response.data.body.items[0].efcyQesitm);
+        setSymptoms(response.data.body.items[0].depositMethodQesitm);
         setDetail(response.data.body.items[0].entpName);
 
       } catch (error) {
@@ -33,15 +33,57 @@ export default function FetchPillData({ name }) {
 
 
   if (isLoading) {
-    return <Text>Loading...</Text>;
+    return
   }
   else {
     return (
-      <View>
-        <Text>{data}</Text>
-        <Text>{symptoms}</Text>
-        <Text>{detail}</Text>
+      <View style={styles.container}>
+
+        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+          <Text style={styles.blue}>약 이름 : </Text>
+          <Text style={styles.blue}>{data}</Text>
+        </View>
+
+        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+          <Text style={styles.yellow}>보관법  : </Text>
+          <Text style={styles.yellow}>{symptoms}</Text>
+        </View>
+
+        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+          <Text style={styles.red}>업체명 : </Text>
+          <Text style={styles.red}>{detail}</Text>
+        </View>
+
       </View>
     );
+  }
+}
+
+const styles = {
+  container: {
+    width: "90%",
+    backgroundColor: "gray",
+    borderWidth: 1,
+  },
+  red: {
+    flexWrap: 'wrap',
+    color: "red",
+    borderWidth: 1,
+    borderColor: "red"
+  },
+  blue: {
+    flexWrap: 'wrap',
+    color: "blue",
+    borderWidth: 1,
+    borderColor: "blue",
+    
+
+  },
+  yellow: {
+    flexWrap: 'wrap',
+    color: "yellow",
+    borderWidth: 1,
+    borderColor: "yellow"
+
   }
 }
