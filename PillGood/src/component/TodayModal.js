@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import { ItsDateTimePicker } from './TimePicker';
 
 const TodayModal = ({ visible, onClose, onAddPill }) => {
   const [pillName, setPillName] = useState('');
@@ -85,7 +86,9 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             onChangeText={handleSymptomsChange}
           />
 
-{/* 
+<ItsDateTimePicker></ItsDateTimePicker>
+
+          {/* 
           <Text style={styles.textColor}>시간 설정</Text>
           <TextInput
             style={styles.input}
@@ -93,6 +96,7 @@ const TodayModal = ({ visible, onClose, onAddPill }) => {
             value={timerValue.toString()}
             onChangeText={handleTimerChange}
           /> */}
+
 
 
           <View style={styles.btnContainer}>
