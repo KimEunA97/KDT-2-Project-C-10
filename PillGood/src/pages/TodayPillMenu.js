@@ -28,8 +28,7 @@ export default function TodayPillMenu() {
   return (
     <View style={styles.allAlign}>
       {/* 약정보 렌더링 */}
-      <RenderFetchPillData />
-      <FetchPillData name="타이레놀"></FetchPillData>
+      <RenderFetchPillData pillName={pillName} />
 
       {/* Create 버튼 */}
       <ListCreateButton onPress={pressTheCreateBtn} />
@@ -43,6 +42,7 @@ export default function TodayPillMenu() {
           setInputValue={setInputValue}
         />
       </Modal>
+
     </View>
   );
 }
