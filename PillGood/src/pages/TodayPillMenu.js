@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, Image, ScrollView, StyleSheet, onPress, Text, TouchableOpacity, Modal } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
-import InputBox from '../Modal/InputBox';
-import ButtonBox from '../api/button';
 import { ItsDateTimePicker } from '../component/TimePicker';
 import NameWithInputBox from '../Modal/NameWithInputBox'
+import UserPressButton from '../Modal/UserPressButton';
+import ListCreateButton from '../component/ListCreateButton';
 
 export default function TodayPillMenu({ }) {
   const [inputValue, setInputValue] = useState('');
@@ -24,35 +24,22 @@ export default function TodayPillMenu({ }) {
     setInvisible(true)
   }
 
-
-
-
   return (
     <View style={styles.allAlign}>
       {/* 약정보 렌더링 */}
       <RenderFetchPillData pillName={pillName} />
 
       {/* Create 버튼 */}
-      <TouchableOpacity onPress={pressTheCreateBtn}
-        style={styles.createButton}>
-        <Image source={require('../img/plusMark.png')}
-          style={{ width: 50, height: 50 }}></Image>
-      </TouchableOpacity>
+      <ListCreateButton onPress={pressTheCreateBtn} />
 
       {/* 모달창 컨테이너 */}
       <Modal visible={invisible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
 
-            {/* 입력칸 시작 */}
-
-            {/* 약이름 */}
             <NameWithInputBox name="약이름 : " />
-
             <NameWithInputBox name="업체명 : " />
-            
             <NameWithInputBox name="증   상 : " />
-
 
             <View style={styles.timePickerStyle}>
               <ItsDateTimePicker
@@ -60,25 +47,21 @@ export default function TodayPillMenu({ }) {
             </View>
 
             <View style={styles.buttonContainer}>
-              {/* 확인버튼 */}
-              <TouchableOpacity
-                onPress={handleSendValue}
-                style={styles.confirmButton}>
-                <Text style={styles.confirmText}>확인</Text>
-              </TouchableOpacity>
-              {/* 취소버튼 */}
-              <TouchableOpacity
-                onPress={handleModalFalse}
-                style={styles.cancelButton}>
-                <Text style={styles.cancelText}
-                >취소</Text>
-              </TouchableOpacity>
+              <UserPressButton
+                name="확인"
+                color="#00BC9A"
+                onPress={handleSendValue} />
+              <UserPressButton
+                name="취소"
+                color="#4B73FF"
+                onPress={handleModalFalse} />
             </View>
+
           </View>
         </View>
       </Modal>
 
-    </View>
+    </View >
   );
 }
 
@@ -90,18 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
-  createButton: {
-    width: '80%',
-    height: 150,
-    backgroundColor: '#167286',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: 'black',
-    padding: 15,
-    margin: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
 
   //모달 스타일링
   modalContainer: {
@@ -127,34 +99,34 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center"
   },
-  confirmButton: {
-    width: 120,
-    backgroundColor: '#4B73FF',
-    borderRadius: 10,
-    padding: 5,
-    margin: 0,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  confirmText: {
-    fontSize: 30,
-    color: "white",
-    fontWeight: "bold"
-  },
-  cancelButton: {
-    width: 120,
-    backgroundColor: '#00BC9A',
-    borderRadius: 10,
-    padding: 5,
-    margin: 0,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  cancelText: {
-    fontSize: 30,
-    color: "white",
-    fontWeight: "bold"
-  },
+  // confirmButton: {
+  //   width: 120,
+  //   backgroundColor: '#4B73FF',
+  //   borderRadius: 10,
+  //   padding: 5,
+  //   margin: 0,
+  //   justifyContent: 'center',
+  //   alignItems: 'center'
+  // },
+  // confirmText: {
+  //   fontSize: 30,
+  //   color: "white",
+  //   fontWeight: "bold"
+  // },
+  // cancelButton: {
+  //   width: 120,
+  //   backgroundColor: '#00BC9A',
+  //   borderRadius: 10,
+  //   padding: 5,
+  //   margin: 0,
+  //   justifyContent: 'center',
+  //   alignItems: 'center'
+  // },
+  // cancelText: {
+  //   fontSize: 30,
+  //   color: "white",
+  //   fontWeight: "bold"
+  // },
   timePickerStyle: {
     alignItems: "center",
     marginTop: 25,
