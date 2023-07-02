@@ -3,12 +3,14 @@ import { View, StyleSheet, Modal } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
 import ListCreateButton from '../component/ListCreateButton';
 import SearchingModal from '../Modal/SearchingModal'
-import FetchPillData from '../api/FetchPillData';
 
 export default function TodayPillMenu() {
   const [inputValue, setInputValue] = useState('');
   const [pillName, setPillName] = useState('');
   const [invisible, setInvisible] = useState(false);
+
+  // 검색용 모달창 상태 관리
+  const [searchInvisible, setSearchInvisible] = useState(false)
 
   const handleSendValue = () => {
     setPillName(inputValue);
@@ -41,6 +43,10 @@ export default function TodayPillMenu() {
           inputValue={inputValue}
           setInputValue={setInputValue}
         />
+      </Modal>
+
+      <Modal visible={searchInvisible} transparent>
+        <Text>asd</Text>
       </Modal>
 
     </View>
