@@ -44,15 +44,13 @@ export default function FetchPillData({ name }) {
   //     <Text>{data}</Text>
   //   )
   // }
-  else if (data && data.body && data.body.totalCound > 0) {
+  else if (data && data.body && data.body.totalCount > 0) {
     const items = data.body.items;
     return (
       <View>
-        {
-          items.map((item, index) => {
-            <Text key={index}>{item.itemName}</Text>
-          })
-        }
+        {items.map((item, index) => (
+          <Text key={index}>{item.itemName}</Text>
+        ))}
       </View>
     )
   }
