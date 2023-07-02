@@ -13,11 +13,10 @@ export default function FetchPillData({ name }) {
   useEffect(() => {
     const fetchPillData = async () => {
       try {
-
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         setIsLoading(false);
-        setData(response.data)
+        setData(response.data.body)
         // setTotalCount(response.data.body.totalCount);
         // setData(response.data);
         // setSymptoms(response.data.body.items[0].depositMethodQesitm);
@@ -48,11 +47,9 @@ export default function FetchPillData({ name }) {
     const items = data.body.items;
     return (
       <View>
-        {
-          items.map((item, index) => {
-            <Text key={index}>{item.itemName}</Text>
-          })
-        }
+        {items.map((item, index) => (
+          <Text key={index}>{item.itemName}</Text>
+        ))}
       </View>
     )
   }

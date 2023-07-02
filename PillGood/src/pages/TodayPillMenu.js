@@ -3,6 +3,8 @@ import { View, StyleSheet, Modal } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
 import ListCreateButton from '../component/ListCreateButton';
 import SearchingModal from '../Modal/SearchingModal'
+import FetchPillData from '../api/FetchPillData';
+import ThenSearchModal from '../Modal/SearchModal/ThenSearchModal';
 
 export default function TodayPillMenu() {
   const [inputValue, setInputValue] = useState('');
@@ -16,6 +18,7 @@ export default function TodayPillMenu() {
     setPillName(inputValue);
     setInvisible(false);
     setInputValue('');
+    setSearchInvisible(false)
   };
 
   const handleModalFalse = () => {
@@ -29,8 +32,8 @@ export default function TodayPillMenu() {
 
   return (
     <View style={styles.allAlign}>
-      {/* 약정보 렌더링 */}
-      <RenderFetchPillData pillName={pillName} />
+
+      <FetchPillData pillName={pillName} />
 
       {/* Create 버튼 */}
       <ListCreateButton onPress={pressTheCreateBtn} />
@@ -44,11 +47,8 @@ export default function TodayPillMenu() {
           setInputValue={setInputValue}
         />
       </Modal>
-
-      <Modal visible={searchInvisible} transparent>
-        <Text>asd</Text>
-      </Modal>
-
+      {searchInvisible && (
+        <ThenSearchModal onClose={() => setSearchInvisible(false)} />)}
     </View>
   );
 }
