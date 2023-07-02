@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Image, ScrollView, StyleSheet, onPress, Text, TouchableOpacity, Modal } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
-import InputBox from '../api/InputBox';
+import InputBox from '../Modal/InputBox';
 import ButtonBox from '../api/button';
 import { ItsDateTimePicker } from '../component/TimePicker';
 import NameWithInputBox from '../Modal/NameWithInputBox'

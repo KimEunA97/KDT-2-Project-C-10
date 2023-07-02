@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text } from 'react-native'
 
-import InputBox from "../api/InputBox";
+import InputBox from "./InputBox";
 
 export default function NameWithInputBox(props) {
   const handleTextChange = (text) => {
