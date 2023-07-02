@@ -18,7 +18,6 @@ export default function TodayPillMenu() {
     setPillName(inputValue);
     setInvisible(false);
     setInputValue('');
-    setSearchInvisible(false)
   };
 
   const handleModalFalse = () => {
@@ -48,7 +47,7 @@ export default function TodayPillMenu() {
         />
       </Modal>
       {searchInvisible && (
-        <ThenSearchModal onClose={() => setSearchInvisible(false)} />)}
+        <ThenSearchModal onClose={() => setSearchInvisible(false)} visible={searchInvisible} />)}
     </View>
   );
 }
