@@ -10,7 +10,7 @@ export default function NameWithInputBox(props) {
   return (
     <View style={styles.labelStyle}>
       <Text style={styles.labelTextStyle}>{props.name}</Text>
-      <InputBox onChange={handleTextChange} />
+      <InputBox value={props.value} onChange={handleTextChange} />
     </View>
   );
 }
