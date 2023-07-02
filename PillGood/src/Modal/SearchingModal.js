@@ -33,11 +33,12 @@ export default function SearchingModal({
             color="#4B73FF"
             onPress={handleModalFalse} />
         </View>
-        
+
       </View>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   modalContainer: {
