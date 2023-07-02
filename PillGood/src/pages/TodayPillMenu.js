@@ -4,6 +4,7 @@ import RenderFetchPillData from '../api/RenderFetchPillData';
 import InputBox from '../api/InputBox';
 import ButtonBox from '../api/button';
 import { ItsDateTimePicker } from '../component/TimePicker';
+import NameWithInputBox from '../Modal/NameWithInputBox'
 
 export default function TodayPillMenu({ }) {
   const [inputValue, setInputValue] = useState('');
@@ -35,7 +36,7 @@ export default function TodayPillMenu({ }) {
       <TouchableOpacity onPress={pressTheCreateBtn}
         style={styles.createButton}>
         <Image source={require('../img/plusMark.png')}
-        style={{width:50,height:50}}></Image>
+          style={{ width: 50, height: 50 }}></Image>
       </TouchableOpacity>
 
       {/* 모달창 컨테이너 */}
@@ -46,24 +47,12 @@ export default function TodayPillMenu({ }) {
             {/* 입력칸 시작 */}
 
             {/* 약이름 */}
-            <View style={styles.labelStyle}>
-              <Text style={styles.labelTextStyle}> 약이름 : </Text>
-              <InputBox
-                value={inputValue}
-                onChange={setInputValue} />
-            </View>
+            <NameWithInputBox name="약이름 : " />
 
-            {/* 업체명 */}
-            <View style={styles.labelStyle}>
-              <Text style={styles.labelTextStyle}> 업체명 : </Text>
-              <InputBox></InputBox>
-            </View>
+            <NameWithInputBox name="업체명 : " />
+            
+            <NameWithInputBox name="증   상 : " />
 
-            {/* 증상 */}
-            <View style={styles.labelStyle}>
-              <Text style={styles.labelTextStyle}> 증    상 : </Text>
-              <InputBox></InputBox>
-            </View>
 
             <View style={styles.timePickerStyle}>
               <ItsDateTimePicker
@@ -131,19 +120,7 @@ const styles = StyleSheet.create({
 
 
   //아래부터 모달 내부 스타일링
-  labelStyle: {
 
-    flexDirection: "row",
-    marginTop: 20,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  labelTextStyle: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 30,
-    textAlign: "center",
-  },
   buttonContainer: {
     flex: 1,
     flexDirection: "row",

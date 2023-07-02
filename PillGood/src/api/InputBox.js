@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { TextInput, View, StyleSheet } from "react-native";
 
-export default function InputBox({ value, onChange }) {
+export default function InputBox({ value }) {
+
+  const [text, setText] = useState(value);
+
   const onChangeText = (text) => {
-    onChange(text);
+    setText(text);
   };
 
   return (
-    <View>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={value}
-      />
-    </View>
+    <TextInput
+      style={styles.input}
+      onChangeText={onChangeText}
+      value={text}
+    />
   );
 }
 
