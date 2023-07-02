@@ -6,6 +6,7 @@ import InputBox from "./InputBox";
 export default function NameWithInputBox(props) {
   const handleTextChange = (text) => {
     onChange(text)
+    console.log(props.value)
   }
   return (
     <View style={styles.labelStyle}>
