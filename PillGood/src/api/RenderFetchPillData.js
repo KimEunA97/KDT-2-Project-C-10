@@ -8,7 +8,7 @@ export default function RenderFetchPillData({ pillName }) {
 
   return (
     <View>
-      <FetchPillData name={pillName} />
+      <FetchPillData name="타이레놀" />
     </View>
 
   )

@@ -10,6 +10,9 @@ export default function SearchingModal({
   inputValue,
   setInputValue,
 }) {
+  const handleConfirm = () => {
+    handleSendValue();
+  }
   return (
     <View style={styles.modalContainer}>
       <View style={styles.modalContent}>
@@ -27,7 +30,7 @@ export default function SearchingModal({
           <UserPressButton
             name="확인"
             color="#00BC9A"
-            onPress={handleSendValue} />
+            onPress={handleConfirm} />
           <UserPressButton
             name="취소"
             color="#4B73FF"

@@ -3,6 +3,7 @@ import { View, StyleSheet, Modal } from 'react-native';
 import RenderFetchPillData from '../api/RenderFetchPillData';
 import ListCreateButton from '../component/ListCreateButton';
 import SearchingModal from '../Modal/SearchingModal'
+import FetchPillData from '../api/FetchPillData';
 
 export default function TodayPillMenu() {
   const [inputValue, setInputValue] = useState('');
@@ -27,7 +28,8 @@ export default function TodayPillMenu() {
   return (
     <View style={styles.allAlign}>
       {/* 약정보 렌더링 */}
-      <RenderFetchPillData pillName={pillName} />
+      <RenderFetchPillData />
+      <FetchPillData name="타이레놀"></FetchPillData>
 
       {/* Create 버튼 */}
       <ListCreateButton onPress={pressTheCreateBtn} />
