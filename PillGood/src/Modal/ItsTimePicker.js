@@ -18,6 +18,6 @@ export default function ItsTimePicker() {
 const styles = {
   timePickerStyle: {
     alignItems: "center",
-    marginTop: 25,
+    margin: 25,
   }
 }
