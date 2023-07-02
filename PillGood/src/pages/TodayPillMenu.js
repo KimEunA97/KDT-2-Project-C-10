@@ -5,6 +5,7 @@ import { ItsDateTimePicker } from '../component/TimePicker';
 import NameWithInputBox from '../Modal/NameWithInputBox'
 import UserPressButton from '../Modal/UserPressButton';
 import ListCreateButton from '../component/ListCreateButton';
+import ItsTimePicker from '../Modal/ItsTimePicker';
 
 export default function TodayPillMenu({ }) {
   const [inputValue, setInputValue] = useState('');
@@ -41,10 +42,7 @@ export default function TodayPillMenu({ }) {
             <NameWithInputBox name="업체명 : " />
             <NameWithInputBox name="증   상 : " />
 
-            <View style={styles.timePickerStyle}>
-              <ItsDateTimePicker
-              ></ItsDateTimePicker>
-            </View>
+            <ItsTimePicker />
 
             <View style={styles.buttonContainer}>
               <UserPressButton
@@ -127,10 +125,10 @@ const styles = StyleSheet.create({
   //   color: "white",
   //   fontWeight: "bold"
   // },
-  timePickerStyle: {
-    alignItems: "center",
-    marginTop: 25,
+  // timePickerStyle: {
+  //   alignItems: "center",
+  //   marginTop: 25,
 
-  }
+  // }
 
 });
