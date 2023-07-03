@@ -89,17 +89,24 @@ export default function FetchPillData({ name }) {
   //결과가 1개일 때
   else if (data.body.totalCount === 1) {
 
+    //약이름
     const itemname = data.body.items[0].itemName;
+    //업체명
     const entpname = data.body.items[0].entpname;
+    //이상반응
     const seQesitm = data.body.items[0].seQesitm;
+    //효능
+    const efcyQesitm = data.body.items[0].efcyQesitm;
+    //용법
+    const useMethodQesitm = data.body.items[0].useMethodQesitm;
 
-    
-    if(isConfirmed) {
+
+    if (isConfirmed) {
       return (
         <View>
           <Text>약 이름 : {itemname}</Text>
-          <Text>업체명 : {itemname}</Text>
-          <Text>증  상 : {itemname}</Text>
+          <Text>업체명 : {entpname}</Text>
+          <Text>효   능 : {efcyQesitm}</Text>
         </View>
       )
     }
@@ -119,8 +126,8 @@ export default function FetchPillData({ name }) {
               value={entpname}
             />
             <TextInputWithPillInfo
-              name="증   상 : "
-              value={seQesitm}
+              name="효   능 : "
+              value={efcyQesitm}
             />
 
             <View style={styles.buttonContainer}>
@@ -182,6 +189,7 @@ const styles = {
 
   },
   buttonContainer: {
+    paddingTop: 20,
 
     flexDirection: 'row',
     justifyContent: 'space-between',
