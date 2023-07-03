@@ -8,9 +8,8 @@ export default function FetchPillData({ name }) {
   // const [symptoms, setSymptoms] = useState(null);
   // const [totalCount, setTotalCount] = useState(null);
 
-  //인덱스 선택
+  //인덱스 선택. null은 어떤 아이템도 선택 안한 상태
   const [selectedIndex, setSelectedIndex] = useState(null);
-
   //로딩 표시
   const [isLoading, setIsLoading] = useState(true);
   //결과 없음창 닫기
@@ -19,7 +18,7 @@ export default function FetchPillData({ name }) {
   function handlevisible() {
     setVisible(false);
   }
-  function handleSelectItem() {
+  function handleSelectItem(index) {
     setSelectedIndex(index)
   }
 
@@ -85,12 +84,12 @@ export default function FetchPillData({ name }) {
     const items = data.body.items;
     return (
       <View>
-        {
-          items.map((item, index) => {
-            return <TouchableOpacity onPress={() => handleSelectItem(index)}>
-              {selectedIndex === index && <Text key={index}>{index}{item.itemName}</Text>}
-            </TouchableOpacity>
-          })
+        {items.map((item, index) => {
+          return (<TouchableOpacity onPress={() => handleSelectItem(index)}>
+            {/*  */}
+            {selectedIndex === index && <Text key={index}>{index}{item.itemName}</Text>}
+          </TouchableOpacity>)
+        })
         }
       </View>
     )
