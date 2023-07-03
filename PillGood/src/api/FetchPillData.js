@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { View, Text } from 'react-native';
+import { View, Text, Modal } from 'react-native';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
@@ -14,7 +14,7 @@ export default function FetchPillData({ name }) {
     const fetchPillData = async () => {
       try {
 
-        const name = "타이레놀"
+        const name = "ㅁㄴㅇ"
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         console.log(data)
@@ -46,7 +46,22 @@ export default function FetchPillData({ name }) {
   //     <Text>{data}</Text>
   //   )
   // }
-  else if (data && data.body && data.body.totalCount > 0) {
+
+  //
+
+  else if (data.body.totalCount === 0) {
+
+    return (
+      <Modal style={{ justifyContent: "center", alignContent: "center" }} transparent>
+        <View>
+          <Text style={{ backgroundColor: "white", textAlign: "center" }}>결과가 없습니다!</Text>
+        </View>
+      </Modal>
+    )
+
+  }
+
+  else if (data.body.totalCount > 0) {
     const items = data.body.items;
     return (
       <View>
