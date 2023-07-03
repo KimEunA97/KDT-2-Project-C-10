@@ -80,14 +80,15 @@ export default function FetchPillData({ name }) {
 
   }
 
-  else if (data.body.totalCount > 0) {
+  else if (data.body.totalCount > 1) {
     const items = data.body.items;
+    console.log(items)
     return (
       <View>
         {items.map((item, index) => {
           return (<TouchableOpacity onPress={() => handleSelectItem(index)}>
             {/*  */}
-            {selectedIndex === index && <Text key={index}>{index}{item.itemName}</Text>}
+            {selectedIndex === index && <Text key={index}>{item.itemName}</Text>}
           </TouchableOpacity>)
         })
         }
