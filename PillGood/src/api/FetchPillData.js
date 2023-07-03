@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { View, Text, Modal, TouchableOpacity } from 'react-native';
 
+import UserPressButton from '../Modal/UserPressButton';
+import SearchingModal from '../Modal/SearchingModal';
+
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
   // const [detail, setDetail] = useState(null);
@@ -19,6 +22,7 @@ export default function FetchPillData({ name }) {
     setVisible(false);
   }
   function handleSelectItem(index) {
+    console.log(index)
     setSelectedIndex(index)
   }
 
@@ -26,10 +30,9 @@ export default function FetchPillData({ name }) {
     const fetchPillData = async () => {
       try {
 
-        const name = "펜잘"
+        const name = ""
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
-        console.log(data)
         setIsLoading(false);
         setData(response.data)
         // setTotalCount(response.data.body.totalCount);
@@ -61,6 +64,8 @@ export default function FetchPillData({ name }) {
 
   //
 
+
+  //결과가 없을 때
   else if (data.body.totalCount === 0) {
 
     return (
@@ -80,19 +85,25 @@ export default function FetchPillData({ name }) {
 
   }
 
+  //결과가 1개일 때
+
+  //결과가 2개 이상일 때
   else if (data.body.totalCount > 1) {
     const items = data.body.items;
-    console.log(items)
     return (
-      <View>
-        {items.map((item, index) => {
-          return (<TouchableOpacity onPress={() => handleSelectItem(index)}>
-            {/*  */}
-            {selectedIndex === index && <Text key={index}>{item.itemName}</Text>}
-          </TouchableOpacity>)
-        })
-        }
-      </View>
-    )
+      <Modal transparent>
+        <View style={{ flex: 1 }}>
+          {items.map((item, index) => {
+            return (
+              <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
+                <Text>{item.itemName}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+
+      </Modal>
+
+    );
   }
 }
