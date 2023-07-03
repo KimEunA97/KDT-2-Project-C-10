@@ -6,6 +6,7 @@ import UserPressButton from '../Modal/UserPressButton';
 import SearchingModal from '../Modal/SearchingModal';
 import NameWithInputBox from '../Modal/NameWithInputBox';
 import TextInputWithPillInfo from '../Modal/TextInputFlexableSize';
+import TextInputFlexableSize from '../Modal/TextInputFlexableSize';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
@@ -97,19 +98,34 @@ export default function FetchPillData({ name }) {
     return (
 
       <Modal transparent>
-        <View style={{ flex: 0.8, justifyContent: "center", alignItems: "center" }} >
-          <TextInputWithPillInfo
-            name="약이름 : "
-            value={itemname}
-            onChangeText={itemname} />
-          <TextInputWithPillInfo
-            name="업체명 : "
-            value={entpname}
-            onChangeText={entpname} />
-          <TextInputWithPillInfo
-            name="증   상 : "
-            value={seQesitm}
-            onChangeText={seQesitm} />
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={{ color: "white", fontSize: 30, fontWeight: "bold" }}>검색결과</Text>
+            <TextInputFlexableSize
+              name="약이름 : "
+              value={itemname}
+              onChangeText={itemname} />
+            <TextInputWithPillInfo
+              name="업체명 : "
+              value={entpname}
+              onChangeText={entpname} />
+            <TextInputFlexableSize
+              name="증   상 : "
+              value={seQesitm}
+              onChangeText={seQesitm} />
+            <View style={styles.buttonContainer}>
+              <UserPressButton
+                name="확인"
+                color="#00BC9A"
+              // onPress={}
+              />
+              <UserPressButton
+                name="취소"
+                color="#4B73FF"
+              // onPress={}
+              />
+            </View>
+          </View>
         </View>
       </Modal>
 
@@ -139,4 +155,29 @@ export default function FetchPillData({ name }) {
 
     );
   }
+}
+
+
+const styles = {
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  modalContent: {
+    flex: 0.6,
+    backgroundColor: '#007088',
+    padding: 30,
+    borderRadius: 10,
+    alignItems: 'center',
+
+  },
+  buttonContainer: {
+    paddingTop: 50,
+    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 }
