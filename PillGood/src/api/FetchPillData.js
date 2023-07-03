@@ -20,7 +20,10 @@ export default function FetchPillData({ name }) {
   const [isLoading, setIsLoading] = useState(true);
   //결과 없음창 닫기
   const [visible, setVisible] = useState(true);
+  //확인 완료됨
+  const [isConfirmed, setIsConfirmed] = useState(false);
 
+  //취소 버튼 누르면 모달 사라지게
   function handlevisible() {
     setVisible(false);
   }
@@ -28,6 +31,11 @@ export default function FetchPillData({ name }) {
     console.log(index)
     setSelectedIndex(index)
   }
+
+  //모달창 확인 누르면
+  const handleConfirm = () => {
+    setIsConfirmed(true);
+  };
 
   useEffect(() => {
     const fetchPillData = async () => {
@@ -71,6 +79,16 @@ export default function FetchPillData({ name }) {
   //결과가 없을 때
   else if (data.body.totalCount === 0) {
 
+    if(isConfirmed) {
+      return (
+        <View>
+          <Text>약 이름 : {itemname}</Text>
+          <Text>업체명 : {itemname}</Text>
+          <Text>증  상 : {itemname}</Text>
+        </View>
+      )
+    }
+
     return (
       <Modal visible={visible}
         style={{ justifyContent: "center", alignContent: "center" }} transparent>
@@ -97,40 +115,39 @@ export default function FetchPillData({ name }) {
 
     return (
 
-      <Modal transparent>
+      <Modal visible={visible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={{ color: "white", fontSize: 30, fontWeight: "bold" }}>검색결과</Text>
-            <TextInputFlexableSize
+            <TextInputWithPillInfo
               name="약이름 : "
               value={itemname}
-              onChangeText={itemname} />
+            />
             <TextInputWithPillInfo
               name="업체명 : "
               value={entpname}
-              onChangeText={entpname} />
-            <TextInputFlexableSize
+            />
+            <TextInputWithPillInfo
               name="증   상 : "
               value={seQesitm}
-              onChangeText={seQesitm} />
+            />
+
             <View style={styles.buttonContainer}>
               <UserPressButton
                 name="확인"
                 color="#00BC9A"
-              // onPress={}
+                onPress={handleConfirm}
               />
               <UserPressButton
                 name="취소"
                 color="#4B73FF"
-              // onPress={}
+                onPress={handlevisible}
               />
             </View>
+
           </View>
         </View>
       </Modal>
-
-
-
 
     )
 
@@ -174,8 +191,7 @@ const styles = {
 
   },
   buttonContainer: {
-    paddingTop: 50,
-    margin: 20,
+
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
