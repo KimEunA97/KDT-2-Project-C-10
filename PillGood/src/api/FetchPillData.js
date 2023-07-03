@@ -8,13 +8,19 @@ export default function FetchPillData({ name }) {
   // const [symptoms, setSymptoms] = useState(null);
   // const [totalCount, setTotalCount] = useState(null);
 
+  //인덱스 선택
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  //로딩 표시
   const [isLoading, setIsLoading] = useState(true);
+  //결과 없음창 닫기
   const [visible, setVisible] = useState(true);
 
   function handlevisible() {
-
     setVisible(false);
-
+  }
+  function handleSelectItem() {
+    setSelectedIndex(index)
   }
 
   useEffect(() => {
@@ -81,7 +87,9 @@ export default function FetchPillData({ name }) {
       <View>
         {
           items.map((item, index) => {
-            return <TouchableOpacity onPress={}><Text key={index}>{index}{item.itemName}</Text></TouchableOpacity>
+            return <TouchableOpacity onPress={() => handleSelectItem(index)}>
+              {selectedIndex === index && <Text key={index}>{index}{item.itemName}</Text>}
+            </TouchableOpacity>
           })
         }
       </View>
