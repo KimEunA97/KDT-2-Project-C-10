@@ -5,8 +5,7 @@ import { View, Text, Modal, TouchableOpacity } from 'react-native';
 import UserPressButton from '../Modal/UserPressButton';
 import SearchingModal from '../Modal/SearchingModal';
 import NameWithInputBox from '../Modal/NameWithInputBox';
-import TextInputWithPillInfo from '../Modal/TextInputFlexableSize';
-import TextInputFlexableSize from '../Modal/TextInputFlexableSize';
+import TextInputWithPillInfo from '../Modal/TextInputWithPillInfo';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
