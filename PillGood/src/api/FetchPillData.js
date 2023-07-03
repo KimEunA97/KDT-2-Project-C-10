@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { View, Text, Modal } from 'react-native';
+import { View, Text, Modal, TouchableOpacity } from 'react-native';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
@@ -9,6 +9,13 @@ export default function FetchPillData({ name }) {
   // const [totalCount, setTotalCount] = useState(null);
 
   const [isLoading, setIsLoading] = useState(true);
+  const [visible, setVisible] = useState(true);
+
+  function handlevisible() {
+
+    setVisible(false);
+
+  }
 
   useEffect(() => {
     const fetchPillData = async () => {
@@ -52,9 +59,14 @@ export default function FetchPillData({ name }) {
   else if (data.body.totalCount === 0) {
 
     return (
-      <Modal style={{ justifyContent: "center", alignContent: "center" }} transparent>
-        <View>
+      <Modal visible={visible}
+        style={{ justifyContent: "center", alignContent: "center" }} transparent>
+        <View >
           <Text style={{ backgroundColor: "white", textAlign: "center" }}>결과가 없습니다!</Text>
+          <TouchableOpacity
+            style={{ textAlign: "center" }}
+            onPress={handlevisible}
+          >확인</TouchableOpacity>
         </View>
       </Modal>
     )
