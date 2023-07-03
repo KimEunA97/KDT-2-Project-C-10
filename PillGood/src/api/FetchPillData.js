@@ -4,6 +4,8 @@ import { View, Text, Modal, TouchableOpacity } from 'react-native';
 
 import UserPressButton from '../Modal/UserPressButton';
 import SearchingModal from '../Modal/SearchingModal';
+import NameWithInputBox from '../Modal/NameWithInputBox';
+import TextInputWithPillInfo from '../Modal/TextInputFlexableSize';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
@@ -30,7 +32,7 @@ export default function FetchPillData({ name }) {
     const fetchPillData = async () => {
       try {
 
-        const name = ""
+        const name = "난타코프"
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         setIsLoading(false);
@@ -86,6 +88,37 @@ export default function FetchPillData({ name }) {
   }
 
   //결과가 1개일 때
+  else if (data.body.totalCount === 1) {
+
+    const itemname = data.body.items[0].itemName;
+    const entpname = data.body.items[0].entpname;
+    const seQesitm = data.body.items[0].seQesitm;
+
+    return (
+
+      <Modal transparent>
+        <View style={{ flex: 0.8, justifyContent: "center", alignItems: "center" }} >
+          <TextInputWithPillInfo
+            name="약이름 : "
+            value={itemname}
+            onChangeText={itemname} />
+          <TextInputWithPillInfo
+            name="업체명 : "
+            value={entpname}
+            onChangeText={entpname} />
+          <TextInputWithPillInfo
+            name="증   상 : "
+            value={seQesitm}
+            onChangeText={seQesitm} />
+        </View>
+      </Modal>
+
+
+
+
+    )
+
+  }
 
   //결과가 2개 이상일 때
   else if (data.body.totalCount > 1) {
