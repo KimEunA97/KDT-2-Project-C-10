@@ -21,7 +21,7 @@ export default function FetchPillData({ name }) {
     const fetchPillData = async () => {
       try {
 
-        const name = "ㅁㄴㅇ"
+        const name = "펜잘"
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         console.log(data)
@@ -61,8 +61,10 @@ export default function FetchPillData({ name }) {
     return (
       <Modal visible={visible}
         style={{ justifyContent: "center", alignContent: "center" }} transparent>
-        <View >
-          <Text style={{ backgroundColor: "white", textAlign: "center" }}>결과가 없습니다!</Text>
+        <View style={{ justifyContent: "center", alignContent: "center" }} >
+          <Text
+            style={{ backgroundColor: "white", textAlign: "center" }}>
+            결과가 없습니다!</Text>
           <TouchableOpacity
             style={{ textAlign: "center" }}
             onPress={handlevisible}
@@ -79,7 +81,7 @@ export default function FetchPillData({ name }) {
       <View>
         {
           items.map((item, index) => {
-            return <Text key={index}>{item.itemName}</Text>
+            return <TouchableOpacity onPress={}><Text key={index}>{index}{item.itemName}</Text></TouchableOpacity>
           })
         }
       </View>
