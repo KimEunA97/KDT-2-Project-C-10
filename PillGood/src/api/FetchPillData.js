@@ -59,35 +59,16 @@ export default function FetchPillData({ name }) {
   }, [name])
 
   if (isLoading) {
-
     return (
       <View>
         <Text>Loading</Text>
       </View>
     )
-
   }
-  // else {
-  //   return (
-  //     <Text>{data}</Text>
-  //   )
-  // }
-
-  //
-
 
   //결과가 없을 때
   else if (data.body.totalCount === 0) {
 
-    if(isConfirmed) {
-      return (
-        <View>
-          <Text>약 이름 : {itemname}</Text>
-          <Text>업체명 : {itemname}</Text>
-          <Text>증  상 : {itemname}</Text>
-        </View>
-      )
-    }
 
     return (
       <Modal visible={visible}
@@ -112,6 +93,17 @@ export default function FetchPillData({ name }) {
     const itemname = data.body.items[0].itemName;
     const entpname = data.body.items[0].entpname;
     const seQesitm = data.body.items[0].seQesitm;
+
+    
+    if(isConfirmed) {
+      return (
+        <View>
+          <Text>약 이름 : {itemname}</Text>
+          <Text>업체명 : {itemname}</Text>
+          <Text>증  상 : {itemname}</Text>
+        </View>
+      )
+    }
 
     return (
 
