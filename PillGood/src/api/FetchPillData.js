@@ -157,7 +157,7 @@ export default function FetchPillData({ name }) {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.textBold}>선택하기</Text>
-            <View style={{height : 20}}></View>
+            <View style={{ width: "100%", backgroundColor: "white", borderWidth: 1, margin: 15, borderColor: "white" }}></View>
             {items.map((item, index) => (
 
               <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
