@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   detailContainer: {
     height: 30,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
   // retakePillFixedContainer: {
   //   width: '100%',
