@@ -115,22 +115,22 @@ export default function FetchPillData({ name }) {
           <View style={styles.modalContent}>
             <Text style={{ color: "white", fontSize: 30, fontWeight: "bold" }}>검색결과</Text>
             <TextInputWithPillInfo
-              name="약이름 : "
+              name="약이름"
               value={itemname}
             />
             <TextInputWithPillInfo
-              name="업체명 : "
+              name="업체명"
               value={entpname}
             />
             <TextInputWithPillInfo
-              name="효   능 : "
+              name="효   능"
               value={efcyQesitm}
             />
 
             <View style={styles.buttonContainer}>
               <UserPressButton
-                name="확인"
-                color="#00BC9A"
+                name="추가"
+                color="purple"
                 onPress={handleConfirm}
               />
               <UserPressButton
@@ -147,7 +147,7 @@ export default function FetchPillData({ name }) {
     )
 
   }
-
+  //#00BC9A
   //결과가 2개 이상일 때
   else if (data.body.totalCount > 1) {
     const items = data.body.items;
@@ -178,18 +178,17 @@ const styles = {
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
   },
   modalContent: {
-    flex: 0.6,
     backgroundColor: '#007088',
     padding: 30,
     borderRadius: 10,
     alignItems: 'center',
+    justifyContent : "space-between"
 
   },
   buttonContainer: {
     paddingTop: 20,
-
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'space-around',
   },
 }

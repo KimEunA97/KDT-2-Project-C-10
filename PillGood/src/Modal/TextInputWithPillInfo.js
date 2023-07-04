@@ -28,6 +28,7 @@ const styles = {
     fontWeight: "bold",
     fontSize: 30,
     textAlign: "center",
+    marginRight : 20,
 
 
   },
