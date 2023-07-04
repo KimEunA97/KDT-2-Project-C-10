@@ -28,7 +28,7 @@ export default function FetchPillData({ name }) {
     setVisible(false);
   }
   function handleSelectItem(index) {
-    setSelectedIndex(data.body.items[index])
+    setSelectedIndex(index)
     setVisible(false)
   }
 
@@ -153,6 +153,10 @@ export default function FetchPillData({ name }) {
   //결과가 2개 이상일 때
   else if (data.body.totalCount > 1) {
     const items = data.body.items;
+    const selectedItem = data.body.items[selectedIndex];
+    console.log("selectedIndex", selectedIndex)
+    console.dir(selectedItem);
+
     return (
       <Modal visible={visible} transparent>
         <View style={styles.modalContainer}>
@@ -170,11 +174,10 @@ export default function FetchPillData({ name }) {
       </Modal>
     );
   }
-  const selectedItem = data.body.items[selectedIndex];
-  console.dir(selectedItem);
+
   // const selectedEFCYQESITM = data.body.items[selectedIndex].efcyQesitm;
   {
-    selectedItem && (
+    selectedItem > 0 && (
       <View>
         <BoldText name={selectedItem.itemName} />
         <BoldText name={selectedItem.efcyQesitm} />
