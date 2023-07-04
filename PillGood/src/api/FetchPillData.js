@@ -42,7 +42,7 @@ export default function FetchPillData({ name }) {
     const fetchPillData = async () => {
       try {
 
-        const name = "후시딘"
+        // const name = "후시딘"
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         setIsLoading(false);
@@ -60,11 +60,18 @@ export default function FetchPillData({ name }) {
   }, [name, selectedIndex])
 
   if (isLoading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
+  if (!name || name.trim() === '') {
     return null
   }
 
   //결과가 없을 때
-  else if (data.body.totalCount === 0) {
+  if (data.body.totalCount === 0) {
 
 
     return (
@@ -85,7 +92,7 @@ export default function FetchPillData({ name }) {
   }
 
   //결과가 1개일 때
-  else if (data.body.totalCount === 1) {
+  if (data.body.totalCount === 1) {
 
     //약이름
     const itemname = data.body.items[0].itemName;
@@ -151,7 +158,7 @@ export default function FetchPillData({ name }) {
 
   //#00BC9A
   //결과가 2개 이상일 때
-  else if (data.body.totalCount > 1) {
+  if (data.body.totalCount > 1) {
     const items = data.body.items;
     const selectedItem = data.body.items[selectedIndex];
     // console.log("selectedIndex", selectedIndex);
@@ -192,7 +199,7 @@ export default function FetchPillData({ name }) {
     );
   }
 
-
+  return null
 
 
 
