@@ -5,17 +5,23 @@ import { Text, View } from "react-native";
 
 export default function BoldText(props) {
 
+  const { name, fontSize } = props;
 
 
   return (
     <View style={styles.align}>
-      <View style={styles.ListAllStyle}>
-        <Text style={styles.customFont}>{props.name}</Text>
-      </View>
+      <View style={[styles.ListAllStyle, {fontSize}]}>
+      <Text style={styles.customFont}>{props.name}</Text>
     </View>
+    </View >
   )
 
 }
+
+BoldText.defaultProps = {
+  fontSize: 20,
+};
+
 
 const styles = {
   align: {
@@ -23,16 +29,15 @@ const styles = {
     alignItems: "center",
 
   },
-  ListAllStyle : {
+  ListAllStyle: {
     width: '80%',
     backgroundColor: '#167286',
     alignItems: 'center',
     justifyContent: 'center',
   },
   customFont: {
-    fontSize: 20,
-    fontWeight : "bold",
-    color : "white",
-    textAlign : "center"
+    fontWeight: "bold",
+    color: "white",
+    textAlign: "center"
   }
 }
