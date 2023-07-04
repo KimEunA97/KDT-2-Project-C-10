@@ -156,11 +156,12 @@ export default function FetchPillData({ name }) {
       <Modal visible={visible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
+            <Text style={styles.textBold}>asd</Text>
             {items.map((item, index) => (
 
-                <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
-                  <BoldText name={item.itemName}></BoldText>
-                </TouchableOpacity>
+              <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
+                <BoldText name={item.itemName}></BoldText>
+              </TouchableOpacity>
             ))}
           </View>
         </View>
@@ -169,9 +170,13 @@ export default function FetchPillData({ name }) {
   }
   if (selectedIndex !== null) {
     const selectedItem = data.body.items[selectedIndex];
-  
+    const selectedEFCYQESITM = data.body.items[selectedIndex].efcyQesitm;
+
     return (
-      <Text>selectedItem</Text>
+      <View>
+        <BoldText>{selectedItem}</BoldText>
+        <BoldText>{selectedEFCYQESITM}</BoldText>
+      </View>
     );
   }
 }
@@ -201,4 +206,12 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'space-around',
   },
+  textBold: {
+
+    color: "white",
+    fontSize: 40,
+    fontWeight: "bold",
+
+
+  }
 }
