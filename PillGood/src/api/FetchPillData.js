@@ -59,11 +59,7 @@ export default function FetchPillData({ name }) {
   }, [name])
 
   if (isLoading) {
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    )
+    return null
   }
 
   //결과가 없을 때
@@ -93,7 +89,7 @@ export default function FetchPillData({ name }) {
     //약이름
     const itemname = data.body.items[0].itemName;
     //업체명
-    const entpname = data.body.items[0].entpname;
+    const entpname = data.body.items[0].entpName;
     //이상반응
     const seQesitm = data.body.items[0].seQesitm;
     //효능
@@ -105,9 +101,9 @@ export default function FetchPillData({ name }) {
     if (isConfirmed) {
       return (
         <View>
-          <Text>약 이름 : {itemname}</Text>
-          <Text>업체명 : {entpname}</Text>
-          <Text>효   능 : {efcyQesitm}</Text>
+          <BoldText name={itemname}></BoldText>
+          <BoldText name={entpname}></BoldText>
+          <BoldText name={efcyQesitm}></BoldText>
         </View>
       )
     }
