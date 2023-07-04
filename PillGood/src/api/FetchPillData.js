@@ -66,30 +66,11 @@ export default function FetchPillData({ name }) {
       </View>
     )
   }
-  if (!name || name.trim() === '') {
-    return null
-  }
-
-  //결과가 없을 때
-  if (data.body.totalCount === 0) {
+  // if (!name || name.trim() === '') {
+  //   return <Text />
+  // }
 
 
-    return (
-      <Modal visible={visible}
-        style={{ justifyContent: "center", alignContent: "center" }} transparent>
-        <View style={{ justifyContent: "center", alignContent: "center" }} >
-          <Text
-            style={{ backgroundColor: "white", textAlign: "center" }}>
-            결과가 없습니다!</Text>
-          <TouchableOpacity
-            style={{ textAlign: "center" }}
-            onPress={handlevisible}
-          >확인</TouchableOpacity>
-        </View>
-      </Modal>
-    )
-
-  }
 
   //결과가 1개일 때
   if (data.body.totalCount === 1) {
@@ -199,9 +180,26 @@ export default function FetchPillData({ name }) {
     );
   }
 
-  return null
 
+  // //결과가 없을 때
+  // if (data.body.totalCount === 0) {
 
+  //   return (
+  //     <Modal visible={visible}
+  //       style={{ justifyContent: "center", alignContent: "center" }} transparent>
+  //       <View style={{ justifyContent: "center", alignContent: "center" }} >
+  //         <Text
+  //           style={{ backgroundColor: "white", textAlign: "center" }}>
+  //           결과가 없습니다!</Text>
+  //         <TouchableOpacity
+  //           style={{ textAlign: "center" }}
+  //           onPress={handlevisible}
+  //         >확인</TouchableOpacity>
+  //       </View>
+  //     </Modal>
+  //   )
+
+  // }
 
 }
 
