@@ -41,7 +41,7 @@ export default function FetchPillData({ name }) {
     const fetchPillData = async () => {
       try {
 
-        const name = "난타코프"
+        const name = "후시딘"
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         setIsLoading(false);
@@ -147,24 +147,25 @@ export default function FetchPillData({ name }) {
     )
 
   }
+
   //#00BC9A
   //결과가 2개 이상일 때
   else if (data.body.totalCount > 1) {
     const items = data.body.items;
     return (
       <Modal transparent>
-        <View style={{ flex: 1 }}>
-          {items.map((item, index) => {
-            return (
-              <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
-                <Text>{item.itemName}</Text>
-              </TouchableOpacity>
-            );
-          })}
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            {items.map((item, index) => {
+              return (
+                <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
+                  <BoldText name={item.itemName}></BoldText>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
         </View>
-
       </Modal>
-
     );
   }
 }
@@ -182,7 +183,7 @@ const styles = {
     padding: 30,
     borderRadius: 10,
     alignItems: 'center',
-    justifyContent : "space-between"
+    justifyContent: "space-between"
 
   },
   buttonContainer: {
