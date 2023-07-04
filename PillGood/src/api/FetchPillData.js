@@ -168,7 +168,23 @@ export default function FetchPillData({ name }) {
       </Modal>
     );
   }
+  if (selectedIndex !== null) {
+    const selectedItem = data.body.items[selectedIndex];
+  
+    return (
+      <Modal transparent>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <BoldText name={selectedItem.itemName}></BoldText>
+          </View>
+        </View>
+      </Modal>
+    );
+  }
 }
+
+
+
 
 
 const styles = {
