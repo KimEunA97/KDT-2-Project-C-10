@@ -154,17 +154,24 @@ export default function FetchPillData({ name }) {
   else if (data.body.totalCount > 1) {
     const items = data.body.items;
     const selectedItem = data.body.items[selectedIndex];
-    console.log("selectedIndex", selectedIndex)
-    console.dir(selectedItem);
+    // console.log("selectedIndex", selectedIndex);
+    console.log("selectedItem", selectedItem);
 
     return (
       <Modal visible={visible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.textBold}>선택하기</Text>
-            <View style={{ width: "100%", backgroundColor: "white", borderWidth: 1, margin: 15, borderColor: "white" }}></View>
+            <View
+              style={{
+                width: "100%",
+                backgroundColor: "white",
+                borderWidth: 1,
+                margin: 15,
+                borderColor: "white",
+              }}
+            ></View>
             {items.map((item, index) => (
-
               <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
                 <BoldText name={item.itemName}></BoldText>
               </TouchableOpacity>
@@ -175,22 +182,20 @@ export default function FetchPillData({ name }) {
     );
   }
 
-  // const selectedEFCYQESITM = data.body.items[selectedIndex].efcyQesitm;
   {
-    selectedItem > 0 && (
+    return selectedIndex === 0 && (
       <View>
         <BoldText name={selectedItem.itemName} />
         <BoldText name={selectedItem.efcyQesitm} />
       </View>
-    )
+    );
   }
+
+
+
+
+
 }
-
-
-
-
-
-
 
 const styles = {
   modalContainer: {
