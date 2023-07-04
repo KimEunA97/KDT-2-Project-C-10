@@ -157,33 +157,34 @@ export default function FetchPillData({ name }) {
     // console.log("selectedIndex", selectedIndex);
     console.log("selectedItem", selectedItem);
 
-    return (
-      <Modal visible={visible} transparent>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.textBold}>선택하기</Text>
-            <View
-              style={{
-                width: "100%",
-                backgroundColor: "white",
-                borderWidth: 1,
-                margin: 15,
-                borderColor: "white",
-              }}
-            ></View>
-            {items.map((item, index) => (
-              <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
-                <BoldText name={item.itemName}></BoldText>
-              </TouchableOpacity>
-            ))}
+    if (selectedIndex === null)
+      return (
+        <Modal visible={visible} transparent>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <Text style={styles.textBold}>선택하기</Text>
+              <View
+                style={{
+                  width: "100%",
+                  backgroundColor: "white",
+                  borderWidth: 1,
+                  margin: 15,
+                  borderColor: "white",
+                }}
+              ></View>
+              {items.map((item, index) => (
+                <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
+                  <BoldText name={item.itemName}></BoldText>
+                </TouchableOpacity>
+              ))}
+            </View>
           </View>
-        </View>
-      </Modal>
-    );
+        </Modal>
+      );
   }
 
-  {
-    return selectedIndex === 0 && (
+  if (selectedIndex !== null) {
+    return (
       <View>
         <BoldText name={selectedItem.itemName} />
         <BoldText name={selectedItem.efcyQesitm} />
