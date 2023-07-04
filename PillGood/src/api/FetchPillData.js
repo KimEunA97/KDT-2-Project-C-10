@@ -28,7 +28,7 @@ export default function FetchPillData({ name }) {
     setVisible(false);
   }
   function handleSelectItem(index) {
-    setSelectedIndex(index)
+    setSelectedIndex(data.body.items[index])
     setVisible(false)
   }
 
@@ -38,6 +38,7 @@ export default function FetchPillData({ name }) {
   };
 
   useEffect(() => {
+    console.log("렌더링합니다.")
     const fetchPillData = async () => {
       try {
 
@@ -56,7 +57,7 @@ export default function FetchPillData({ name }) {
       }
     };
     fetchPillData();
-  }, [name])
+  }, [name, selectedIndex])
 
   if (isLoading) {
     return null
@@ -169,18 +170,20 @@ export default function FetchPillData({ name }) {
       </Modal>
     );
   }
-  if (selectedIndex !== null) {
-    const selectedItem = data.body.items[selectedIndex];
-    const selectedEFCYQESITM = data.body.items[selectedIndex].efcyQesitm;
-
-    return (
+  const selectedItem = data.body.items[selectedIndex];
+  console.dir(selectedItem);
+  // const selectedEFCYQESITM = data.body.items[selectedIndex].efcyQesitm;
+  {
+    selectedItem && (
       <View>
-        <BoldText>{selectedItem}</BoldText>
-        <BoldText>{selectedEFCYQESITM}</BoldText>
+        <BoldText name={selectedItem.itemName} />
+        <BoldText name={selectedItem.efcyQesitm} />
       </View>
-    );
+    )
   }
 }
+
+
 
 
 
