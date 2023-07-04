@@ -28,8 +28,8 @@ export default function FetchPillData({ name }) {
     setVisible(false);
   }
   function handleSelectItem(index) {
-    console.log(index)
     setSelectedIndex(index)
+    setVisible(false)
   }
 
   //모달창 확인 누르면
@@ -153,16 +153,15 @@ export default function FetchPillData({ name }) {
   else if (data.body.totalCount > 1) {
     const items = data.body.items;
     return (
-      <Modal transparent>
+      <Modal visible={visible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            {items.map((item, index) => {
-              return (
+            {items.map((item, index) => (
+
                 <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
                   <BoldText name={item.itemName}></BoldText>
                 </TouchableOpacity>
-              );
-            })}
+            ))}
           </View>
         </View>
       </Modal>
@@ -172,13 +171,7 @@ export default function FetchPillData({ name }) {
     const selectedItem = data.body.items[selectedIndex];
   
     return (
-      <Modal transparent>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <BoldText name={selectedItem.itemName}></BoldText>
-          </View>
-        </View>
-      </Modal>
+      <Text>selectedItem</Text>
     );
   }
 }
