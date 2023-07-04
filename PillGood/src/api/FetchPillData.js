@@ -43,6 +43,11 @@ export default function FetchPillData({ name }) {
       try {
 
         console.log(name)
+        if (!name || name.trim() === '') {
+          setIsLoading(true)
+          return
+        }
+
         // const name = "후시딘"
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
@@ -66,9 +71,6 @@ export default function FetchPillData({ name }) {
         <Text>Loading...</Text>
       </View>
     )
-  }
-  if (!name || name.trim() === '') {
-    return
   }
 
 
