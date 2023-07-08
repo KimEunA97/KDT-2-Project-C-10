@@ -52,7 +52,7 @@ export default function FetchPillData({ name }) {
         // setDetail(response.data.body.items[0].entpName);
 
         console.log(name)
-        if (!name || name.trim()==='') {
+        if (!name || name.trim() === '') {
           setIsLoading(true)
           return
         }
@@ -73,6 +73,26 @@ export default function FetchPillData({ name }) {
   }
 
 
+  //결과가 없을 때
+  if (data && data.body && data.body.totalCount === 0) {
+
+
+    return (
+      <Modal visible={visible}
+        style={{ justifyContent: "center", alignContent: "center" }} transparent>
+        <View style={{ justifyContent: "center", alignContent: "center" }} >
+          <Text
+            style={{ backgroundColor: "white", textAlign: "center" }}>
+            결과가 없습니다!</Text>
+          <TouchableOpacity
+            style={{ textAlign: "center" }}
+            onPress={handlevisible}
+          >확인</TouchableOpacity>
+        </View>
+      </Modal>
+    )
+
+  }
 
   //결과가 1개일 때
   if (data && data.body && data.body.totalCount === 1) {
@@ -153,15 +173,6 @@ export default function FetchPillData({ name }) {
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
               <Text style={styles.textBold}>선택하기</Text>
-              <View
-                style={{
-                  width: "100%",
-                  backgroundColor: "white",
-                  borderWidth: 1,
-                  margin: 15,
-                  borderColor: "white",
-                }}
-              ></View>
               {items.map((item, index) => (
                 <TouchableOpacity key={index} onPress={() => handleSelectItem(index)}>
                   <BoldText name={item.itemName}></BoldText>
@@ -182,27 +193,6 @@ export default function FetchPillData({ name }) {
     );
   }
 
-
-  //결과가 없을 때
-  if (data && data.body && data.body.totalCount === 0) {
-      // 데이터가 없거나 body가 없는 경우에 대한 처리
-
-    return (
-      <Modal visible={visible}
-        style={{ justifyContent: "center", alignContent: "center" }} transparent>
-        <View style={{ justifyContent: "center", alignContent: "center" }} >
-          <Text
-            style={{ backgroundColor: "white", textAlign: "center" }}>
-            결과가 없습니다!</Text>
-          <TouchableOpacity
-            style={{ textAlign: "center" }}
-            onPress={handlevisible}
-          >확인</TouchableOpacity>
-        </View>
-      </Modal>
-    )
-
-  }
 
 }
 
