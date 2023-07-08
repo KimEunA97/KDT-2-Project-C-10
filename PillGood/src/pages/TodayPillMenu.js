@@ -20,10 +20,10 @@ export default function TodayPillMenu() {
 
   const handleConfirm = () => {
     console.log(inputValue)
-
     handleSendValue(inputValue);
   }
-  const handleModalFalse = () => {
+
+  const handleCancel = () => {
     setInvisible(false);
     setInputValue('');
   };
@@ -60,7 +60,7 @@ export default function TodayPillMenu() {
 
             <View style={styles.buttonContainer}>
               <UserPressButton name="확인" color="#4B73FF" onPress={handleConfirm} />
-              <UserPressButton name="취소" color="#00BC9A" onPress={handleModalFalse} />
+              <UserPressButton name="취소" color="#00BC9A" onPress={handleCancel} />
             </View>
           </View>
         </View>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   buttonContainer: {
-    paddingTop : 25,
+    paddingTop: 25,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

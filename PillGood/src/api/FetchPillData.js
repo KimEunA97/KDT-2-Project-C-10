@@ -41,10 +41,7 @@ export default function FetchPillData({ name }) {
     console.log("렌더링합니다.")
     const fetchPillData = async () => {
       try {
-
-    
-
-        // const name = "후시딘"
+        const name = "후시딘"
         const url = `https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=1XHlNsF6Hmgb8Wy1V%2FaTlJLpKD5korFpe6LEawoPDfjIHlM3RJSFRTgo%2BbGckpWv1t%2BS5VQj3%2FK51SWFgSq4oA%3D%3D&pageNo=1&numOfRows=3&itemName=${name}&type=json`;
         const response = await axios.get(url);
         setIsLoading(false);
@@ -55,7 +52,7 @@ export default function FetchPillData({ name }) {
         // setDetail(response.data.body.items[0].entpName);
 
         console.log(name)
-        if (!name || name.trim() === '') {
+        if (!name || name.trim()==='') {
           setIsLoading(true)
           return
         }
@@ -78,7 +75,7 @@ export default function FetchPillData({ name }) {
 
 
   //결과가 1개일 때
-  if (data.body.totalCount === 1) {
+  if (data && data.body && data.body.totalCount === 1) {
 
     //약이름
     const itemname = data.body.items[0].itemName;
@@ -144,7 +141,7 @@ export default function FetchPillData({ name }) {
 
   //#00BC9A
   //결과가 2개 이상일 때
-  if (data.body.totalCount > 1) {
+  if (data && data.body && data.body.totalCount > 1) {
     const items = data.body.items;
     const selectedItem = data.body.items[selectedIndex];
     // console.log("selectedIndex", selectedIndex);
@@ -186,25 +183,26 @@ export default function FetchPillData({ name }) {
   }
 
 
-  // //결과가 없을 때
-  // if (data.body.totalCount === 0) {
+  //결과가 없을 때
+  if (data && data.body && data.body.totalCount === 0) {
+      // 데이터가 없거나 body가 없는 경우에 대한 처리
 
-  //   return (
-  //     <Modal visible={visible}
-  //       style={{ justifyContent: "center", alignContent: "center" }} transparent>
-  //       <View style={{ justifyContent: "center", alignContent: "center" }} >
-  //         <Text
-  //           style={{ backgroundColor: "white", textAlign: "center" }}>
-  //           결과가 없습니다!</Text>
-  //         <TouchableOpacity
-  //           style={{ textAlign: "center" }}
-  //           onPress={handlevisible}
-  //         >확인</TouchableOpacity>
-  //       </View>
-  //     </Modal>
-  //   )
+    return (
+      <Modal visible={visible}
+        style={{ justifyContent: "center", alignContent: "center" }} transparent>
+        <View style={{ justifyContent: "center", alignContent: "center" }} >
+          <Text
+            style={{ backgroundColor: "white", textAlign: "center" }}>
+            결과가 없습니다!</Text>
+          <TouchableOpacity
+            style={{ textAlign: "center" }}
+            onPress={handlevisible}
+          >확인</TouchableOpacity>
+        </View>
+      </Modal>
+    )
 
-  // }
+  }
 
 }
 
