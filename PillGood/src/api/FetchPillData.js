@@ -167,6 +167,7 @@ export default function FetchPillData({ name }) {
     // console.log("selectedIndex", selectedIndex);
     console.log("selectedItem", selectedItem);
 
+
     if (selectedIndex === null)
       return (
         <Modal visible={visible} transparent>
@@ -184,11 +185,16 @@ export default function FetchPillData({ name }) {
       );
   }
 
-  if (selectedIndex !== null) {
+  if (selectedIndex !== null && data && data.body && data.body.items && data.body.items.length > selectedIndex) {
+    const selectedItem = data.body.items[selectedIndex];
+    const { entpName, itemName, efcyQesitm } = selectedItem;
+    // console.log("selectedItem itemName", selectedItem.itemName);
+    // console.log("selectedItem efcyQesitm", selectedItem.efcyQesitm);
+
     return (
       <View>
-        <BoldText name={selectedItem.itemName} />
-        <BoldText name={selectedItem.efcyQesitm} />
+        <BoldText name={itemName} />
+        <BoldText name={efcyQesitm} />
       </View>
     );
   }
