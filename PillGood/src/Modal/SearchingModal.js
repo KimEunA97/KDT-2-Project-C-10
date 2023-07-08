@@ -5,41 +5,71 @@ import ItsTimePicker from './ItsTimePicker';
 import UserPressButton from './UserPressButton';
 
 export default function SearchingModal({
-  handleSendValue,
-  handleModalFalse,
-  inputValue,
-  setInputValue,
+  onAddPill,
 }) {
-  const handleConfirm = () => {
-    handleSendValue();
-  }
-  return (
-    <View style={styles.modalContainer}>
-      <View style={styles.modalContent}>
+  // const [inputValue, setInputValue] = useState('');
 
-        <NameWithInputBox
-          name="약이름 : "
-          value={inputValue}
-          onChangeText={setInputValue} />
-        <NameWithInputBox name="업체명 : " />
-        <NameWithInputBox name="증   상 : " />
+  // const handleSendValue = () => {
+  //   setPillName(inputValue);
+  //   setInputValue('');
+  //   if (pillObj) {
+  //     const pillObj = {
+  //       inputValue: inputValue,
+  //     }
+  //     onAddPill(pillObj);
+  //   }
+  //   setInvisible(false);
 
-        <ItsTimePicker />
+  // };
 
-        <View style={styles.buttonContainer}>
-          <UserPressButton
-            name="확인"
-            color="#00BC9A"
-            onPress={handleConfirm} />
-          <UserPressButton
-            name="취소"
-            color="#4B73FF"
-            onPress={handleModalFalse} />
-        </View>
+  // const handleModalFalse = () => {
+  //   setInvisible(false);
+  //   setInputValue('');
+  // };
 
-      </View>
-    </View>
-  );
+  // const pressTheCreateBtn = () => {
+  //   setInvisible(true);
+  // };
+
+  // const handleConfirm = () => {
+  //   console.log(inputValue)
+
+  //   handleSendValue(inputValue);
+  // }
+
+
+
+  // return (
+  //   <View style={styles.modalContainer}>
+  //     <View style={styles.modalContent}>
+
+  //       <NameWithInputBox
+  //         name="약이름 : "
+  //         value={inputValue}
+  //         onChangeText={setInputValue} />
+  //       <NameWithInputBox name="업체명 : " />
+  //       <NameWithInputBox name="증   상 : " />
+
+  //       <ItsTimePicker />
+
+  //       <View style={styles.buttonContainer}>
+  //         <UserPressButton
+  //           name="확인"
+  //           color="#00BC9A"
+  //           onPress={handleConfirm} />
+  //         <UserPressButton
+  //           name="취소"
+  //           color="#4B73FF"
+  //           onPress={handleModalFalse} />
+  //       </View>
+
+  //     </View>
+  //   </View>
+  // );
+
+  
+
+
 }
 
 

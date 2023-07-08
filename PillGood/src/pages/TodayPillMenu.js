@@ -35,12 +35,7 @@ export default function TodayPillMenu() {
 
       {/* 모달창 컨테이너 */}
       <Modal visible={invisible} transparent>
-        <SearchingModal
-          handleSendValue={handleSendValue}
-          handleModalFalse={handleModalFalse}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
+
       </Modal>
 
     </View>
