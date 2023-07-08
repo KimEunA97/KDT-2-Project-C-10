@@ -67,7 +67,13 @@ export default function SearchingModal({
   //   </View>
   // );
 
-  
+  return (
+    <View style={styles.modalContainer}>
+
+      
+
+    </View>
+  )
 
 
 }
