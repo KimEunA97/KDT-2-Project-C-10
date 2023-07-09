@@ -1,12 +1,12 @@
 import React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 
-export default function UserPressButton(props) {
+export default function UserPressButton({ name, color, onPress }) {
 
   const styles = {
     confirmButton: {
       width: 120,
-      backgroundColor: props.color,
+      backgroundColor: color,
       borderRadius: 10,
       padding: 5,
       margin: 0,
@@ -24,9 +24,9 @@ export default function UserPressButton(props) {
   return (
     <TouchableOpacity
 
-      onPress={props.onPress}
+      onPress={onPress}
       style={styles.confirmButton}>
-      <Text style={styles.confirmText}>{props.name}</Text>
+      <Text style={styles.confirmText}>{name}</Text>
     </TouchableOpacity>
   )
 
