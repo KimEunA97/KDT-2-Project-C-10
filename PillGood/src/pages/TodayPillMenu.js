@@ -18,10 +18,6 @@ export default function TodayPillMenu() {
     setInputValue('');
   };
 
-  const handleConfirm = () => {
-    handleSendValue();
-  };
-
   const handleCancel = () => {
     setInvisible(false);
     setInputValue('');
@@ -29,6 +25,10 @@ export default function TodayPillMenu() {
 
   const pressTheCreateBtn = () => {
     setInvisible(true);
+  };
+
+  const handleConfirm = () => {
+    handleSendValue();
   };
 
   return (
@@ -43,20 +43,26 @@ export default function TodayPillMenu() {
       <Modal visible={invisible} transparent>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-
-            <NameWithInputBox value={inputValue}
+            <NameWithInputBox
+              value={inputValue}
               name="약이름: "
               onChangeText={setInputValue}
-            ></NameWithInputBox>
-
+            />
             <View style={styles.buttonContainer}>
-              <UserPressButton name="확인" color="#4B73FF" onPress={handleConfirm} />
-              <UserPressButton name="취소" color="#00BC9A" onPress={handleCancel} />
+              <UserPressButton
+                name="확인"
+                color="#4B73FF"
+                onPress={handleConfirm}
+              />
+              <UserPressButton
+                name="취소"
+                color="#00BC9A"
+                onPress={handleCancel}
+              />
             </View>
           </View>
         </View>
       </Modal>
-
     </View>
   );
 }
