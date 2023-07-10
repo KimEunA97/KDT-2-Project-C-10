@@ -13,16 +13,14 @@ export default function TodayPillMenu() {
   const [invisible, setInvisible] = useState(false);
 
   const handleSendValue = () => {
-
     setPillName(inputValue);
     setInvisible(false);
     setInputValue('');
   };
 
   const handleConfirm = () => {
-    console.log(inputValue)
     handleSendValue();
-  }
+  };
 
   const handleCancel = () => {
     setInvisible(false);
@@ -52,7 +50,7 @@ export default function TodayPillMenu() {
             ></NameWithInputBox>
 
             <View style={styles.buttonContainer}>
-              <UserPressButton name="확인" color="#4B73FF" onPress={handleSendValue} />
+              <UserPressButton name="확인" color="#4B73FF" onPress={handleConfirm} />
               <UserPressButton name="취소" color="#00BC9A" onPress={handleCancel} />
             </View>
           </View>

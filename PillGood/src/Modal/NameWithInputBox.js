@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { View, Text, TextInput } from 'react-native'
 
 
-export default function NameWithInputBox({ value, name }) {
-  const [text, setText] = useState(value);
+export default function NameWithInputBox({ name }) {
+  const [text, setText] = useState('');
 
   const onChangeText = (text) => {
     setText(text);
-    onChangeText(text)
   };
 
   return (
@@ -15,7 +14,7 @@ export default function NameWithInputBox({ value, name }) {
       <Text style={styles.labelTextStyle}>{name}</Text>
       <TextInput
         style={styles.input}
-        onChangeText={setText}
+        onChangeText={onChangeText}
         value={text}
       />
 
