@@ -50,14 +50,6 @@ export default function TodayPillMenu() {
               name="약이름: "
               onChangeText={setInputValue}
             ></NameWithInputBox>
-            {/* <NameWithInputBox value={inputValue}
-              name="업체명: "
-              onChangeText={setInputValue}
-            ></NameWithInputBox>
-            <NameWithInputBox value={inputValue}
-              name="증   상: "
-              onChangeText={setInputValue}
-            ></NameWithInputBox> */}
 
             <View style={styles.buttonContainer}>
               <UserPressButton name="확인" color="#4B73FF" onPress={handleSendValue} />
