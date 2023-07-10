@@ -10,9 +10,6 @@ import BoldText from '../component/BoldText';
 
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
-  // const [detail, setDetail] = useState(null);
-  // const [symptoms, setSymptoms] = useState(null);
-  // const [totalCount, setTotalCount] = useState(null);
 
   //인덱스 선택. null은 어떤 아이템도 선택 안한 상태
   const [selectedIndex, setSelectedIndex] = useState(null);
