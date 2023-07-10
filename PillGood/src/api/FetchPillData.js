@@ -11,6 +11,7 @@ import BoldText from '../component/BoldText';
 export default function FetchPillData({ name }) {
   const [data, setData] = useState(null);
 
+
   //인덱스 선택. null은 어떤 아이템도 선택 안한 상태
   const [selectedIndex, setSelectedIndex] = useState(null);
   //로딩 표시
@@ -48,11 +49,11 @@ export default function FetchPillData({ name }) {
         // setSymptoms(response.data.body.items[0].depositMethodQesitm);
         // setDetail(response.data.body.items[0].entpName);
 
-        console.log(name)
-        if (!name || name.trim() === '') {
-          setIsLoading(true)
-          return
-        }
+        // console.log(name)
+        // if (!name || name.trim() === '') {
+        //   setIsLoading(true)
+        //   return
+        // }
 
       } catch (error) {
         console.error(error);
